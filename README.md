@@ -1,6 +1,9 @@
 # SideScroller
 
-Frame
+Frame:
+will be 1000pixels by 1000pixels so each map 
+can be 10 by 10 blocks with each block being 
+100 by 100 pixels
 
 Main Panel:
 start screen will open up on load
