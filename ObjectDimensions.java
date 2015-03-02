@@ -1,4 +1,4 @@
-public class ObjectDimension {
+public class ObjectDimensions {
   public void addObjectDimensions(int w, int i){
   
   }
