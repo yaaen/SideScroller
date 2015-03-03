@@ -1,5 +1,5 @@
 public class Player extends Character{
-    public Player(){
-    
+    public Player(int locX, int locY){
+        super(locX, locY);
     }
 }
