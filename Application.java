@@ -9,7 +9,7 @@ public class Application{
       f.add(sp);
       f.setVisible(true);
       
-      waitForLevelChoice()
+      waitForLevelChoice();
     }
     
     /*
