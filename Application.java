@@ -27,11 +27,11 @@ public class Application{
             } catch (InterruptedException e) {
                 System.out.println(e.toString());
             }
-            if(f.chosen != -1){
+            if(sp.chosen != -1){
                 break;
             }
         }
-        play(f.chosen);
+        play(sp.chosen);
     }
     
     public static void play(int level){
