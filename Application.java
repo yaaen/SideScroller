@@ -1,7 +1,7 @@
 public class Application{
     
-    Frame f;
-    StartPanel sp;
+    static Frame f;
+    static StartPanel sp;
     
     public static void main(String[] args){
       f = new Frame();

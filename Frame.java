@@ -1,4 +1,4 @@
-import javax.swing.JFrame;
+mport javax.swing.JFrame;
 
 public class Frame extends JFrame{
   public Frame(){
