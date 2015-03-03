@@ -5,6 +5,9 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class StartPanel extends JPanel{
+  
+  int chosen = -1;
+  
   public StartPanel(){
      setSize(1600, 1000);
         setLayout(null);
@@ -29,6 +32,10 @@ public class StartPanel extends JPanel{
       //paint the background of the start screen
   }
   
+  public int chosen(){
+    return chosen;
+  }
+  
   public class event implements ActionListener{
 
         @Override
@@ -37,14 +44,11 @@ public class StartPanel extends JPanel{
             for(int r = 0; r < 3; r++){
                 for(int c = 0; c < 8; c++){
                     if(levels[r][c] == e.getSource()){
-                        rr = r;
-                        cc = c;
+                        chosen = Integer.parseInt(levels[r][c].getText());
                         break;
                     }
                 }
             }
-            //TODO:
-            //open up level at levels[rr][cc]
         }
     }
 }
