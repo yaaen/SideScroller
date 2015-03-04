@@ -7,8 +7,6 @@ public class GamePanel{
     Player player;
 
     public GamePanel(int level){
-        //file that has all of the level information
-        File level = new File("level\#" + level + ".txt");
         
     }
 
@@ -16,6 +14,9 @@ public class GamePanel{
         //Add collision detection, camera motion, and other movement calls here.
         //Or they can be put in another method that will separately update the figures, in another thread,
         //while this method is repeatedly called by itself with or without the changes from the other update method
+        
+        //also this method/class will have to interact with the camera so that it knows what part of the map to paint
+        //this panel should probably use its own camera so there should be a global Camera c = new Camera() or something
         
         //draws everything onto the screen
         for(int i = 0; i < matter.length; i++){
