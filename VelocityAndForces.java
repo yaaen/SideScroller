@@ -1,3 +1,4 @@
-public class VelocityAndForces(){
-  
+public interface VelocityAndForces(){
+    final int GRAVITY = 3;
+    
 }
