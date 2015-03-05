@@ -23,7 +23,7 @@ public class Application{
     *   sleep() is used here because without it the
     *   loop goes too fast and could not work
     */
-    public  void waitForLevelChoice(){
+    public void waitForLevelChoice(){
         while(true){
             try {
                 TimeUnit.NANOSECONDS.sleep(1);
@@ -37,7 +37,7 @@ public class Application{
         play(sp.chosen);
     }
     
-    public static void play(int level){
+    public void play(int level){
         //TODO
         //actual game code
     }
