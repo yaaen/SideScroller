@@ -6,6 +6,7 @@ public class event implements KeyListener{
 
     @Override
     public void keyTyped(KeyEvent ke) {
+        //could maybe use for something like opening the pause menu or something
     }
 
     @Override
