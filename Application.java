@@ -2,16 +2,23 @@
 
 public class Application{
     
-    static Frame f;
-    static StartPanel sp;
+    Frame f;
+    StartPanel sp;
     
-    public static void main(String[] args){
-      f = new Frame();
-      sp = new StartPanel();
-      f.add(sp);
-      f.setVisible(true);
+
+    //this should be treated as the main method
+    //it is easier because you do not need all of the methods to be static
+    public Application(){
+        f = new Frame();
+        sp = new StartPanel();
+        f.add(sp);
+        f.setVisible(true);
       
-      waitForLevelChoice();
+        waitForLevelChoice();  
+    }
+
+    public static void main(String[] args){
+        new Application();
     }
     
     /*
