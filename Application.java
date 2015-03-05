@@ -1,5 +1,3 @@
-
-
 public class Application{
     
     Frame f;
@@ -29,7 +27,7 @@ public class Application{
     *   sleep() is used here because without it the
     *   loop goes too fast and could not work
     */
-    public static void waitForLevelChoice(){
+    public  void waitForLevelChoice(){
         while(true){
             try {
                 TimeUnit.NANOSECONDS.sleep(1);
