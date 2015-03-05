@@ -14,10 +14,6 @@ public class Application{
       
         waitForLevelChoice();  
     }
-
-    public static void main(String[] args){
-        new Application();
-    }
     
     /*
     *   chosen() in StartPanel returns -1 until a level is
