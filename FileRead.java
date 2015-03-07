@@ -4,16 +4,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class FileReader{ //This shit cant work, your using fileReader 
-                         //and calling the class that, java gonna shit it's pants
+public class FileRead{ 
   
-  public FileReader(){
+  public FileRead(){
     
   }
   
   public String[][] readLevelFromFile(int level){
-      //i programmed in the browser so idk the imports
-      //WILL NOT BE VOID LATER ON
       
       //create a file to read in the level and add to a string
       File file = new File("level" + level);
