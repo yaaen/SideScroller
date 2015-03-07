@@ -16,7 +16,7 @@ public class StartPanel extends JPanel{
         int yValue = 150;
         for(int r = 0; r < 3; r++){
             for(int c = 0; c < 8; c++){
-                levels[r][c] = new JButton(String.valueOf(count));
+                levels[r][c] = new JButton(String.valueOf(count)); //Array levels is never defined
                 levels[r][c].setLocation(c*190 + 80, yValue);
                 levels[r][c].setSize(100, 100);
                 this.add(levels[r][c]);
