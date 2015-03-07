@@ -1,10 +1,8 @@
 # SideScroller
 
-Don't mess with the Frame and the Panel classes
-for now. I've done a lot of research online and
-see that we have to use a CardLayout. I'm working
-on figuring out to get that to work with our
-program.
+I've got the CardLAyout to work, i'm just going to
+configure it with our variables and i'll add it on
+here soon
 
 Frame:
 will be 1600pixels by 1000pixels and each map 
