@@ -38,9 +38,23 @@ public class FileReader{
       }
       
       //n will signify new line so that how's we can see how long the level is
-      for(int i = 0; i < levelString; i++){
+      int length = 0;
+      for(int i = 0; i < levelString.size(); i++){
         //in here will use stringList to count how chars until the first n
         //and thats how we will know how big the level is wide
+        if(stringList.get(i).equalsIgnoreCase("n"){
+          break;
+        } else {
+          length++;
+        }
+      }
+      
+      //count height of the level
+      int height = 0;
+      for(int i = 0; i < levelString.size(); i++){
+        if(levelString.get(i).equalsIgnoreCase("n")){
+          height++;
+        }
       }
       
       //convert to an array
