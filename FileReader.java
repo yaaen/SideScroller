@@ -1,18 +1,16 @@
 public class FileReader{
   
-  File file;
-  
   public FileReader(){
     
   }
   
-  public void readLevelFromFile(int level){
+  public String[][] readLevelFromFile(int level){
       //EVERYTHING HERE NEEDS TO BE IMPORTED
       //i programmed in the browser so idk the imports
       //WILL NOT BE VOID LATER ON
       
       //create a file to read in the level and add to a string
-      file = new File("level" + level);
+      File file = new File("level" + level);
       String levelString;
       BufferedReader br = new BufferedReader(new FileReader(file));
           try {
@@ -57,7 +55,7 @@ public class FileReader{
         }
       }
       
-      //convert to an array
-      //return that
+      //convert to a String array using the height and length variables
+      
   }
 }
