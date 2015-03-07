@@ -1,16 +1,31 @@
+
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 public class Application{
     
-    Frame f;
-    StartPanel sp;
+    Frame frame;
+    StartPanel startPanel;
+    static final String STARTPANELCON = "Start Panel";
+    GamePanel gamePanel;
+    static final String GAMEPANELCON = "Game Panel";
+    CardLayout cardLay;
+    JPanel cards;
     
-
     //this should be treated as the main method
     //it is easier because you do not need all of the methods to be static
     public Application(){
-        f = new Frame();
-        sp = new StartPanel();
-        f.add(sp);
-        f.setVisible(true);
+        frame = new Frame();
+        startPanel = new StartPanel();
+        gamePanel = new GamePanel();
+        cardLay = new CardLayout();
+        cards = new JPanel(cardLay);
+        
+        cards.add(startPanel, STARTPANELCON);
+        cards.add(gamePanel, GAMEPANELCON);
+        cardL.show(cards, STARTPANELCON);
+        
+        frame.setVisible(true);
       
         waitForLevelChoice();  
     }
