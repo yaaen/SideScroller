@@ -4,7 +4,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class FileReader{
+public class FileReader{ //This shit cant work, your using fileReader 
+                         //and calling the class that, java gonna shit it's pants
   
   public FileReader(){
     
