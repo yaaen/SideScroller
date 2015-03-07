@@ -25,3 +25,7 @@ controls:
 left/right for left/right
 up/space can both be jump
 
+also if you guys ever need the documentation,
+here's a helpful link:
+http://docs.oracle.com/javase/8/docs/api/index.html?overview-summary.html
+
