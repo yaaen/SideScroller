@@ -1,3 +1,9 @@
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+
 public class FileReader{
   
   public FileReader(){
@@ -5,15 +11,15 @@ public class FileReader{
   }
   
   public String[][] readLevelFromFile(int level){
-      //EVERYTHING HERE NEEDS TO BE IMPORTED
       //i programmed in the browser so idk the imports
       //WILL NOT BE VOID LATER ON
       
       //create a file to read in the level and add to a string
       File file = new File("level" + level);
-      String levelString;
-      BufferedReader br = new BufferedReader(new FileReader(file));
+      String levelString = "";
+      BufferedReader br;
           try {
+              br = new BufferedReader(new FileReader(file));
               StringBuilder sb = new StringBuilder();
               String line = br.readLine();
 
@@ -50,12 +56,17 @@ public class FileReader{
       //count height of the level
       int height = 0;
       for(int i = 0; i < levelString.size(); i++){
-        if(levelString.get(i).equalsIgnoreCase("n")){
+        if(stringList.get(i).equalsIgnoreCase("n")){
           height++;
         }
       }
       
       //convert to a String array using the height and length variables
-      
+      String[][] levelArray = new String[height][length];
+        
+      //add in the letters
+        
+        
+      return levelArray;
   }
 }
