@@ -1,3 +1,5 @@
+package MatterFolder;
+
 public abstract class Matter{
     
     private final int HEIGHT = 100;
@@ -24,5 +26,9 @@ public abstract class Matter{
     
     public int getY(){
         return locY;   
+    }
+    
+    public Image getImage(){
+        return null; //this is for now
     }
 }
