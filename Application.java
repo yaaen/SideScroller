@@ -23,7 +23,7 @@ public class Application{
         
         cards.add(startPanel, STARTPANELCON);
         cards.add(gamePanel, GAMEPANELCON);
-        cardL.show(cards, STARTPANELCON);
+        cardLay.show(cards, STARTPANELCON);
         
         frame.setVisible(true);
       
@@ -55,8 +55,12 @@ public class Application{
     public void play(int level){
         //TODO
         //load level onto game panel
+
         //switch to game panel
+        cardLay.show(cards, GAMEPANELCON);
+
         //have them play the game
+
         //when finished, go back to waitForLevelCoice()
     }
 }
