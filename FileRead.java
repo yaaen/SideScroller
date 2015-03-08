@@ -62,7 +62,8 @@ public class FileRead{
       //convert to a String array using the height and length variables
       String[][] levelArray = new String[height][length];
         
-      //add in the letters
+      //add in the letters from stringList
+      //not sure whether to go row column or column row
         
         
       return levelArray;
