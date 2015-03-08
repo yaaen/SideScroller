@@ -54,6 +54,9 @@ public class Application{
     
     public void play(int level){
         //TODO
-        //actual game code
+        //load level onto game panel
+        //switch to game panel
+        //have them play the game
+        //when finished, go back to waitForLevelCoice()
     }
 }
