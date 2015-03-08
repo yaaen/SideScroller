@@ -4,6 +4,7 @@ public class ObjectDimensions {
     //might need to have the level loaded into this constructor
   }
   
+  //should this be called by the player class so it uses it to know if it can move or not then?
   public boolean collisionCheck(Matter object1, Matter object2){
     object1XLocation = object1.getX();
     object1YLocation = object1.getY();
