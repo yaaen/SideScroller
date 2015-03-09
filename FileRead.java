@@ -40,6 +40,7 @@ public class FileRead{
       }
       
       //why not have the file it self have the height and width as the first couple chars
+      //bc it might get confusing adding to it then or getting rid of things
       
       //n will signify new line so that how's we can see how long the level is
       int length = 0;
