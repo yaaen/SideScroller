@@ -13,7 +13,7 @@ public class FileRead{
   public String[][] readLevelFromFile(int level){
       
       //create a file to read in the level and add to a string
-      File file = new File("level" + level);
+      File file = new File("level" + level); //this might need ".txt" cant try out right now
       String levelString = "";
       BufferedReader br;
           try {
@@ -27,17 +27,19 @@ public class FileRead{
                   line = br.readLine();
               }
               levelString = sb.toString();
-      } catch(Exception e){
-          System.out.print(e.toString());
-      } finally {
-          br.close();
-      }
+          } catch(Exception e){
+              System.out.print(e.toString());
+          } finally {
+              br.close();
+          }
       
       //make an arraylist to contain all the positions
       ArrayList<String> stringList = new ArrayList<String>();
       for(int i = 0; i < levelString; i++){
           stringList.add(levelString.substring(i, i + 1);
       }
+      
+      //why not have the file it self have the height and width as the first couple chars
       
       //n will signify new line so that how's we can see how long the level is
       int length = 0;
