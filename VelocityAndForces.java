@@ -1,4 +1,4 @@
-public interface VelocityAndForces(){
+public interface VelocityAndForces{
     public static final int GRAVITY = 3; //dunno what this should be yet
     
     public void setSpeed(int v);
