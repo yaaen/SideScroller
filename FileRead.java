@@ -34,7 +34,7 @@ public class FileRead{
       
       //make an arraylist to contain all the positions
       ArrayList<String> stringList = new ArrayList<String>();
-      for(int i = 0; i < levelString; i++){
+      for(int i = 0; i < levelString.length(); i++){
           stringList.add(levelString.substring(i, i + 1);
       }
       
@@ -43,7 +43,7 @@ public class FileRead{
       
       //n will signify new line so that how's we can see how long the level is
       int length = 0;
-      for(int i = 0; i < levelString.size(); i++){
+      for(int i = 0; i < levelString.length(); i++){
         //in here will use stringList to count how chars until the first n
         //and thats how we will know how big the level is wide
         if(stringList.get(i).equalsIgnoreCase("n"){
@@ -55,7 +55,7 @@ public class FileRead{
       
       //count height of the level
       int height = 0;
-      for(int i = 0; i < levelString.size(); i++){
+      for(int i = 0; i < levelString.length(); i++){
         if(stringList.get(i).equalsIgnoreCase("n")){
           height++;
         }
