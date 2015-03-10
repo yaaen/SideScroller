@@ -35,7 +35,7 @@ public class FileRead{
       //make an arraylist to contain all the positions
       ArrayList<String> stringList = new ArrayList<String>();
       for(int i = 0; i < levelString.length(); i++){
-          stringList.add(levelString.substring(i, i + 1);
+          stringList.add(levelString.substring(i, i + 1));
       }
       
       //why not have the file it self have the height and width as the first couple chars
