@@ -2,7 +2,7 @@ import javax.swing.JFrame;
 
 public class Frame extends JFrame{
   public Frame(){
-    setSize(1000, 1000);
+    setBounds(100,25,1600,1000);
     setTitle("Side Scroller");
     setResizable(false);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
