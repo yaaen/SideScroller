@@ -27,10 +27,9 @@ public class FileRead{
                   line = br.readLine();
               }
               levelString = sb.toString();
+              br.close();
           } catch(Exception e){
               System.out.print(e.toString());
-          } finally {
-              br.close();
           }
       
       //make an arraylist to contain all the positions
