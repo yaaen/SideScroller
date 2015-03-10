@@ -1,5 +1,7 @@
 package MatterFolder;
 
+import java.awt.*;
+
 public abstract class Matter{
     
     private final int HEIGHT = 100;
