@@ -2,6 +2,7 @@ import javax.swing.JPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.Graphics;
+import MatterFolder.*;
 
 public class GamePanel extends JPanel{
     
