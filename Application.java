@@ -49,7 +49,7 @@ public class Application{
                 break;
             }
         }
-        play(sp.chosen);
+        play(startPanel.chosen);
     }
     
     public void play(int level){
