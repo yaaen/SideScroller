@@ -1,3 +1,5 @@
+import MatterFolder.Matter;
+
 public class ObjectDimensions {
   
   public ObjectDimensions(){
@@ -12,13 +14,12 @@ public class ObjectDimensions {
     int object2XLocation = object2.getX();
     int object2YLocation = object2.getY();
     
-  /*  if(/*check for collsion*/){
+    if(true){//TODO LOGIC 
       
       //true means collision detected (player get damage, wins level, or cant move)
       
       return true;
     }
-    */
     //no collision found, default to false
     
     return false;
