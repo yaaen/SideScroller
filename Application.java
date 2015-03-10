@@ -25,6 +25,8 @@ public class Application{
         cards.add(gamePanel, GAMEPANELCON);
         cardLay.show(cards, STARTPANELCON);
         
+        frame.add(cards);
+        
         frame.setVisible(true);
       
         waitForLevelChoice();  
