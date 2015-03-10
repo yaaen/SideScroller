@@ -4,6 +4,8 @@ public class GamePanel{
     Matter[][] matter;
     
     //This could be included in the above array as an alternative
+    //Yeah maybe just one of them could be set as the player, that'd
+    //probably work better
     Player player;
 
     public GamePanel(int level){
@@ -27,4 +29,7 @@ public class GamePanel{
             }
         }
     }
+    
+    //should we maybe just throw the event class down here so that they can speak to each other easily?
+    
 }
