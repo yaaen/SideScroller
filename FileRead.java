@@ -46,7 +46,7 @@ public class FileRead{
       for(int i = 0; i < levelString.length(); i++){
         //in here will use stringList to count how chars until the first n
         //and thats how we will know how big the level is wide
-        if(stringList.get(i).equalsIgnoreCase("n"){
+        if(stringList.get(i).equalsIgnoreCase("n")){
           break;
         } else {
           length++;
