@@ -1,4 +1,7 @@
-public class GamePanel{
+import javax.swing.JPanel;
+import java.awt.Graphics;
+
+public class GamePanel extends JPanel{
     
 
     Matter[][] matter;
@@ -8,6 +11,11 @@ public class GamePanel{
     //probably work better
     Player player;
 
+    public GamePanel(){
+        
+    }
+    
+    // gave level input constructor
     public GamePanel(int level){
         
     }
@@ -25,7 +33,7 @@ public class GamePanel{
             for(int j = 0; j < matter[0].length; j++){
                //we're gonna have to paint the square icon wherever and get its location,
                //which should all be in the class so I think it'd be something like:
-               g.drawImage(matter[i][j].getImage(), matter[i][j].getX(), matter[i][j].getY(), null);
+              // g.drawImage(matter[i][j].getImage(), matter[i][j].getX(), matter[i][j].getY(), null);
             }
         }
     }
