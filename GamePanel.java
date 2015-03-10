@@ -1,4 +1,6 @@
 import javax.swing.JPanel;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.Graphics;
 
 public class GamePanel extends JPanel{
@@ -10,6 +12,8 @@ public class GamePanel extends JPanel{
     //Yeah maybe just one of them could be set as the player, that'd
     //probably work better
     Player player;
+    
+    event e = new event();
 
     public GamePanel(){
         
@@ -38,6 +42,37 @@ public class GamePanel extends JPanel{
         }
     }
     
-    //should we maybe just throw the event class down here so that they can speak to each other easily?
+    public class event implements KeyListener{
+
+    @Override
+    public void keyTyped(KeyEvent ke) {
+        //could maybe use for something like opening the pause menu or something
+    }
+
+    @Override
+    public void keyPressed(KeyEvent ke) {
+        if(ke.getKeyCode() == KeyEvent.VK_LEFT){
+            //left arrow key
+            //move left
+        } else if(ke.getKeyCode() == KeyEvent.VK_RIGHT){
+            //right arrow key
+            //move right
+        } else if(ke.getKeyCode() == KeyEvent.VK_UP){
+            //up arrow key
+            //jump
+        } else if(ke.getKeyCode() == KeyEvent.VK_SPACE){
+            //space bar
+            //also jump?
+        } else {
+            //not supported yet
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent ke) {
+        //stop movement
+    }
+
+}
     
 }
