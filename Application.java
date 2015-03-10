@@ -1,5 +1,5 @@
-
 import java.awt.CardLayout;
+import java.util.concurrent.TimeUnit;
 import javax.swing.JPanel;
 
 public class Application{
@@ -45,7 +45,7 @@ public class Application{
             } catch (InterruptedException e) {
                 System.out.println(e.toString());
             }
-            if(sp.chosen != -1){
+            if(startPanel.chosen != -1){
                 break;
             }
         }
@@ -61,6 +61,6 @@ public class Application{
 
         //have them play the game
 
-        //when finished, go back to waitForLevelCoice()
+        //when finished, go back to waitForLevelChoice()
     }
 }
