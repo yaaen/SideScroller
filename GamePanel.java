@@ -8,21 +8,18 @@ public class GamePanel extends JPanel{
     
 
     Matter[][] matter;
-    
-    //This could be included in the above array as an alternative
-    //Yeah maybe just one of them could be set as the player, that'd
-    //probably work better
-    Player player;
-    
+    FileRead fr = new FileRead();
     event e = new event();
 
     public GamePanel(){
         
     }
-    
-    // gave level input constructor
-    public GamePanel(int level){
-        
+
+    public void setLevel(int level){
+        String[][] fileArray = fr.readFileFromLevel(level);
+        //fileArray will be strings
+        //s = no background(sky)
+        //g = ground block
     }
 
     public void paint(Graphics g){
