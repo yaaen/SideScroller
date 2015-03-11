@@ -14,7 +14,7 @@ public class GamePanel extends JPanel{
     //probably work better
     Player player;
     
-    Event e = new Event();
+    event e = new event();
 
     public GamePanel(){
         
@@ -42,8 +42,9 @@ public class GamePanel extends JPanel{
             }
         }
     }
-    
-    public class Event implements KeyListener{
+   
+    //keep this lowercase bc its not a real class
+    public class event implements KeyListener{
 
     @Override
     public void keyTyped(KeyEvent ke) {
