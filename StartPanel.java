@@ -11,7 +11,7 @@ public class StartPanel extends JPanel {
 
     JButton[][] levels = new JButton[3][8];
     int chosen = -1;
-    chosenEvent e = new chosenEvent();
+    ChosenEvent e = new ChosenEvent();
 
     public StartPanel() {
         setBorder(new EmptyBorder(40, 40, 40, 40));
@@ -36,7 +36,7 @@ public class StartPanel extends JPanel {
         return chosen;
     }
 
-    public class chosenEvent implements ActionListener {
+    public class ChosenEvent implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
