@@ -13,6 +13,7 @@ replaces Start Panel on the frame after
 the level is selected
 
 notepad files for levels:
+I put together a basic level1.txt for testing
 program will read in from the notepad files and
 translate them so the panel knows how to paint
 the level
