@@ -55,10 +55,8 @@ public class Application{
     }
     
     public void play(int level){
-        //TODO
-        //load level onto game panel
-
         //switch to game panel
+        gamePanel.setLevel(level);
         cardLay.show(cards, GAMEPANELCON);
 
         //have them play the game
