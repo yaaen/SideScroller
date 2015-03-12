@@ -16,7 +16,7 @@ public class GamePanel extends JPanel{
     }
 
     public void setLevel(int level){
-        String[][] fileArray = fr.readFileFromLevel(level);
+        String[][] fileArray = fr.readLevelFromFile(level);
         //fileArray will be strings
         //s = no background(sky)
         //g = ground block
