@@ -65,7 +65,14 @@ public class FileRead{
       String[][] levelArray = new String[height][length];
         
       //add in the letters from stringList
-      //not sure whether to go row column or column row
+      //not sure whether to go row column or column row\
+      //this might work but probably not, the i*length 
+      //is because its currently in an arraylist. 
+      for(int i = 0; i < height; i++){
+        for(int j = 0; j < length; j++){
+          levelArray[i][j] = stringList.get(j + (i * length));
+        }
+      }
         
         
       return levelArray;
