@@ -31,7 +31,7 @@ public class GamePanel extends JPanel{
         //this panel should probably use its own camera so there should be a global Camera c = new Camera() or something
         
         //draws everything onto the screen
-        for(int i = 0; i < matter.length; i++){
+        for(int i = 0; i < matter.length; i++){  //should this be fileArray.length?
             for(int j = 0; j < matter[0].length; j++){
                //we're gonna have to paint the square icon wherever and get its location,
                //which should all be in the class so I think it'd be something like:
