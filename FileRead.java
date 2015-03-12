@@ -70,7 +70,7 @@ public class FileRead{
       //is because its currently in an arraylist. 
       for(int i = 0; i < height; i++){
         for(int j = 0; j < length; j++){
-          levelArray[i][j] = stringList.get(j + (i * length));
+          levelArray[i][j] = stringList.get(j + (i * length) + i);
         }
       }
         
