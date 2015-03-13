@@ -61,6 +61,7 @@ public class FileRead{
         }
       }
       
+      //should this be height length or the other way around?
       //convert to a String array using the height and length variables
       String[][] levelArray = new String[height][length];
         
