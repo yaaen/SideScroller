@@ -8,6 +8,12 @@ public class Camera{
     it is tricky because the camera movement is relative to block movement.
     For example, to move the camera upwards, all of the blocks need to be moved downward
     */
+    //want something like this pierre?
+    public enum Direction {
+        NORTH, NORTHEAST, NORTHWEST,
+        SOUTH, SOUTHEAST, SOUTHWEST,
+        EAST, WEST;
+    }
     
     //all of the matter pieces currently in the frame
     //we should discuss if new pieces should be introduced in this class or the gamePanel class
