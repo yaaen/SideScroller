@@ -8,6 +8,9 @@ public abstract class Matter{
     private final int WIDTH = 100;
     private int locX;
     private int locY;
+    
+    //this needs an import
+    private Image img;
 
     public Matter(int locX, int locY){
         this.locX = locX;
@@ -22,6 +25,10 @@ public abstract class Matter{
         this.locY = locY;
     }
     
+    public void setImage(Image img){
+        this.img = img;
+    }
+    
     public int getX(){
         return locX;
     }
@@ -31,6 +38,6 @@ public abstract class Matter{
     }
     
     public Image getImage(){
-        return null; //this is for now
+        return img; //this is for now
     }
 }
