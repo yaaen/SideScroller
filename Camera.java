@@ -9,6 +9,8 @@ public class Camera{
     For example, to move the camera upwards, all of the blocks need to be moved downward
     */
     //want something like this pierre?
+    //also if you want to get even more specific we could add directions like:
+    //northnorthwest or something but that might be too much
     public enum Direction {
         NORTH, NORTHEAST, NORTHWEST,
         SOUTH, SOUTHEAST, SOUTHWEST,
