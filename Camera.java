@@ -5,6 +5,16 @@
 
 public class Camera{
     
+    //found door or not which would lock the camera in place
+    boolean lock = false;
+
+    public Camera(){
+        
+    }
+    
+    public void move(){
+        
+    }
 }
 
 //wanna merge the other camera class up to the master?
