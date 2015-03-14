@@ -9,12 +9,27 @@ public abstract class Matter{
     private int locX;
     private int locY;
     
-    //this needs an import
+    //this needs an import and we might have to
+    //change it later to like a BufferedImage or
+    //ImageIcon but i don't know yet
     private Image img;
+
+    //i added some more constructers because we
+    //don't know yet how we'll want to make some
+    //of its child classes
+    public Matter(){
+        
+    }
 
     public Matter(int locX, int locY){
         this.locX = locX;
         this.locY = locY;
+    }
+    
+    public Matter(int locX, int locY, Image img){
+        this.locX = locX;
+        this.locY = locY;
+        this.img = img;
     }
     
     public void setX(int locX){
