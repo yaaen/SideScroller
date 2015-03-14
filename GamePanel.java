@@ -48,6 +48,8 @@ public class GamePanel extends JPanel{
             //could maybe use for something like opening the pause menu or something
         }
 
+        //TODO figure out how to do simultaneous button pressing. It serves for better player and field translation.
+
         @Override
         public void keyPressed(KeyEvent ke) {
             if(ke.getKeyCode() == KeyEvent.VK_LEFT){
