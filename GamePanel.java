@@ -43,35 +43,35 @@ public class GamePanel extends JPanel{
     //keep this lowercase bc its not a real class
     public class event implements KeyListener{
 
-    @Override
-    public void keyTyped(KeyEvent ke) {
-        //could maybe use for something like opening the pause menu or something
-    }
-
-    @Override
-    public void keyPressed(KeyEvent ke) {
-        if(ke.getKeyCode() == KeyEvent.VK_LEFT){
-            //left arrow key
-            //move left
-        } else if(ke.getKeyCode() == KeyEvent.VK_RIGHT){
-            //right arrow key
-            //move right
-        } else if(ke.getKeyCode() == KeyEvent.VK_UP){
-            //up arrow key
-            //jump
-        } else if(ke.getKeyCode() == KeyEvent.VK_SPACE){
-            //space bar
-            //also jump?
-        } else {
-            //not supported yet
+        @Override
+        public void keyTyped(KeyEvent ke) {
+            //could maybe use for something like opening the pause menu or something
         }
-    }
 
-    @Override
-    public void keyReleased(KeyEvent ke) {
-        //stop movement
-    }
+        @Override
+        public void keyPressed(KeyEvent ke) {
+            if(ke.getKeyCode() == KeyEvent.VK_LEFT){
+                //left arrow key
+                //move left
+            } else if(ke.getKeyCode() == KeyEvent.VK_RIGHT){
+                //right arrow key
+                //move right
+            } else if(ke.getKeyCode() == KeyEvent.VK_UP){
+                //up arrow key
+                //jump
+            } else if(ke.getKeyCode() == KeyEvent.VK_SPACE){
+                //space bar
+                //also jump?
+            } else {
+                //not supported yet
+            }
+        }
 
-}
+        @Override
+        public void keyReleased(KeyEvent ke) {
+            //stop movement
+        }
+
+    }
     
 }
