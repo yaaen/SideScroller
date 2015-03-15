@@ -1,5 +1,11 @@
 # SideScroller
 
+TODO:
+so our character will probably not be the size of
+a block, it'll be smaller, so we're going to have
+to figure out how to make that work with the all
+the blocks that are 100x100
+
 Frame:
 will be 1600pixels by 1000pixels with each block
 being 100 by 100 pixels
