@@ -55,6 +55,9 @@ public class Application{
     }
     
     public void play(int level){
+        //reset start panel chosen
+        startPanel.chosen = -1;
+        
         //switch to game panel
         gamePanel.setLevel(level);
         cardLay.show(cards, GAMEPANELCON);
@@ -62,5 +65,6 @@ public class Application{
         //have them play the game
 
         //when finished, go back to waitForLevelChoice()
+        
     }
 }
