@@ -40,11 +40,12 @@ public class StartPanel extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            loop:
             for(int r = 0; r < 3; r++){
                 for(int c = 0; c < 8; c++){
                     if(levels[r][c] == e.getSource()){
                         chosen = Integer.parseInt(levels[r][c].getText());
-                        break;
+                        break loop;
                     }
                 }
             }
