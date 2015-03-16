@@ -6,7 +6,7 @@ import MatterFolder.*;
 
 public class GamePanel extends JPanel{
     
-
+    String[][] fileArray;
     Matter[][] matter;
     FileRead fr = new FileRead();
     event e = new event();
@@ -16,7 +16,7 @@ public class GamePanel extends JPanel{
     }
 
     public void setLevel(int level){
-        String[][] fileArray = fr.readLevelFromFile(level);
+        fileArray = fr.readLevelFromFile(level);
         //fileArray will be strings
         //s = no background(sky)
         //g = ground block
