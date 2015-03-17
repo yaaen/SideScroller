@@ -17,6 +17,7 @@ public class GamePanel extends JPanel{
 
     public void setLevel(int level){
         fileArray = fr.readLevelFromFile(level);
+        transFileToArray();
         //fileArray will be strings
         //s = no background(sky)
         //g = ground block
@@ -36,9 +37,23 @@ public class GamePanel extends JPanel{
                //we're gonna have to paint the square icon wherever and get its location,
                //which should all be in the class so I think it'd be something like:
               // g.drawImage(matter[i][j].getImage(), matter[i][j].getX(), matter[i][j].getY(), null);
+              g.setColor(matter[i][j].getColor());
+				g.fillRect(matter[i][j].getX(), matter[i][j].getY(), 100, 100);
             }
         }
     }
+    
+    public void transFileToArray() {
+		for (int i = 0; i < fileArray.length; i++) {
+			for (int j = 0; j < fileArray[0].length; j++) {
+				if (fileArray[i][j].equals("s")) {
+					matter[i][j] = new Block(i * 100, j * 100, Color.CYAN); // multiply by 100 since each block is 100 x 100
+				} else if (fileArray[i][j].equals("g")) {
+					matter[i][j] = new Block(i * 100, j * 100, Color.DARK_GRAY);
+				}
+			}
+		}
+	}
    
     //keep this lowercase bc its not a real class
     public class event implements KeyListener{
