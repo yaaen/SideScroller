@@ -49,11 +49,11 @@ public class GamePanel extends JPanel {
 		for (int i = 0; i < fileArray.length; i++) {
 			for (int j = 0; j < fileArray[0].length; j++) {
 				if (fileArray[i][j].equals("s")) {
-					matter[i][j] = new Block(i * 100, j * 100, Color.CYAN); // multiply by 100 since each block is 100 x 100
+					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); // multiply by 100 since each block is 100 x 100
 				} else if (fileArray[i][j].equals("g")) {
-					matter[i][j] = new Block(i * 100, j * 100, Color.DARK_GRAY);
+					matter[i][j] = new Block(j * 100, i * 100, Color.DARK_GRAY);
 				}else{
-					matter[i][j] = new Block(i * 100, j*100 , Color.BLACK);
+					matter[i][j] = new Block(j * 100, i * 100 , Color.BLACK);
 				}
 			}
 		}
