@@ -48,9 +48,9 @@ public class GamePanel extends JPanel {
 	public void transFileToArray() {
 		for (int i = 0; i < fileArray.length; i++) {
 			for (int j = 0; j < fileArray[0].length; j++) {
-				if (fileArray[i][j].equals("s")) {
+				if (fileArray[i][j].equals("s")) {//sky
 					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); // multiply by 100 since each block is 100 x 100
-				} else if (fileArray[i][j].equals("g")) {
+				} else if (fileArray[i][j].equals("g")) {//ground
 					matter[i][j] = new Block(j * 100, i * 100, Color.DARK_GRAY);
 				}else{
 					matter[i][j] = new Block(j * 100, i * 100 , Color.BLACK);
