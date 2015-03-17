@@ -4,6 +4,8 @@ import java.awt.*;
 
 public class Block extends Matter {
 	
+	//It shouldn't need any of this color stuff because the Matter 
+	//class has a variable for the Image that it will use
 	Color bColor;
 	
 	public Block() {
