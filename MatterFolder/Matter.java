@@ -8,6 +8,7 @@ public abstract class Matter{
     private final int WIDTH = 100;
     private int locX;
     private int locY;
+    private Color matterColor;
     
     //this needs an import and we might have to
     //change it later to like a BufferedImage or
@@ -31,6 +32,20 @@ public abstract class Matter{
         this.locY = locY;
         this.img = img;
     }
+    
+    	public Matter(int locX, int locY, Color c){
+		this.locX = locX;
+		this.locY = locY;
+		this.matterColor = c;
+	}
+
+	public Color getColor() {
+		return matterColor;
+	}
+
+	public void setColor(Color c) {
+		matterColor = c;
+	}
     
     public void setX(int locX){
         this.locX = locX;
