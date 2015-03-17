@@ -75,12 +75,6 @@ public class FileRead {
 			}
 		}
 
-		System.out.println(stringList.size());
-
-		for (int i = 0; i < stringList.size(); i++) {
-			System.out.println(stringList.get(i));
-		}
-
 		//add in the letters from stringList
 		//not sure whether to go row column or column row\
 		//this might work but probably not, the i*length
@@ -89,13 +83,6 @@ public class FileRead {
 			for (int j = 0; j < length; j++) {
 				levelArray[i][j] = stringList.get(j + (i * length) + i);
 			}
-		}
-
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < length; j++) {
-				//System.out.print(levelArray[i][j]);
-			}
-			//System.out.println("");
 		}
 
 		return levelArray;
