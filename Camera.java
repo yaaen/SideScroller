@@ -9,7 +9,6 @@ public class Camera{
     it is tricky because the camera movement is relative to block movement.
     For example, to move the camera upwards, all of the blocks need to be moved downward
     */
-    //want something like this pierre?
     //also if you want to get even more specific we could add directions like:
     //northnorthwest or something but that might be too much
     public enum Direction {
