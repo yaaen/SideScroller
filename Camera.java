@@ -20,6 +20,8 @@ public class Camera{
     
     //all of the matter pieces currently in the frame
     //we should discuss if new pieces should be introduced in this class or the gamePanel class
+    //Ethan: right now the gamePanel class have a 2d array for the blocks so we might just
+    //  want to get this class to work with that one
     Block[][] field;
     
     Player player;
@@ -38,14 +40,11 @@ public class Camera{
     public void move(){
         if(!lock){
             for(int i = 0; i < field.length; i++){
-            for(int j = 0; j < field[0].length; j++){
-                field[i][j].setY(field[i][j].getY() - dy);
-	            field[i][j].setX(field[i][j].getX() - dx);
-            }
-        }
+            	for(int j = 0; j < field[0].length; j++){
+      				field[i][j].setY(field[i][j].getY() - dy);
+	        		field[i][j].setX(field[i][j].getX() - dx);
+            	}
+        	}
         }
     }
 }
-
-//wanna merge the other camera class up to the master?
-//should we merge pierre??
