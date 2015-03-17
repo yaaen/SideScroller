@@ -4,78 +4,100 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class FileRead{ 
-  
-  public FileRead(){
-    
-  }
-  
-  public String[][] readLevelFromFile(int level){
-      
-      //create a file to read in the level and add to a string
-      File file = new File("Levels/level" + level + ".txt"); //this might need ".txt" cant try out right now
-      String levelString = "";
-      BufferedReader br;
-          try {
-              br = new BufferedReader(new FileReader(file));
-              StringBuilder sb = new StringBuilder();
-              String line = br.readLine();
+public class FileRead {
 
-              while (line != null) {
-                  sb.append(line);
-                  sb.append(System.lineSeparator());
-                  line = br.readLine();
-              }
-              levelString = sb.toString();
-              br.close();
-          } catch(Exception e){
-              System.out.print(e.toString());
-          }
-      
-      //make an arraylist to contain all the positions
-      ArrayList<String> stringList = new ArrayList<String>();
-      for(int i = 0; i < levelString.length(); i++){
-          stringList.add(levelString.substring(i, i + 1));
-      }
-      
-      //why not have the file it self have the height and width as the first couple chars
-      //bc it might get confusing adding to it then or getting rid of things
-      
-      //n will signify new line so that how's we can see how long the level is
-      int length = 0;
-      for(int i = 0; i < levelString.length(); i++){
-        //in here will use stringList to count how chars until the first n
-        //and thats how we will know how big the level is wide
-        if(stringList.get(i).equalsIgnoreCase("n")){
-          break;
-        } else {
-          length++;
-        }
-      }
-      
-      //count height of the level
-      int height = 0;
-      for(int i = 0; i < levelString.length(); i++){
-        if(stringList.get(i).equalsIgnoreCase("n")){
-          height++;
-        }
-      }
-      
-      //should this be height length or the other way around?
-      //convert to a String array using the height and length variables
-      String[][] levelArray = new String[height][length];
-        
-      //add in the letters from stringList
-      //not sure whether to go row column or column row\
-      //this might work but probably not, the i*length 
-      //is because its currently in an arraylist. 
-      for(int i = 0; i < height; i++){
-        for(int j = 0; j < length; j++){
-          levelArray[i][j] = stringList.get(j + (i * length) + i);
-        }
-      }
-        
-        
-      return levelArray;
-  }
+	public FileRead() {
+
+	}
+
+	public String[][] readLevelFromFile(int level) {
+
+		//create a file to read in the level and add to a string
+		File file = new File("Levels/level" + level + ".txt"); //this might need ".txt" cant try out right now
+		String levelString = "";
+		BufferedReader br;
+		try {
+			br = new BufferedReader(new FileReader(file));
+			StringBuilder sb = new StringBuilder();
+			String line = br.readLine();
+
+			while (line != null) {
+				sb.append(line);
+				sb.append(System.lineSeparator());
+				line = br.readLine();
+			}
+			levelString = sb.toString();
+			br.close();
+		} catch (Exception e) {
+			System.out.print(e.toString());
+		}
+
+		//make an arraylist to contain all the positions
+		ArrayList<String> stringList = new ArrayList<String>();
+		for (int i = 0; i < levelString.length(); i++) {
+			stringList.add(levelString.substring(i, i + 1));
+		}
+
+		//why not have the file it self have the height and width as the first couple chars
+		//bc it might get confusing adding to it then or getting rid of things
+
+		//n will signify new line so that how's we can see how long the level is
+		int length = 0;
+		for (int i = 0; i < stringList.size(); i++) {
+			//in here will use stringList to count how chars until the first n
+			//and thats how we will know how big the level is wide
+			if (stringList.get(i).equalsIgnoreCase("n")) {
+				break;
+			} else {
+				length++;
+			}
+		}
+
+		//count height of the level
+		int height = 0;
+		for (int i = 0; i < stringList.size(); i++) {
+			if (stringList.get(i).equalsIgnoreCase("n")) {
+				height++;
+			}
+		}
+
+		//should this be height length or the other way around?
+		//convert to a String array using the height and length variables
+		String[][] levelArray = new String[height][length];
+
+		for (int i = 0; i < stringList.size(); i++) {
+			if (stringList.get(i).equalsIgnoreCase("s")) {
+
+			} else if (stringList.get(i).equalsIgnoreCase("g")) {
+
+			} else {
+				stringList.remove(i);
+			}
+		}
+
+		System.out.println(stringList.size());
+
+		for (int i = 0; i < stringList.size(); i++) {
+			System.out.println(stringList.get(i));
+		}
+
+		//add in the letters from stringList
+		//not sure whether to go row column or column row\
+		//this might work but probably not, the i*length
+		//is because its currently in an arraylist.
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < length; j++) {
+				levelArray[i][j] = stringList.get(j + (i * length) + i);
+			}
+		}
+
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < length; j++) {
+				//System.out.print(levelArray[i][j]);
+			}
+			//System.out.println("");
+		}
+
+		return levelArray;
+	}
 }
