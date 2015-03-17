@@ -40,10 +40,10 @@ public class Camera{
         if(!lock){
             for(int i = 0; i < field.length; i++){
             	for(int j = 0; j < field[0].length; j++){
-      				field[i][j].setY(field[i][j].getY() - dy);
-	        		field[i][j].setX(field[i][j].getX() - dx);
+                    field[i][j].setY(field[i][j].getY() - dy);
+                    field[i][j].setX(field[i][j].getX() - dx);
             	}
-        	}
+            }
         }
     }
 }
