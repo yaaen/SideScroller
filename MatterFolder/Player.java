@@ -20,4 +20,20 @@ public class Player extends Character{
     public void moveLeft(int toMove){
         locX -= toMove;
     }
+    
+    public void moveUp(){
+        locY++;
+    }
+    
+    public void moveUp(int toMove){
+        locY += toMove;
+    }
+    
+    public void moveDown(){
+        locY--;
+    }
+    
+    public void moveDown(int toMove){
+        locY -= toMove;
+    }
 }
