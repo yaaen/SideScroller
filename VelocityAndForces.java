@@ -14,3 +14,5 @@ public interface VelocityAndForces{
     public void setDrag(int d);
     public int getDrag(); //might not need this
 }
+
+//What class is going to use this?
