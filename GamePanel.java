@@ -74,15 +74,19 @@ public class GamePanel extends JPanel {
 			if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
 				//left arrow key
 				//move left
+				//can use moveLeft() in Player 
 			} else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
 				//right arrow key
 				//move right
+				//can use moveRight() in Player
 			} else if (ke.getKeyCode() == KeyEvent.VK_UP) {
 				//up arrow key
 				//jump
+				//can use moveUp() in player
 			} else if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
 				//space bar
 				//also jump?
+				//can use moveUp() in Player
 			} else {
 				//not supported yet
 			}
