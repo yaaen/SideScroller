@@ -1,10 +1,7 @@
 # SideScroller
 
-TODO:
-so our character will probably not be the size of
-a block, it'll be smaller, so we're going to have
-to figure out how to make that work with the all
-the blocks that are 100x100
+I just went to the two levels and added a 'p' in;
+that will be where the player starts
 
 Frame:
 will be 1600pixels by 1000pixels with each block
