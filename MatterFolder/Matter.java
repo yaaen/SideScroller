@@ -33,7 +33,7 @@ public abstract class Matter{
         this.img = img;
     }
     
-    	public Matter(int locX, int locY, Color c){
+    public Matter(int locX, int locY, Color c){
 		this.locX = locX;
 		this.locY = locY;
 		this.matterColor = c;
