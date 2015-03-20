@@ -52,7 +52,9 @@ public class GamePanel extends JPanel {
 					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); // multiply by 100 since each block is 100 x 100
 				} else if (fileArray[i][j].equals("g")) {//ground
 					matter[i][j] = new Block(j * 100, i * 100, Color.DARK_GRAY);
-				}else{
+				} else if (fileArray[i][j].equals("p")){//player
+					matter[i][j] = new Block(j * 100, i * 100, Color.MAGENTA);
+				} else{
 					matter[i][j] = new Block(j * 100, i * 100 , Color.BLACK);
 				}
 			}
