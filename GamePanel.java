@@ -65,6 +65,12 @@ public class GamePanel extends JPanel {
 		}
 	}
 
+	/*
+	don't actually know if any of this keey stuff will work because I don't think
+	it accounts for a key being held down. we need to figure out how to make it
+	work if they are holding down the key
+	*/
+	
 	//keep this lowercase bc its not a real class
 	public class event implements KeyListener {
 
