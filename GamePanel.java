@@ -11,6 +11,8 @@ public class GamePanel extends JPanel {
 	Matter[][] matter;
 	FileRead fr = new FileRead();
 	event e = new event();
+	int playerX;
+	int playerY;
 
 	public GamePanel() {
 
@@ -53,6 +55,8 @@ public class GamePanel extends JPanel {
 				} else if (fileArray[i][j].equals("g")) {//ground
 					matter[i][j] = new Block(j * 100, i * 100, Color.DARK_GRAY);
 				} else if (fileArray[i][j].equals("p")){//player
+					playerX = i;
+					playerY = j;
 					matter[i][j] = new Block(j * 100, i * 100, Color.MAGENTA);
 				} else{
 					matter[i][j] = new Block(j * 100, i * 100 , Color.BLACK);
