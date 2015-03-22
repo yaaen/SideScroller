@@ -28,6 +28,7 @@ public class GamePanel extends JPanel {
 		//g = ground block
 	}
 
+
 	public void paint(Graphics g) {
 		//Add collision detection, camera motion, and other movement calls here.
 		//Or they can be put in another method that will separately update the figures, in another thread,
@@ -95,7 +96,7 @@ public class GamePanel extends JPanel {
 	}
 
 	/*
-	don't actually know if any of this keey stuff will work because I don't think
+	don't actually know if any of this key stuff will work because I don't think
 	it accounts for a key being held down. we need to figure out how to make it
 	work if they are holding down the key
 	*/

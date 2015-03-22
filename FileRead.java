@@ -43,37 +43,39 @@ public class FileRead {
 
 		//n will signify new line so that how's we can see how long the level is
 		int length = 0;
-		for (int i = 0; i < stringList.size(); i++) {
-			//in here will use stringList to count how chars until the first n
-			//and thats how we will know how big the level is wide
-			if (stringList.get(i).equalsIgnoreCase("n")) {
-				break;
-			} else {
-				length++;
-			}
-		}
+
+        //pr0ves: replaced for with a foreach, and also modified the if statement so that you don't have to use the break
+        for (String s : stringList) {
+            //in here will use stringList to count how chars until the first n
+            //and thats how we will know how big the level is wide
+            if (!(s.equalsIgnoreCase("n"))) {
+                length++;
+            }
+        }
 
 		//count height of the level
 		int height = 0;
-		for (int i = 0; i < stringList.size(); i++) {
-			if (stringList.get(i).equalsIgnoreCase("n")) {
-				height++;
-			}
-		}
+
+        for (String s : stringList) {
+            if (s.equalsIgnoreCase("n")) {
+                height++;
+            }
+        }
 
 		//should this be height length or the other way around?
 		//convert to a String array using the height and length variables
 		String[][] levelArray = new String[height][length];
 
-		for (int i = 0; i < stringList.size(); i++) {
-			if (stringList.get(i).equalsIgnoreCase("s")) {
+        for (int i = 0; i < stringList.size(); i++) {
+            //pr0ves
+            //you don't need multiple, empty if statements
+            //this if is needed to work only when the string is not equal to "s" or "g" are false so you can use
+            //NOT(A OR B) or A NOR B, where A is true if the string equals "s" and where B is true when it equals "g"
 
-			} else if (stringList.get(i).equalsIgnoreCase("g")) {
-
-			} else {
-				stringList.remove(i);
-			}
-		}
+            if (!(stringList.get(i).equalsIgnoreCase("s")||stringList.get(i).equalsIgnoreCase("g"))) {
+                stringList.remove(i);
+            }
+        }
 
 		//add in the letters from stringList
 		//not sure whether to go row column or column row\

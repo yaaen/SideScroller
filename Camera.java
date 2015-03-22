@@ -14,7 +14,7 @@ public class Camera{
     public enum Direction {
         NORTH, NORTHEAST, NORTHWEST,
         SOUTH, SOUTHEAST, SOUTHWEST,
-        EAST, WEST;
+        EAST, WEST
     }
     
     //all of the matter pieces currently in the frame
