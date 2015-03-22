@@ -18,13 +18,18 @@ public abstract class Matter{
     //i added some more constructers because we
     //don't know yet how we'll want to make some
     //of its child classes
+    
+    //I added some of this stuff to make sure errors don't get thrown
     public Matter(){
-        
+        this.locX = 0;
+        this.locY = 0;
+        this.matterColor = Color.WHITE;//default color?
     }
 
     public Matter(int locX, int locY){
         this.locX = locX;
         this.locY = locY;
+        this.matterColor = Color.WHITE;//default color?
     }
     
     public Matter(int locX, int locY, Image img){
