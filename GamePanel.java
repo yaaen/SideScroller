@@ -55,6 +55,9 @@ public class GamePanel extends JPanel {
 				} else if (fileArray[i][j].equals("g")) {//ground
 					matter[i][j] = new Block(j * 100, i * 100, Color.DARK_GRAY);
 				} else if (fileArray[i][j].equals("p")){//player
+					//this could maybe be used to keep track of which one of the matters
+					//  contains the actual player. there might be a better way to
+					//  do this though.
 					playerX = i;
 					playerY = j;
 					matter[i][j] = new Block(j * 100, i * 100, Color.MAGENTA);
