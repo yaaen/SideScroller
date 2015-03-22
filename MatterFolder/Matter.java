@@ -71,8 +71,36 @@ public abstract class Matter{
     public int getY(){
         return locY;   
     }
-    
+
     public Image getImage(){
         return img; //this is for now
     }
+
+
+    //pr0ves
+    //made these methods to modify locX and locY since they are private
+
+    public void modLocX(int dx, boolean direction){
+        if (dx>0){
+            if (direction){
+                this.locX += dx;
+            } else {
+                this.locX -= dx;
+            }
+        }
+
+    }
+
+    public void modLocY(int dy, boolean direction){
+
+        if (dy>0){
+            if (direction){
+                this.locY += dy;
+            } else{
+                this.locY -= dy;
+            }
+        }
+
+    }
+
 }
