@@ -13,6 +13,7 @@ public class GamePanel extends JPanel {
 	event e = new event();
 	int playerX;
 	int playerY;
+	boolean pressed;
 
 	public GamePanel() {
 
@@ -69,6 +70,31 @@ public class GamePanel extends JPanel {
 	}
 
 	/*
+	* direction: 
+	* 0 = right
+	* 1 = left
+	* 2 = up
+	* releasing key sets pressed to false which should stop this
+	*/
+	public void moveCharacter(int direction){
+		if(direction == 0){
+			while(pressed){
+				//move right
+			}
+		} else if(direction == 1){
+			while(pressed){
+				//move left
+			}
+		} else if(direction == 2){
+			while(pressed){
+				//move up
+			}
+		} else {
+			System.out.println("What");
+		}
+	}
+
+	/*
 	don't actually know if any of this keey stuff will work because I don't think
 	it accounts for a key being held down. we need to figure out how to make it
 	work if they are holding down the key
@@ -86,18 +112,22 @@ public class GamePanel extends JPanel {
 
 		@Override
 		public void keyPressed(KeyEvent ke) {
+			pressed = true;
 			if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
 				//left arrow key
 				//move left
 				//can use moveLeft() in Player 
+				moveCharacter(1);
 			} else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
 				//right arrow key
 				//move right
 				//can use moveRight() in Player
+				moveCharacter(0);
 			} else if (ke.getKeyCode() == KeyEvent.VK_UP) {
 				//up arrow key
 				//jump
 				//can use moveUp() in player
+				moveCharacter(2);
 			} else if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
 				//space bar
 				//also jump?
@@ -110,6 +140,7 @@ public class GamePanel extends JPanel {
 		@Override
 		public void keyReleased(KeyEvent ke) {
 			//stop movement
+			pressed = false;
 		}
 
 	}
