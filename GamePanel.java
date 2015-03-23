@@ -10,8 +10,13 @@ public class GamePanel extends JPanel implements KeyListener {
 	String[][] fileArray;
 	Matter[][] matter;
 
+	//this could maybe be used to keep track of which one of the matters
+	//  contains the actual player. there might be a better way to
+	//  do this though.
 	int playerX;
 	int playerY;
+	
+	//if a key is being held down or not
 	boolean pressed;
 
 	public GamePanel() {
@@ -55,13 +60,9 @@ public class GamePanel extends JPanel implements KeyListener {
 		for (int i = 0; i < fileArray.length; i++) {
 			for (int j = 0; j < fileArray[0].length; j++) {
 				if (fileArray[i][j].equals("s")) {//sky
-					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); // multiply by 100 since each block is 100 x 100
-				} else if (fileArray[i][j].equals("g")) {//ground
+					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); //multiply by 100 since each block is 100 x 100				} else if (fileArray[i][j].equals("g")) {//ground
 					matter[i][j] = new Block(j * 100, i * 100, Color.DARK_GRAY);
 				} else if (fileArray[i][j].equals("p")){//player
-					//this could maybe be used to keep track of which one of the matters
-					//  contains the actual player. there might be a better way to
-					//  do this though.
 					playerX = i;
 					playerY = j;
 					matter[i][j] = new Block(j * 100, i * 100, Color.MAGENTA);
@@ -105,6 +106,10 @@ public class GamePanel extends JPanel implements KeyListener {
 	work if they are holding down the key
 	*/
 	
+	/*
+	we do need to figure out how to handle holding down
+	multiple keys though as well
+	*/
 	//keep this lowercase bc its not a real class
 	@Override
 	public void keyTyped(KeyEvent ke) {
