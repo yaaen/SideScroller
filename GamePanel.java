@@ -19,14 +19,15 @@ public class GamePanel extends JPanel implements KeyListener {
 	}
 
 	public void setLevel(int level) {
-        FileRead fr = new FileRead(level);
+        	FileRead fr = new FileRead(level);
 		fileArray = fr.getLevelArray();
 		matter = new Matter[fileArray.length][fileArray[0].length];
 		transFileToArray();
-        addKeyListener(this);
+        	addKeyListener(this);
 		//fileArray will be strings
 		//s = no background(sky)
 		//g = ground block
+		//p = player
 	}
 
 
@@ -78,9 +79,8 @@ public class GamePanel extends JPanel implements KeyListener {
 	* 2 = up
 	* releasing key sets pressed to false which should stop this
 	*/
-
-    //pr0ves
-    //you could use the method from the Player class directly to move the character and delete this one
+    	//pr0ves
+    	//you could use the method from the Player class directly to move the character and delete this one
 	public void moveCharacter(int direction){
 		if(direction == 0){
 			while(pressed){
@@ -110,13 +110,12 @@ public class GamePanel extends JPanel implements KeyListener {
 	public void keyTyped(KeyEvent ke) {
 		//could maybe use for something like opening the pause menu or something
 	}
-		//TODO figure out how to do simultaneous button pressing. It serves for better player and field translation.
-
+	
 	@Override
 	public void keyPressed(KeyEvent ke) {
 		pressed = true;
 		if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
-            //left arrow key
+            		//left arrow key
 			moveCharacter(1);
 		} else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
 			//right arrow key
