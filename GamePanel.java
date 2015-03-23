@@ -9,12 +9,12 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	String[][] fileArray;
 	Matter[][] matter;
+	
+	Player player;
 
 	//this could maybe be used to keep track of which one of the matters
 	//  contains the actual player. there might be a better way to
 	//  do this though.
-	int playerX;
-	int playerY;
 	
 	//if a key is being held down or not
 	boolean pressed;
@@ -54,23 +54,29 @@ public class GamePanel extends JPanel implements KeyListener {
 				g.fillRect(matter[i][j].getX(), matter[i][j].getY(), 100, 100);
 			}
 		}
+		
+		g.setColor(Color.MAGENTA);
+		g.fillRect(player.getX(),player.getY(),100,100);
 	}
 
 	public void transFileToArray() {
+		int playerX; //only need this for player's original position
+		int playerY;
 		for (int i = 0; i < fileArray.length; i++) {
 			for (int j = 0; j < fileArray[0].length; j++) {
 				if (fileArray[i][j].equals("s")) {//sky
 					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); //multiply by 100 since each block is 100 x 100				} else if (fileArray[i][j].equals("g")) {//ground
 					matter[i][j] = new Block(j * 100, i * 100, Color.DARK_GRAY);
 				} else if (fileArray[i][j].equals("p")){//player
-					playerX = i;
-					playerY = j;
-					matter[i][j] = new Block(j * 100, i * 100, Color.MAGENTA);
+					playerX = j * 100;
+					playerY = i * 100;
+					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); //we'll have the player drawn sepperatly 
 				} else{
 					matter[i][j] = new Block(j * 100, i * 100 , Color.BLACK);
 				}
 			}
 		}
+		player = new Player(playerX,playerY);
 	}
 
 	/*
@@ -82,23 +88,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	*/
     	//pr0ves
     	//you could use the method from the Player class directly to move the character and delete this one
-	public void moveCharacter(int direction){
-		if(direction == 0){
-			while(pressed){
-				//move right
-			}
-		} else if(direction == 1){
-			while(pressed){
-				//move left
-			}
-		} else if(direction == 2){
-			while(pressed){
-				//move up
-			}
-		} else {
-			System.out.println("What");
-		}
-	}
+
 
 	/*
 	don't actually know if any of this key stuff will work because I don't think
@@ -117,20 +107,21 @@ public class GamePanel extends JPanel implements KeyListener {
 	}
 	
 	@Override
-	public void keyPressed(KeyEvent ke) {
-		pressed = true;
+	public void keyPressed(KeyEvent ke) { //this should work if the code runs through here each time it sees key is pressed
+					      //If not we'll get fancy	
 		if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
             		//left arrow key
-			moveCharacter(1);
+			player.moveLeft();
 		} else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
 			//right arrow key
-			moveCharacter(0);
+			player.moveRight();
 		} else if (ke.getKeyCode() == KeyEvent.VK_UP) {
 			//up arrow key
-			moveCharacter(2);
+			player.moveUp();
 		} else if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
 			//space bar
 			//also jump?
+			player.moveUp();
 		} else {
 			//not supported yet
 		}
@@ -139,6 +130,5 @@ public class GamePanel extends JPanel implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent ke) {
 	    //stop movement
-	    pressed = false;
 	}
 }
