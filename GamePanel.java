@@ -109,7 +109,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent ke) { //this should work if the code runs through here each time it sees key is pressed
 					      //If not we'll get fancy	
-		if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
+		if (ke.getKeyCode() == KeyEvent.VK_LEFT) {//Java aint getting to keylistener, threw some souts in here and nothing
             		//left arrow key
 			player.moveLeft();
 		} else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
