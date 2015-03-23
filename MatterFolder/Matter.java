@@ -79,28 +79,26 @@ public abstract class Matter{
 
     //pr0ves
     //made these methods to modify locX and locY since they are private
-
-    public void modLocX(int dx, boolean direction){
-        if (dx>0){
+	//derrreks: i'm going to make them private to make sure that the 
+	//	only methods used are the ones like the ones in Player
+    private void modLocX(int dx, boolean direction){
+        if (dx > 0){
             if (direction){
                 this.locX += dx;
             } else {
                 this.locX -= dx;
             }
         }
-
     }
 
-    public void modLocY(int dy, boolean direction){
-
-        if (dy>0){
+    private void modLocY(int dy, boolean direction){
+        if (dy > 0){
             if (direction){
                 this.locY += dy;
             } else{
                 this.locY -= dy;
             }
         }
-
     }
 
 }
