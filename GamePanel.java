@@ -5,12 +5,11 @@ import java.awt.event.KeyListener;
 
 import MatterFolder.*;
 
-public class GamePanel extends JPanel {
+public class GamePanel extends JPanel implements KeyListener {
 
 	String[][] fileArray;
 	Matter[][] matter;
-	FileRead fr = new FileRead();
-	event e = new event();
+
 	int playerX;
 	int playerY;
 	boolean pressed;
@@ -20,9 +19,11 @@ public class GamePanel extends JPanel {
 	}
 
 	public void setLevel(int level) {
-		fileArray = fr.readLevelFromFile(level);
+        FileRead fr = new FileRead(level);
+		fileArray = fr.getLevelArray();
 		matter = new Matter[fileArray.length][fileArray[0].length];
 		transFileToArray();
+        addKeyListener(this);
 		//fileArray will be strings
 		//s = no background(sky)
 		//g = ground block
@@ -77,6 +78,9 @@ public class GamePanel extends JPanel {
 	* 2 = up
 	* releasing key sets pressed to false which should stop this
 	*/
+
+    //pr0ves
+    //you could use the method from the Player class directly to move the character and delete this one
 	public void moveCharacter(int direction){
 		if(direction == 0){
 			while(pressed){
@@ -102,41 +106,35 @@ public class GamePanel extends JPanel {
 	*/
 	
 	//keep this lowercase bc its not a real class
-	public class event implements KeyListener {
-
-		@Override
-		public void keyTyped(KeyEvent ke) {
-			//could maybe use for something like opening the pause menu or something
-		}
-
+	@Override
+	public void keyTyped(KeyEvent ke) {
+		//could maybe use for something like opening the pause menu or something
+	}
 		//TODO figure out how to do simultaneous button pressing. It serves for better player and field translation.
 
-		@Override
-		public void keyPressed(KeyEvent ke) {
-			pressed = true;
-			if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
-				//left arrow key
-				moveCharacter(1);
-			} else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
-				//right arrow key
-				moveCharacter(0);
-			} else if (ke.getKeyCode() == KeyEvent.VK_UP) {
-				//up arrow key
-				moveCharacter(2);
-			} else if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
-				//space bar
-				//also jump?
-			} else {
-				//not supported yet
-			}
+	@Override
+	public void keyPressed(KeyEvent ke) {
+		pressed = true;
+		if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
+            //left arrow key
+			moveCharacter(1);
+		} else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
+			//right arrow key
+			moveCharacter(0);
+		} else if (ke.getKeyCode() == KeyEvent.VK_UP) {
+			//up arrow key
+			moveCharacter(2);
+		} else if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
+			//space bar
+			//also jump?
+		} else {
+			//not supported yet
 		}
-
-		@Override
-		public void keyReleased(KeyEvent ke) {
-			//stop movement
-			pressed = false;
-		}
-
 	}
 
+	@Override
+	public void keyReleased(KeyEvent ke) {
+	    //stop movement
+	    pressed = false;
+	}
 }

@@ -12,15 +12,15 @@ public class Player extends Character{
     }
     
     public void moveRight(int toMove){
-        modLocX(toMove,true);;
+        modLocX(toMove,true);
     }
     
     public void moveLeft(){
-        modLocX(1,false);;
+        modLocX(1,false);
     }
     
     public void moveLeft(int toMove){
-        modLocX(toMove,false);;
+        modLocX(toMove,false);
     }
     
     public void moveUp(){
