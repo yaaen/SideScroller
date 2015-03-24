@@ -1,8 +1,11 @@
 import javax.swing.JPanel;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.lang.Integer;
 import java.util.ArrayList;
+import java.util.List;
+
 import MatterFolder.*;
 
 public class GamePanel extends JPanel implements KeyListener {
@@ -61,8 +64,8 @@ public class GamePanel extends JPanel implements KeyListener {
 	}
 
 	public void transFileToArray() {
-		int playerX; //only need this for player's original position
-		int playerY;
+		int playerX = 0; //only need this for player's original position
+		int playerY = 0;
 		for (int i = 0; i < fileArray.length; i++) {
 			for (int j = 0; j < fileArray[0].length; j++) {
 				if (fileArray[i][j].equals("s")) {//sky
