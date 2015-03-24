@@ -9,26 +9,23 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	String[][] fileArray;
 	Matter[][] matter;
-	
 	Player player;
 
 	//this could maybe be used to keep track of which one of the matters
 	//  contains the actual player. there might be a better way to
 	//  do this though.
-	
 	//if a key is being held down or not
 	boolean pressed;
 
 	public GamePanel() {
-
+		addKeyListener(this);
 	}
 
 	public void setLevel(int level) {
-        	FileRead fr = new FileRead(level);
+		FileRead fr = new FileRead(level);
 		fileArray = fr.getLevelArray();
 		matter = new Matter[fileArray.length][fileArray[0].length];
 		transFileToArray();
-        	addKeyListener(this);
 		//fileArray will be strings
 		//s = no background(sky)
 		//g = ground block
@@ -54,9 +51,9 @@ public class GamePanel extends JPanel implements KeyListener {
 				g.fillRect(matter[i][j].getX(), matter[i][j].getY(), 100, 100);
 			}
 		}
-		
+
 		g.setColor(Color.MAGENTA);
-		g.fillRect(player.getX(),player.getY(),100,100);
+		g.fillRect(player.getX(), player.getY(), 100, 100);
 	}
 
 	public void transFileToArray() {
@@ -67,16 +64,16 @@ public class GamePanel extends JPanel implements KeyListener {
 				if (fileArray[i][j].equals("s")) {//sky
 					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); //multiply by 100 since each block is 100 x 100				} else if (fileArray[i][j].equals("g")) {//ground
 					matter[i][j] = new Block(j * 100, i * 100, Color.DARK_GRAY);
-				} else if (fileArray[i][j].equals("p")){//player
+				} else if (fileArray[i][j].equals("p")) {//player
 					playerX = j * 100;
 					playerY = i * 100;
 					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); //we'll have the player drawn sepperatly 
-				} else{
-					matter[i][j] = new Block(j * 100, i * 100 , Color.BLACK);
+				} else {
+					matter[i][j] = new Block(j * 100, i * 100, Color.BLACK);
 				}
 			}
 		}
-		player = new Player(playerX,playerY);
+		player = new Player(playerX, playerY);
 	}
 
 	/*
@@ -86,8 +83,8 @@ public class GamePanel extends JPanel implements KeyListener {
 	* 2 = up
 	* releasing key sets pressed to false which should stop this
 	*/
-    	//pr0ves
-    	//you could use the method from the Player class directly to move the character and delete this one
+	//pr0ves
+	//you could use the method from the Player class directly to move the character and delete this one
 
 
 	/*
@@ -95,7 +92,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	it accounts for a key being held down. we need to figure out how to make it
 	work if they are holding down the key
 	*/
-	
+
 	/*
 	we do need to figure out how to handle holding down
 	multiple keys though as well
@@ -105,12 +102,12 @@ public class GamePanel extends JPanel implements KeyListener {
 	public void keyTyped(KeyEvent ke) {
 		//could maybe use for something like opening the pause menu or something
 	}
-	
+
 	@Override
 	public void keyPressed(KeyEvent ke) { //this should work if the code runs through here each time it sees key is pressed
-					      //If not we'll get fancy	
+		//If not we'll get fancy
 		if (ke.getKeyCode() == KeyEvent.VK_LEFT) {//Java aint getting to keylistener, threw some souts in here and nothing
-            		//left arrow key
+			//left arrow key
 			player.moveLeft();
 		} else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
 			//right arrow key
@@ -129,6 +126,6 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent ke) {
-	    //stop movement
+		//stop movement
 	}
 }
