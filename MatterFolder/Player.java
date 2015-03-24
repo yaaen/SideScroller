@@ -7,35 +7,11 @@ public class Player extends Character{
 
     //pr0ves
     //locX and locY are private so I made the method modLocX() and modLocY() in Matter.java
-    public void moveRight(){
-        modLocX(1);
-    }
-    
-    public void moveRight(int toMove){
-        modLocX(toMove);
-    }
-    
-    public void moveLeft(){
-        modLocX(1);
-    }
-    
-    public void moveLeft(int toMove){
-        modLocX(toMove);
-    }
-    
-    public void moveUp(){
-        modLocY(1);
-    }
-    
-    public void moveUp(int toMove){
-        modLocY(toMove);
-    }
-    
-    public void moveDown(){
-        modLocY(1);
-    }
-    
-    public void moveDown(int toMove){
-        modLocY(toMove);
-    }
+    public void moveLateral(int dist){
+		modLocX(dist);
+	}
+	
+	public void moveVertical(int dist){
+		modLocY(dist);
+	}
 }
