@@ -1,21 +1,24 @@
 import javax.swing.JPanel;
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+import java.lang.Integer;
+import java.util.ArrayList;
 import MatterFolder.*;
 
 public class GamePanel extends JPanel implements KeyListener {
 
-	String[][] fileArray;
+	private String[][] fileArray;
 	Matter[][] matter;
 	Player player;
 
+	//array that will contain the code of the pressed buttons
+	//removed the boolean pressed as well, you can use something like pressedButtons.size()>0
+	private final List<Integer> pressedButtons = new ArrayList<Integer>();
+
 	//this could maybe be used to keep track of which one of the matters
-	//  contains the actual player. there might be a better way to
-	//  do this though.
+	//contains the actual player. there might be a better way to
+	//do this though.
 	//if a key is being held down or not
-	boolean pressed;
 
 	public GamePanel() {
 		addKeyListener(this);
@@ -97,35 +100,43 @@ public class GamePanel extends JPanel implements KeyListener {
 	we do need to figure out how to handle holding down
 	multiple keys though as well
 	*/
-	//keep this lowercase bc its not a real class
+
 	@Override
 	public void keyTyped(KeyEvent ke) {
 		//could maybe use for something like opening the pause menu or something
 	}
 
 	@Override
-	public void keyPressed(KeyEvent ke) { //this should work if the code runs through here each time it sees key is pressed
+	public void keyPressed(KeyEvent ke) {
+		//this should work if the code runs through here each time it sees key is pressed
 		//If not we'll get fancy
-		if (ke.getKeyCode() == KeyEvent.VK_LEFT) {//Java aint getting to keylistener, threw some souts in here and nothing
-			//left arrow key
-			player.moveLeft();
-		} else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
-			//right arrow key
-			player.moveRight();
-		} else if (ke.getKeyCode() == KeyEvent.VK_UP) {
-			//up arrow key
-			player.moveUp();
-		} else if (ke.getKeyCode() == KeyEvent.VK_SPACE) {
-			//space bar
-			//also jump?
-			player.moveUp();
-		} else {
-			//not supported yet
+		pressedButtons.add(ke.getKeyCode());
+		if (pressedButtons.size()>0) {
+			for (Integer c : pressedButtons) {
+				if (c.equals(KeyEvent.VK_LEFT)) {
+					//Java aint getting to keylistener, threw some souts in here and nothing
+					//left arrow key
+					player.moveLeft();
+				} else if (c.equals(KeyEvent.VK_RIGHT)) {
+					//right arrow key
+					player.moveRight();
+				} else if (c.equals(KeyEvent.VK_UP)) {
+					//up arrow key
+					player.moveUp();
+				} else if (c.equals(KeyEvent.VK_SPACE)) {
+					//space bar
+					//also jump?
+					player.moveUp();
+				}
+				//pr0ves
+				//you just need these buttons listened, even if you add other buttons the final else can be avoided
+			}
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent ke) {
 		//stop movement
+		pressedButtons.remove(ke.getKeyCode());
 	}
 }
