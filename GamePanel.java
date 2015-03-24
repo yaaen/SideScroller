@@ -14,6 +14,8 @@ public class GamePanel extends JPanel implements KeyListener {
 	String[][] fileArray;
 	Matter[][] matter;
 	Player player;
+	
+	public final int MOVESPEED = 2, JUMPHEIGHT = 10, GRAVITY = 3;//gravity is for later may go somewhere else
 
 	//array that will contain the code of the pressed buttons
 	//removed the boolean pressed as well, you can use something like pressedButtons.size()>0
@@ -120,17 +122,17 @@ public class GamePanel extends JPanel implements KeyListener {
 				if (c.equals(KeyEvent.VK_LEFT)) {
 					//Java aint getting to keylistener, threw some souts in here and nothing
 					//left arrow key
-					player.moveLeft();
+					player.moveLateral(-MOVESPEED);
 				} else if (c.equals(KeyEvent.VK_RIGHT)) {
 					//right arrow key
-					player.moveRight();
+					player.moveLateral(MOVESPEED);
 				} else if (c.equals(KeyEvent.VK_UP)) {
 					//up arrow key
-					player.moveUp();
+					player.moveVertical(-JUMPHEIGHT);
 				} else if (c.equals(KeyEvent.VK_SPACE)) {
 					//space bar
 					//also jump?
-					player.moveUp();
+					player.moveVertical(-JUMPHEIGHT);
 				}
 				//pr0ves
 				//you just need these buttons listened, even if you add other buttons the final else can be avoided
