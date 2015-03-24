@@ -14,6 +14,7 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	//array that will contain the code of the pressed buttons
 	//removed the boolean pressed as well, you can use something like pressedButtons.size()>0
+	//derrreks: Why are we not just using ints here, it seems kind of unnecessary to the Integer class
 	private final List<Integer> pressedButtons = new ArrayList<Integer>();
 
 	//this could maybe be used to keep track of which one of the matters
