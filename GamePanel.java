@@ -7,7 +7,8 @@ import MatterFolder.*;
 
 public class GamePanel extends JPanel implements KeyListener {
 
-	private String[][] fileArray;
+	//you could make these private
+	String[][] fileArray;
 	Matter[][] matter;
 	Player player;
 
@@ -18,7 +19,6 @@ public class GamePanel extends JPanel implements KeyListener {
 	//this could maybe be used to keep track of which one of the matters
 	//contains the actual player. there might be a better way to
 	//do this though.
-	//if a key is being held down or not
 
 	public GamePanel() {
 		addKeyListener(this);
