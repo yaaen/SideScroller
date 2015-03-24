@@ -8,6 +8,13 @@ public class FileRead {
 
     private String[][] levelArray;
 
+	//we might want to just use a constructor with no parameters because we never know what level they will open first
+	//so the code might be cleaner to just always have to update it the same way instead of the first time through
+	//the constructor.
+	public FileRead(){
+		
+	}
+
     //pr0ves
     //made this constructor so that everytime you create a FileRead object it creates automatically the level array
     public FileRead(int level) {
@@ -16,7 +23,7 @@ public class FileRead {
 
 
     //pr0ves
-    //i think you could make this method in a better way, for example you can jump the arraylist part and convert directly levelString to levelArray
+    //i think you could make this method in a better way, for example you can jump the arraylist part and convert directly levelString to levelArray    
     //also you could delete the "n" in the level file, because every line is terminated by "\n" by default
 
 	private String[][] readLevelFromFile(int level) {
