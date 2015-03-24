@@ -130,6 +130,9 @@ public class GamePanel extends JPanel implements KeyListener {
 				}
 				//pr0ves
 				//you just need these buttons listened, even if you add other buttons the final else can be avoided
+				//we're going to need a repaint() somewhere around here. I think it would work here
+				repaint();
+				
 			}
 		}
 	}
