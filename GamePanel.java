@@ -15,6 +15,8 @@ public class GamePanel extends JPanel implements KeyListener {
 
     //Aren't these constants too big for movement?
     //if the player jumps it will instantaneously teleported 15 blocks above his original position
+    //	derrreks: the 15 can be pixels but in that case it's too small so we could probably up that
+    // and then just add it to player to move up
 	public final int MOVESPEED = 6;
 	public final int JUMPHEIGHT = 15;
 	public final int GRAVITY = 3;//gravity is for later may go somewhere else
@@ -91,8 +93,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	public void keyPressed(KeyEvent ke) {
 		Integer c = ke.getKeyCode();
         int modifier = 0;
-        if (jumping)
-        {
+        if (jumping) {
             modifier = MOVESPEED/2;
         }
 		if (c.equals(KeyEvent.VK_LEFT)) {
@@ -115,8 +116,8 @@ public class GamePanel extends JPanel implements KeyListener {
                 jumping=false;
             }
         }
-        //we're going to need a repaint() somewhere around here. I think it would work here
         repaint();
+        
         //the KeyEvent triggers too fast after this method finishes executing the code, so it needs to wait some time
         //i put 50 milliseconds but it needs to be tested
         try {
@@ -133,5 +134,7 @@ public class GamePanel extends JPanel implements KeyListener {
         //you dont need to stop the player when it's moving laterally
         //anyway a method to make the player fall when he's jumping is needed
         //can't put that here because it needs to fall even though the jump button is pressed
+        //	derrreks: we could possibly have a method within Player that is something like:
+        //invokeGravity() that can change the player's y value itself
 	}
 }
