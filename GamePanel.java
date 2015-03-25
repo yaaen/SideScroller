@@ -58,8 +58,6 @@ public class GamePanel extends JPanel implements KeyListener {
 	}
 
 	public void transFileToArray() {
-		int playerX = 0; //only need this for player's original position
-		int playerY = 0;
 		for (int i = 0; i < fileArray.length; i++) {
 			for (int j = 0; j < fileArray[0].length; j++) {
 				if (fileArray[i][j].equals("s")) {//sky
@@ -69,13 +67,13 @@ public class GamePanel extends JPanel implements KeyListener {
 				} else if (fileArray[i][j].equals("p")) {//player
 					playerX = j * 100;
 					playerY = i * 100;
+					player = new Player(playerX, playerY);
 					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); //we'll have the player drawn separately
 				} else {
 					matter[i][j] = new Block(j * 100, i * 100, Color.BLACK);
 				}
 			}
 		}
-		player = new Player(playerX, playerY);
 	}
 
 	@Override
