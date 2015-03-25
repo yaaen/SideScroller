@@ -102,20 +102,14 @@ public class GamePanel extends JPanel implements KeyListener {
 		} else if (c.equals(KeyEvent.VK_RIGHT)) {
 			//right arrow key
 			player.moveLateral(MOVESPEED-modifier);
-		} else if (c.equals(KeyEvent.VK_UP)) {
-			//up arrow key
+		} else if (c.equals(KeyEvent.VK_UP) || c.equals(KeyEvent.VK_SPACE)) {
+			//up arrow key/space bar 
             if (!jumping) {
                 player.moveVertical(JUMPHEIGHT);
-                jumping=true;
+                jumping = true;
             }
-        } else if (c.equals(KeyEvent.VK_SPACE)) {
-			//space bar
-			//also jump
-            if (!jumping) {
-                player.moveVertical(JUMPHEIGHT);
-                jumping=false;
-            }
-        }
+            //here is where we should call something to start gravity
+        } 
         repaint();
         
         //the KeyEvent triggers too fast after this method finishes executing the code, so it needs to wait some time
