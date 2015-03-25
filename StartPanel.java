@@ -32,7 +32,7 @@ public class StartPanel extends JPanel {
         }
     }
     
-    public int setChosen(int chosen) {
+    public void setChosen(int chosen) {
         this.chosen = chosen;
     }
     
