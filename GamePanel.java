@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.lang.Integer;
+import java.util.concurrent.TimeUnit;
 
 import MatterFolder.*;
 
@@ -12,9 +13,15 @@ public class GamePanel extends JPanel implements KeyListener {
 	private Matter[][] matter;
 	private Player player;
 
-	public final int MOVESPEED = 6
-	public final int JUMPHEIGHT = 15
+    //Aren't these constants too big for movement?
+    //if the player jumps it will instantaneously teleported 15 blocks above his original position
+	public final int MOVESPEED = 6;
+	public final int JUMPHEIGHT = 15;
 	public final int GRAVITY = 3;//gravity is for later may go somewhere else
+
+    //while this is true you could half the lateral speed
+    //needs to be set false when the player touches the ground
+    private boolean jumping = false;
 
 	public GamePanel() {
 		addKeyListener(this);
@@ -65,8 +72,8 @@ public class GamePanel extends JPanel implements KeyListener {
 				} else if (fileArray[i][j].equals("g")) {//ground
 					matter[i][j] = new Block(j * 100, i * 100, Color.DARK_GRAY);
 				} else if (fileArray[i][j].equals("p")) {//player
-					playerX = j * 100;
-					playerY = i * 100;
+					int playerX = j * 100;
+					int playerY = i * 100;
 					player = new Player(playerX, playerY);
 					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); //we'll have the player drawn separately
 				} else {
@@ -83,28 +90,48 @@ public class GamePanel extends JPanel implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent ke) {
 		Integer c = ke.getKeyCode();
+        int modifier = 0;
+        if (jumping)
+        {
+            modifier = MOVESPEED/2;
+        }
 		if (c.equals(KeyEvent.VK_LEFT)) {
 			//left arrow key
-			player.moveLateral(-MOVESPEED);
+			player.moveLateral(-(MOVESPEED-modifier));
 		} else if (c.equals(KeyEvent.VK_RIGHT)) {
 			//right arrow key
-			player.moveLateral(MOVESPEED);
+			player.moveLateral(MOVESPEED-modifier);
 		} else if (c.equals(KeyEvent.VK_UP)) {
 			//up arrow key
-			player.moveVertical(JUMPHEIGHT);
-		} else if (c.equals(KeyEvent.VK_SPACE)) {
+            if (!jumping) {
+                player.moveVertical(JUMPHEIGHT);
+                jumping=true;
+            }
+        } else if (c.equals(KeyEvent.VK_SPACE)) {
 			//space bar
 			//also jump
-			player.moveVertical(JUMPHEIGHT);
-		}
-		repaint();
-		//pr0ves
-		//you just need these buttons listened, even if you add other buttons the final else can be avoided
-		//we're going to need a repaint() somewhere around here. I think it would work here
+            if (!jumping) {
+                player.moveVertical(JUMPHEIGHT);
+                jumping=false;
+            }
+        }
+        //we're going to need a repaint() somewhere around here. I think it would work here
+        repaint();
+        //the KeyEvent triggers too fast after this method finishes executing the code, so it needs to wait some time
+        //i put 50 milliseconds but it needs to be tested
+        try {
+            TimeUnit.MILLISECONDS.sleep(50);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
 	}
 
 	@Override
 	public void keyReleased(KeyEvent ke) {
 		//we need something here to stop movement stuff
+        //you dont need to stop the player when it's moving laterally
+        //anyway a method to make the player fall when he's jumping is needed
+        //can't put that here because it needs to fall even though the jump button is pressed
 	}
 }
