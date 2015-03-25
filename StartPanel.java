@@ -10,7 +10,7 @@ import javax.swing.border.EmptyBorder;
 public class StartPanel extends JPanel {
 
     JButton[][] levels = new JButton[3][8];
-    int chosen = -1;
+    private int chosen = -1;
     ChosenEvent e = new ChosenEvent();
 
     public StartPanel() {
@@ -32,7 +32,11 @@ public class StartPanel extends JPanel {
         }
     }
     
-    public int chosen() {
+    public int setChosen(int chosen) {
+        this.chosen = chosen;
+    }
+    
+    public int getChosen() {
         return chosen;
     }
 
