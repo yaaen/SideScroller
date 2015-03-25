@@ -6,9 +6,9 @@ public class Application{
     
     Frame frame;
     StartPanel startPanel;
-    static final String STARTPANELCON = "Start Panel";
+    final String STARTPANELCON = "Start Panel";
     GamePanel gamePanel;
-    static final String GAMEPANELCON = "Game Panel";
+    final String GAMEPANELCON = "Game Panel";
     CardLayout cardLay;
     JPanel cards;
     
@@ -47,16 +47,16 @@ public class Application{
             } catch (InterruptedException e) {
                 System.out.println(e.toString());
             }
-            if(startPanel.chosen != -1){
+            if(startPanel.getChosen() != -1){
                 break;
             }
         }
-        play(startPanel.chosen);
+        play(startPanel.getChosen());
     }
     
     public void play(int level){
         //reset start panel chosen
-        startPanel.chosen = -1;
+        startPanel.setChosen(-1);
         
         //switch to game panel
         gamePanel.setLevel(level);
