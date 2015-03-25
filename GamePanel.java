@@ -20,7 +20,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	public final int GRAVITY = 3;//gravity is for later may go somewhere else
 
     //while this is true you could half the lateral speed
-    //needs to be set when the player touches the ground
+    //needs to be set false when the player touches the ground
     private boolean jumping = false;
 
 	public GamePanel() {
