@@ -31,13 +31,15 @@ public class Camera{
     //door in frame which would lock the camera in place
     boolean lock = false;
     
+    boolean lookRight;
+    
     public Camera(Block[][] field, Player player){
         this.field = field;
         this.player = player;
     }
     
     public void move(){
-        if(!lock){
+        if(!lock && lookRight){
             for(int i = 0; i < field.length; i++){
             	for(int j = 0; j < field[0].length; j++){
                     field[i][j].setY(field[i][j].getY() - dy);
