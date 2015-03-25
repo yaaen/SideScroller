@@ -8,12 +8,13 @@ import MatterFolder.*;
 
 public class GamePanel extends JPanel implements KeyListener {
 
-	//you could make these private
-	String[][] fileArray;
-	Matter[][] matter;
-	Player player;
+	private String[][] fileArray;
+	private Matter[][] matter;
+	private Player player;
 
-	public final int MOVESPEED = 6, JUMPHEIGHT = 15, GRAVITY = 3;//gravity is for later may go somewhere else
+	public final int MOVESPEED = 6
+	public final int JUMPHEIGHT = 15
+	public final int GRAVITY = 3;//gravity is for later may go somewhere else
 
 	public GamePanel() {
 		addKeyListener(this);
@@ -77,11 +78,6 @@ public class GamePanel extends JPanel implements KeyListener {
 		player = new Player(playerX, playerY);
 	}
 
-	/*
-	we do need to figure out how to handle holding down
-	multiple keys though as well
-	*/
-
 	@Override
 	public void keyTyped(KeyEvent ke) {
 	}
@@ -97,11 +93,11 @@ public class GamePanel extends JPanel implements KeyListener {
 			player.moveLateral(MOVESPEED);
 		} else if (c.equals(KeyEvent.VK_UP)) {
 			//up arrow key
-			player.moveVertical(-JUMPHEIGHT);
+			player.moveVertical(JUMPHEIGHT);
 		} else if (c.equals(KeyEvent.VK_SPACE)) {
 			//space bar
 			//also jump
-			player.moveVertical(-JUMPHEIGHT);
+			player.moveVertical(JUMPHEIGHT);
 		}
 		repaint();
 		//pr0ves
@@ -111,5 +107,6 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent ke) {
+		//we need something here to stop movement stuff
 	}
 }
