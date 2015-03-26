@@ -12,6 +12,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	private String[][] fileArray;
 	private Matter[][] matter;
 	private Player player;
+	private FileRead fr;
 	private final int BLOCKSIZE = 100;
 
     //Aren't these constants too big for movement?
@@ -30,10 +31,11 @@ public class GamePanel extends JPanel implements KeyListener {
 		addKeyListener(this);
 		setFocusable(true);
 		requestFocus();
+		fr = new FileRead();
 	}
 
 	public void setLevel(int level) {
-		FileRead fr = new FileRead(level);
+		fr.setLevelArray(level);
 		fileArray = fr.getLevelArray();
 		matter = new Matter[fileArray.length][fileArray[0].length];
 		transFileToArray();
