@@ -14,11 +14,16 @@ public class FileRead {
 		
 	}
 
+	//shouldn't need any of the following anymore but left it just incase my edits cause an error
     //pr0ves
     //made this constructor so that everytime you create a FileRead object it creates automatically the level array
-    public FileRead(int level) {
-       this.levelArray = readLevelFromFile(level);
-    }
+    //public FileRead(int level) {
+      // this.levelArray = readLevelFromFile(level);
+    //}
+
+	public void setLevelArray(int level){
+		this.levelArray = readLevelFromFile(level);
+	}
 
 
     //pr0ves
