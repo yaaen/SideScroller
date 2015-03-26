@@ -5,8 +5,6 @@ public class Player extends Character{
         super(locX, locY);
     }
 
-    //pr0ves
-    //locX and locY are private so I made the method modLocX() and modLocY() in Matter.java
     public void moveLateral(int dist){
 		modLocX(dist);
 	}
