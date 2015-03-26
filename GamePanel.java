@@ -12,6 +12,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	private String[][] fileArray;
 	private Matter[][] matter;
 	private Player player;
+	private final int BLOCKSIZE = 100;
 
     //Aren't these constants too big for movement?
     //if the player jumps it will instantaneously teleported 15 blocks above his original position
@@ -56,12 +57,12 @@ public class GamePanel extends JPanel implements KeyListener {
 				//we're gonna have to paint the square icon wherever and get its location,
 				//which should all be in the class so I think it'd be something like:
 				g.setColor(matter[i][j].getColor());
-				g.fillRect(matter[i][j].getX(), matter[i][j].getY(), 100, 100);
+				g.fillRect(matter[i][j].getX(), matter[i][j].getY(), BLOCKSIZE, BLOCKSIZE);
 			}
 		}
 
 		g.setColor(Color.MAGENTA);
-		g.fillRect(player.getX(), player.getY(), 100, 100);
+		g.fillRect(player.getX(), player.getY(), BLOCKSIZE, BLOCKSIZE);
 
 		requestFocus();
 	}
@@ -70,16 +71,16 @@ public class GamePanel extends JPanel implements KeyListener {
 		for (int i = 0; i < fileArray.length; i++) {
 			for (int j = 0; j < fileArray[0].length; j++) {
 				if (fileArray[i][j].equals("s")) {//sky
-					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); //multiply by 100 since each block is 100 x 100
+					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.CYAN); //multiply by 100 since each block is 100 x 100
 				} else if (fileArray[i][j].equals("g")) {//ground
-					matter[i][j] = new Block(j * 100, i * 100, Color.DARK_GRAY);
+					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.DARK_GRAY);
 				} else if (fileArray[i][j].equals("p")) {//player
-					int playerX = j * 100;
-					int playerY = i * 100;
+					int playerX = j * BLOCKSIZE;
+					int playerY = i * BLOCKSIZE;
 					player = new Player(playerX, playerY);
-					matter[i][j] = new Block(j * 100, i * 100, Color.CYAN); //we'll have the player drawn separately
+					matter[i][j] = new Block(playerX, playerY, Color.CYAN); //we'll have the player drawn separately
 				} else {
-					matter[i][j] = new Block(j * 100, i * 100, Color.BLACK);
+					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.BLACK);
 				}
 			}
 		}
