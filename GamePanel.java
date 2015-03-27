@@ -27,7 +27,8 @@ public class GamePanel extends JPanel implements KeyListener {
 	}
 
 	public void setLevel(int level) {
-		FileRead fr = new FileRead(level);
+		FileRead fr = new FileRead();
+		fr.setLevelArray(level);
 		fileArray = fr.getLevelArray();
 		matter = new Matter[fileArray.length][fileArray[0].length];
 		transFileToArray();
