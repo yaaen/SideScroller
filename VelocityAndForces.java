@@ -1,5 +1,6 @@
 public interface VelocityAndForces{
-    public static final int GRAVITY = 3; //dunno what this should be yet
+    // this can probably be deleted right? Now that we have gravity in GamePanel()
+    public static final int GRAVITY = 3;
     
     public void setSpeed(int v);
     public int getSpeed();
@@ -14,5 +15,3 @@ public interface VelocityAndForces{
     public void setDrag(int d);
     public int getDrag(); //might not need this
 }
-
-//What class is going to use this?
