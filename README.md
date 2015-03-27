@@ -1,5 +1,9 @@
 # SideScroller
 
+We should start to try and think of other possible types of blocks we can have in the game as well. Maybe some blocks can affect his stats like make him move faster or something. 
+
+
+
 I just went to the two levels and added a 'p' in;
 that will be where the player starts
 
