@@ -54,6 +54,22 @@ public class Application{
         play(startPanel.getChosen());
     }
     
+    /*
+    * similar to the above method, it will wait for the player
+    * to finish the level they are playing so that it will know
+    * when to move back to the level select screen or whatever
+    * we want to appear after they beat a level
+    */
+    public boolean waitForLevelFinish(){
+            try {
+                TimeUnit.NANOSECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                System.out.println(e.toString());
+            }
+            
+            return !gamePanel.isGameFinished();
+    }
+    
     public void play(int level){
         //reset start panel chosen
         startPanel.setChosen(-1);
@@ -63,8 +79,13 @@ public class Application{
         cardLay.show(cards, GAMEPANELCON);
 
         //have them play the game
-
-        //when finished, go back to waitForLevelChoice()
+        while(waitForLevelFinish()){
+        //if waitForLevelFinish returns true
+        //this means level is still being played
+        }
+        
+        //when finished, go back to waitForLevelChoice() and
+        //go back to the start menu
         
     }
 }
