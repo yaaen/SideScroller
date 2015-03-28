@@ -13,6 +13,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	//you could make these private
 	String[][] fileArray;
 	Matter[][] matter;
+	boolean isGameFinished = false;
 	Player player;
 	Timer timer = new Timer();
 	private final int BLOCKSIZE = 50;
@@ -27,6 +28,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	}
 
 	public void setLevel(int level) {
+		isGameFinished = false;
 		FileRead fr = new FileRead();
 		fr.setLevelArray(level);
 		fileArray = fr.getLevelArray();
@@ -165,5 +167,9 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent ke) {
+	}
+	
+	public boolean isGameFinished(){
+		return isGameFinished;
 	}
 }
