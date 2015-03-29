@@ -15,11 +15,6 @@ public abstract class Matter{
     //ImageIcon but i don't know yet
     private Image img;
 
-    //i added some more constructers because we
-    //don't know yet how we'll want to make some
-    //of its child classes
-    
-    //I added some of this stuff to make sure errors don't get thrown
     public Matter(){
         this.locX = 0;
         this.locY = 0;
@@ -83,18 +78,31 @@ public abstract class Matter{
         this.locY = locY;
     }
     
+    //don't know if we'll use this at least not yet
     public void setImage(Image img){
         this.img = img;
     }
     
+    /**
+     * This method returns the x value of the upper left corner of the block
+     * 
+     * @return	the location of the the upper left corner of the block in the x direection
+     */
     public int getX(){
         return locX;
     }
     
+    /**
+     * This method returns the y value of the upper left corner of the block
+     * 
+     * @return	the location of the the upper left corner of the block in the y direection
+     */
     public int getY(){
         return locY;   
     }
 
+	
+    //don't know if we'll use this at least not yet
     public Image getImage(){
     	return img; //this is for now
     }
