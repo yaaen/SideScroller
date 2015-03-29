@@ -42,20 +42,43 @@ public abstract class Matter{
 		this.locX = locX;
 		this.locY = locY;
 		this.matterColor = c;
-	}
+`   }
 
+	/**
+	 * Returns the color that is painted to represent this block
+	 * 
+	 * @return	the color that this block is represented with on the screen
+	 */
 	public Color getColor() {
 		return matterColor;
 	}
 
+	/**
+	 * Takes in a Color which is set to be the color that gets painted to
+	 * represent this block
+	 * 
+	 * @param c	the color for this block to be represented with
+	 */
 	public void setColor(Color c) {
 		matterColor = c;
 	}
     
+    /**
+     * This method sets the location of the upper corner of this block
+     * in the x direction
+     * 
+     * @param locX sets location in the xdirection of this block
+     */
     public void setX(int locX){
         this.locX = locX;
     }
     
+    /**
+     * This method sets the location of the upper corner of this block
+     * in the y direction
+     * 
+     * @param locY sets location in the ydirection of this block
+     */
     public void setY(int locY){
         this.locY = locY;
     }
@@ -73,18 +96,27 @@ public abstract class Matter{
     }
 
     public Image getImage(){
-        return img; //this is for now
+    	return img; //this is for now
     }
 
-
-    //pr0ves
-    //made these methods to modify locX and locY since they are private
-	//derrreks: i'm going to make them private to make sure that the 
-	//	only methods used are the ones like the ones in Player
-     public void modLocX(int dx){
-        locX += dx;
+	/**
+	 * Adds the specified value to the x location of 
+	 * this block; if a negative value is passed in,
+	 * the block will move left
+	 * 
+	 * @param dx adds this value to the current locX
+	 */
+    public void modLocX(int dx){
+    	locX += dx;
     }
 
+	/**
+	 * Adds the specified value to the y location of 
+	 * this block; if a negative value is passed in,
+	 * the block will move up
+	 * 
+	 * @param dy adds this value to the current locY
+	 */
     public void modLocY(int dy){
 	    locY += dy;
     }
