@@ -75,6 +75,11 @@ public class GamePanel extends JPanel implements KeyListener {
 		int playerY = 0;
 		for (int i = 0; i < fileArray.length; i++) {
 			for (int j = 0; j < fileArray[0].length; j++) {
+				/*
+				* this can be done a lot better; earlier on we can set each block's color and then
+				* just loop through and get its color
+				* I can work on that in the coming days
+				*/
 				if (fileArray[i][j].equals("s")) {//sky
 					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.CYAN); //multiply by 100 since each block is 100 x 100
 				} else if (fileArray[i][j].equals("g")) {//ground
