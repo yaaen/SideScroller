@@ -10,13 +10,14 @@ public abstract class Matter{
     private int locY;
     private Color matterColor;
     
-    //this needs an import and we might have to
-    //change it later to like a BufferedImage or
-    //ImageIcon but i don't know yet
+    //we will most likely change this later
+    //to something like a BufferedImage or
+    //ImageIcon but i don't know yet which
+    //will work the best for this
     private Image img;
 
     public Matter(){
-        this.locX = 0;
+    	this.locX = 0;
         this.locY = 0;
         this.matterColor = Color.WHITE;//default color?
     }
@@ -100,9 +101,7 @@ public abstract class Matter{
     public int getY(){
         return locY;   
     }
-
-	
-    //don't know if we'll use this at least not yet
+    
     public Image getImage(){
     	return img; //this is for now
     }
