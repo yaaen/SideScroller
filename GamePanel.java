@@ -19,7 +19,9 @@ public class GamePanel extends JPanel implements KeyListener {
 	private final int BLOCKSIZE = 50;
 	ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
 
-	public final int MOVESPEED = BLOCKSIZE / 10, JUMPHEIGHT = 2 * BLOCKSIZE, GRAVITY = 5;//gravity is for later may go somewhere else
+	public final int MOVESPEED = BLOCKSIZE / 10;
+	public final int JUMPHEIGHT = 2 * BLOCKSIZE;
+	public final int GRAVITY = 5;//gravity is for later may go somewhere else
 
 	public GamePanel() {
 		addKeyListener(this);
