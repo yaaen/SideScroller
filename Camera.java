@@ -5,17 +5,6 @@
 import MatterFolder.*;
 
 public class Camera{
-    /*enum for the different directions that the camera can move
-    it is tricky because the camera movement is relative to block movement.
-    For example, to move the camera upwards, all of the blocks need to be moved downward
-    */
-    //also if you want to get even more specific we could add directions like:
-    //northnorthwest or something but that might be too much
-    public enum Direction {
-        NORTH, NORTHEAST, NORTHWEST,
-        SOUTH, SOUTHEAST, SOUTHWEST,
-        EAST, WEST
-    }
     
     //all of the matter pieces currently in the frame
     //we should discuss if new pieces should be introduced in this class or the gamePanel class
@@ -23,6 +12,8 @@ public class Camera{
     //  want to get this class to work with that one
     Block[][] field;
     
+    //derrreks: do we need a player in this class?
+    //  i don't think we do
     Player player;
     
     //these save how much the player has moved
@@ -31,6 +22,7 @@ public class Camera{
     //door in frame which would lock the camera in place
     boolean lock = false;
     
+    //derrreks: what is this boolean for?
     boolean lookRight;
     
     public Camera(Block[][] field, Player player){
@@ -48,4 +40,12 @@ public class Camera{
             }
         }
     }
+    
+    //check to see if the door is within the screen
+    public void checkForDoor(){
+        //loop through the field, if any of them are the door
+        //set lock to true, if not do nothing
+        //i'll fill in code later
+    }
+    
 }
