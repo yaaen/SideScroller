@@ -59,8 +59,6 @@ public class GamePanel extends JPanel implements KeyListener {
 
 		for (int i = 0; i < matter.length; i++) {
 			for (int j = 0; j < matter[0].length; j++) {
-				//we're gonna have to paint the square icon wherever and get its location,
-				//which should all be in the class so I think it'd be something like:
 				g.setColor(matter[i][j].getColor());
 				g.fillRect(matter[i][j].getX(), matter[i][j].getY(), BLOCKSIZE, BLOCKSIZE);
 			}
@@ -73,29 +71,22 @@ public class GamePanel extends JPanel implements KeyListener {
 	}
 
 	public void transFileToArray() {
-		int playerX = 0; //only need this for player's original position
-		int playerY = 0;
 		for (int i = 0; i < fileArray.length; i++) {
 			for (int j = 0; j < fileArray[0].length; j++) {
-				/*
-				* this can be done a lot better; earlier on we can set each block's color and then
-				* just loop through and get its color
-				* I can work on that in the coming days
-				*/
 				if (fileArray[i][j].equals("s")) {//sky
-					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.CYAN); //multiply by 100 since each block is 100 x 100
+					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.CYAN);
 				} else if (fileArray[i][j].equals("g")) {//ground
 					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.DARK_GRAY);
 				} else if (fileArray[i][j].equals("p")) {//player
 					playerX = j * BLOCKSIZE;
 					playerY = i * BLOCKSIZE;
-					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.CYAN); //we'll have the player drawn separately
+					player = new Player(playerX, playerY);
+					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.CYAN);
 				} else {
 					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.BLACK);
 				}
 			}
 		}
-		player = new Player(playerX, playerY);
 	}
 
 	public void applyGravity() {
@@ -131,11 +122,6 @@ public class GamePanel extends JPanel implements KeyListener {
 		return true;
 	}
 
-	/*
-	we do need to figure out how to handle holding down
-	multiple keys though as well
-	*/
-
 	@Override
 	public void keyTyped(KeyEvent ke) {
 	}
@@ -167,9 +153,6 @@ public class GamePanel extends JPanel implements KeyListener {
 			}
 		}
 		repaint();
-		//pr0ves
-		//you just need these buttons listened, even if you add other buttons the final else can be avoided
-		//we're going to need a repaint() somewhere around here. I think it would work here
 	}
 
 	@Override
