@@ -12,10 +12,6 @@ public class Camera{
     //  want to get this class to work with that one
     Block[][] field;
     
-    //derrreks: do we need a player in this class?
-    //  i don't think we do
-    Player player;
-    
     //these save how much the player has moved
     int dx, dy;
     
@@ -25,9 +21,16 @@ public class Camera{
     //derrreks: what is this boolean for?
     boolean lookRight;
     
-    public Camera(Block[][] field, Player player){
+    public Camera(){
+        
+    }
+    
+    public Camera(Block[][] field){
         this.field = field;
-        this.player = player;
+    }
+    
+    public void setField(Block[][] field){
+        this.field = field;
     }
     
     public void move(){
