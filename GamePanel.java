@@ -68,6 +68,7 @@ public class GamePanel extends JPanel implements KeyListener {
 		g.fillRect(player.getX(), player.getY(), BLOCKSIZE, BLOCKSIZE);
 
 		requestFocus();
+		checkForLevelFinish();
 	}
 
 	public void transFileToArray() {
@@ -159,6 +160,11 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent ke) {
+	}
+	
+	public void checkForLevelFinished(){
+		//if player and door have same location:
+		//isGameFinished = true
 	}
 	
 	public boolean isGameFinished(){
