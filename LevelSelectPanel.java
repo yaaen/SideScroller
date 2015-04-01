@@ -7,13 +7,13 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class StartPanel extends JPanel {
+public class LevelSelectPanel extends JPanel {
 
     JButton[][] levels = new JButton[3][8];
     private int chosen = -1;
     ChosenEvent e = new ChosenEvent();
 
-    public StartPanel() {
+    public LevelSelectPanel() {
         setBorder(new EmptyBorder(40, 40, 40, 40));
         setSize(1600, 1000);
         setLayout(new GridLayout(0, 8, 40, 40));
