@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 public class Application{
     
     Frame frame;
+    StartPanel startPanel;
+    final String STARTPANELCON = "Start Panel";
     LevelSelectPanel levelSelectPanel;
     final String LEVELSELECTPANELCON = "Level Select Panel";
     GamePanel gamePanel;
@@ -16,20 +18,37 @@ public class Application{
     //it is easier because you do not need all of the methods to be static
     public Application(){
         frame = new Frame();
+        startPanel = new StartPanel();
         levelSelectPanel = new LevelSelectPanel();
         gamePanel = new GamePanel();
         cardLay = new CardLayout();
         cards = new JPanel(cardLay);
         
+        cards.add(startPanel, STARTPANELCON);
         cards.add(levelSelectPanel, LEVELSELECTPANELCON);
         cards.add(gamePanel, GAMEPANELCON);
-        cardLay.show(cards, LEVELSELECTPANELCON);
+        cardLay.show(cards, STARTPANELCON);
         
         frame.add(cards);
         
         frame.setVisible(true);
-      
-        waitForLevelChoice();  
+     
+        waitForButtonClicked();
+    }
+    
+    public void waitForButtonClicked(){
+        while(true){
+            try {
+                TimeUnit.NANOSECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                System.out.println(e.toString());
+            }
+            if(startPanel.wasButtonClicked()){
+                break;
+            }
+        }
+        cardLay.show(cards, LEVELSELECTPANELCON);
+        waitForLevelChoice();
     }
     
     /*
