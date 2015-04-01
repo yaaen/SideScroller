@@ -5,8 +5,8 @@ import javax.swing.JPanel;
 public class Application{
     
     Frame frame;
-    StartPanel startPanel;
-    final String STARTPANELCON = "Start Panel";
+    LevelSelectPanel levelSelectPanel;
+    final String LEVELSELECTPANELCON = "Level Select Panel";
     GamePanel gamePanel;
     final String GAMEPANELCON = "Game Panel";
     CardLayout cardLay;
@@ -16,14 +16,14 @@ public class Application{
     //it is easier because you do not need all of the methods to be static
     public Application(){
         frame = new Frame();
-        startPanel = new StartPanel();
+        levelSelectPanel = new LevelSelectPanel();
         gamePanel = new GamePanel();
         cardLay = new CardLayout();
         cards = new JPanel(cardLay);
         
-        cards.add(startPanel, STARTPANELCON);
+        cards.add(levelSelectPanel, LEVELSELECTPANELCON);
         cards.add(gamePanel, GAMEPANELCON);
-        cardLay.show(cards, STARTPANELCON);
+        cardLay.show(cards, LEVELSELECTPANELCON);
         
         frame.add(cards);
         
@@ -33,7 +33,7 @@ public class Application{
     }
     
     /*
-    *   chosen() in StartPanel returns -1 until a level is
+    *   chosen() in LevelSelectssPanel returns -1 until a level is
     *   chosen so we use that to wait until a level
     *   is chosen and then when it is we call play()
     *   which will start the actual level...
@@ -47,11 +47,11 @@ public class Application{
             } catch (InterruptedException e) {
                 System.out.println(e.toString());
             }
-            if(startPanel.getChosen() != -1){
+            if(levelSelectPanel.getChosen() != -1){
                 break;
             }
         }
-        play(startPanel.getChosen());
+        play(levelSelectPanel.getChosen());
     }
     
     /*
@@ -71,8 +71,8 @@ public class Application{
     }
     
     public void play(int level){
-        //reset start panel chosen
-        startPanel.setChosen(-1);
+        //reset level select panel chosen
+        levelSelectPanel.setChosen(-1);
         
         //switch to game panel
         gamePanel.setLevel(level);
@@ -86,7 +86,7 @@ public class Application{
         
         //when finished, go back to waitForLevelChoice() and
         //go back to the start menu
-        cardLay.show(cards, STARTPANELCON);
+        cardLay.show(cards, LEVELSELECTPANELCON);
         waitForLevelChoice();
     }
 }
