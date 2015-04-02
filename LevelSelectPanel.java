@@ -3,6 +3,8 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -20,7 +22,7 @@ public class LevelSelectPanel extends JPanel {
 
         //number of files in the Levels folder
         String dirString = "/Levels";
-        Path dir = Paths.get(dirString);
+        Path dir = Paths.get(dirString); // ist this supposed to be paths (plural?)
         int numOfLevels = dir.getNameCount();
 
         int levelNum = 1;
