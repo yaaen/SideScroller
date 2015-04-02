@@ -38,7 +38,7 @@ public abstract class Matter{
 		this.locX = locX;
 		this.locY = locY;
 		this.matterColor = c;
-`   }
+   }
 
 	/**
 	 * Returns the color that is painted to represent this block
