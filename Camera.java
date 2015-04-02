@@ -33,7 +33,9 @@ public class Camera{
         this.field = field;
     }
     
-    public void move(){
+    public void move(int dx, int dy){
+        this.dx = dx;
+        this.dy = dy;
         if(!lock && lookRight){
             for(int i = 0; i < field.length; i++){
             	for(int j = 0; j < field[0].length; j++){
