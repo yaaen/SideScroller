@@ -25,6 +25,16 @@ public class FileRead {
 	public void setLevelArray(int level){
 		this.levelArray = readLevelFromFile(level);
 	}
+	
+	/**
+	 * This method returns a String[][] that contains the letters from the
+	 * text file that was last read in
+	 * 
+	 * @return	String[][] containing the most recently read in level
+	 */
+    	public String[][] getLevelArray() {
+        	return this.levelArray;
+    	}
 
 	/**
 	 * Takes a given level and reads from its corresponding text file and puts 
@@ -67,14 +77,4 @@ public class FileRead {
 
 		return levelArray;
 	}
-
-	/**
-	 * This method returns a String[][] that contains the letters from the
-	 * text file that was last read in
-	 * 
-	 * @return	String[][] containing the most recently read in level
-	 */
-    	public String[][] getLevelArray() {
-        	return this.levelArray;
-    	}
 }
