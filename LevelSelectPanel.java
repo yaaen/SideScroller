@@ -18,15 +18,23 @@ public class LevelSelectPanel extends JPanel {
         setSize(1600, 1000);
         setLayout(new GridLayout(0, 8, 40, 40));
 
-        int count = 1;
+        //number of files in the Levels folder
+        String dirString = "/Levels";
+        Path dir = Paths.get(dirString);
+        int numOfLevels = dir.getNameCount();
+
+        int levelNum = 1;
         int yValue = 150;
         for(int r = 0; r < 3; r++){
             for(int c = 0; c < 8; c++){
-                levels[r][c] = new JButton(String.valueOf(count));
+                levels[r][c] = new JButton(String.valueOf(levelNum));
                 levels[r][c].setMargin(new Insets(50, 50, 50, 50));
                 levels[r][c].addActionListener(e);
+                if(levelNum <= numOfLevels){
+                    levels[r][c].setEnabled(false);
+                }
                 this.add(levels[r][c]);
-                count++;
+                levelNum++;
             }
             yValue += 200;
         }
