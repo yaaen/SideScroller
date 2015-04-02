@@ -23,7 +23,7 @@ public class LevelSelectPanel extends JPanel {
         //number of files in the Levels folder
         String dirString = "/Levels";
         Path dir = Paths.get(dirString); // ist this supposed to be paths (plural?)
-        int numOfLevels = dir.getNameCount();
+        int numOfLevels = dir.getNameCount() + 1;
 
         int levelNum = 1;
         int yValue = 150;
@@ -33,7 +33,9 @@ public class LevelSelectPanel extends JPanel {
                 levels[r][c].setMargin(new Insets(50, 50, 50, 50));
                 levels[r][c].addActionListener(e);
                 if(levelNum <= numOfLevels){
-                    levels[r][c].setEnabled(false);
+                    levels[r][c].setEnabled(true);
+                }else{
+	                levels[r][c].setEnabled(false);
                 }
                 this.add(levels[r][c]);
                 levelNum++;
