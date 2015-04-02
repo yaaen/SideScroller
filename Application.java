@@ -5,22 +5,24 @@ import javax.swing.JPanel;
 public class Application{
     
     Frame frame;
+    
     StartPanel startPanel;
     final String STARTPANELCON = "Start Panel";
     LevelSelectPanel levelSelectPanel;
     final String LEVELSELECTPANELCON = "Level Select Panel";
     GamePanel gamePanel;
     final String GAMEPANELCON = "Game Panel";
+    
     CardLayout cardLay;
     JPanel cards;
     
-    //this should be treated as the main method
-    //it is easier because you do not need all of the methods to be static
     public Application(){
         frame = new Frame();
+        
         startPanel = new StartPanel();
         levelSelectPanel = new LevelSelectPanel();
         gamePanel = new GamePanel();
+        
         cardLay = new CardLayout();
         cards = new JPanel(cardLay);
         
@@ -30,7 +32,6 @@ public class Application{
         cardLay.show(cards, STARTPANELCON);
         
         frame.add(cards);
-        
         frame.setVisible(true);
      
         waitForButtonClicked();
@@ -85,7 +86,6 @@ public class Application{
             } catch (InterruptedException e) {
                 System.out.println(e.toString());
             }
-            
             return !gamePanel.isGameFinished();
     }
     
