@@ -30,11 +30,6 @@ public class GamePanel extends JPanel implements KeyListener {
 		requestFocus();
 	}
 
-	//all game components are initialized
-	public void initGameComp() {
-		player = new Player(400, 400);
-	}
-
 	public void setLevel(int level) {
 		//initGameComp();
 		isGameFinished = false;
@@ -50,12 +45,8 @@ public class GamePanel extends JPanel implements KeyListener {
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-
-				//refresh screen should occur here
-				while (!isGameFinished) {
-					applyGravity();
-					repaint();
-				}
+				applyGravity();
+				repaint();
 			}
 		}, 1, 50);
 	}
