@@ -18,6 +18,8 @@ public class GamePanel extends JPanel implements KeyListener {
 	Player player;
 	Timer timer = new Timer();
 	private final int BLOCKSIZE = 50;
+	int playerX;
+	int playerY;
 	ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
 
 	public final int MOVESPEED = BLOCKSIZE / 10;
@@ -65,8 +67,11 @@ public class GamePanel extends JPanel implements KeyListener {
 			}
 		}
 
-		g.setColor(Color.MAGENTA);
-		g.fillRect(player.getX(), player.getY(), BLOCKSIZE, BLOCKSIZE);
+		g.setColor(Color.CYAN);
+        	g.fillRect(playerX, playerY, BLOCKSIZE, BLOCKSIZE);
+        
+        	g.setColor(player.getColor());
+        	g.fillRect(player.getX(), player.getY(), BLOCKSIZE, BLOCKSIZE);
 
 		requestFocus();
 		checkForLevelFinished();
@@ -80,10 +85,11 @@ public class GamePanel extends JPanel implements KeyListener {
 				} else if (fileArray[i][j].equals("g")) {//ground
 					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.DARK_GRAY);
 				} else if (fileArray[i][j].equals("p")) { //player
-					int playerX = j * BLOCKSIZE;
-					int playerY = i * BLOCKSIZE;
-					player = new Player(playerX, playerY);
-					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.CYAN);
+					playerX = j * BLOCKSIZE;
+					playerY = i * BLOCKSIZE;
+					playerColor = Color.MAGENTA;
+					player = new Player(playerX, playerY, playerColor);
+					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, playerColor);
 				} else if (fileArray[i][j].equals("d")) {//door
 					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.MAGENTA);
 				} else {//shouldn't get here (hopefully)
