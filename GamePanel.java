@@ -75,7 +75,7 @@ public class GamePanel extends JPanel implements KeyListener {
         }
 
         g.setColor(Color.MAGENTA);
-        //g.fillRect(player.getX(), player.getY(), BLOCKSIZE, BLOCKSIZE);
+        g.fillRect(player.getX(), player.getY(), BLOCKSIZE, BLOCKSIZE);
 
         requestFocus();
         checkForLevelFinished();
