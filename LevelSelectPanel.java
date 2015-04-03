@@ -18,7 +18,7 @@ public class LevelSelectPanel extends JPanel {
     public LevelSelectPanel() {
         setBorder(new EmptyBorder(40, 40, 40, 40));
         setSize(1600, 1000);
-        setLayout(new GridLayout(0, 8, 40, 40));
+        setLayout(new GridLayout(4, 0, 40, 40));
 
         //number of files in the Levels folder
         String dirString = "/Levels";
