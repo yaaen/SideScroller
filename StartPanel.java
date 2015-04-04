@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Insets;
@@ -21,6 +22,7 @@ public class StartPanel extends JPanel {
         event e = new event();
         
         startButton = new JButton("START GAME");
+        startButton.setFont(new Font("Arial", Font.Plain, 40);
         startButton.setMargin(new Insets(0, 0, 0, 0));
         startButton.addActionListener(e);
         startButton.setBackground(Color.MAGENTA);
@@ -29,9 +31,8 @@ public class StartPanel extends JPanel {
         wasClicked = false;
     }
     
-    @Override
-    public void paint(Graphics g){
-        this.removeAll();
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
         
         g.setColor(Color.CYAN);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
@@ -49,8 +50,6 @@ public class StartPanel extends JPanel {
         g.fillRect(700, 50, 290, 100);
         g.setColor(Color.GREEN);
         g.fillRect(250, 600, 300, 200);
-    
-        this.add(startButton);
     }
     
     public boolean wasButtonClicked() {
