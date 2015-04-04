@@ -45,31 +45,34 @@ public class GamePanel extends JPanel implements KeyListener {
 		//g = ground block
 		//p = player
         
-        //fps Thread
+        	//fps Thread
 		timer.scheduleAtFixedRate(new TimerTask() {
-			@Override
-			public void run() {
-                applyGravity();
+            		@Override
+            		public void run() {
+                		applyGravity();
+
+                		//move the character left
+                		if(leftPressed){
+                    			if(playerCanMoveX(-MOVESPEED)){
+                        			player.moveLateral(-MOVESPEED);
+                    			}
+                		}
 				
-                //move the character left
-                if(leftPressed){
-                    if (playerCanMoveX(-MOVESPEED)) {
-				        player.moveLateral(-MOVESPEED);
-			        }
-                }
+				//move the character right
+                		if(rightPressed){
+                    			if(playerCanMoveX(MOVESPEED)){
+                        			player.moveLateral(MOVESPEED);
+                    			}
+                		}
 
-                if(rightPressed){
-                    if (playerCanMoveX(MOVESPEED)) {
-				        player.moveLateral(MOVESPEED);
-			        }
-                }
-
-              /*  if(spacePressed){
+				//derrreks: what is this for?
+                		/*  if(spacePressed){
                        
-                }*/
-                repaint();
-			}
-		}, 1, 50);
+                 		}*/
+                 	
+                		repaint();
+            		}
+        	}, 1, 50);
 	}
 
 	public void paint(Graphics g) {
