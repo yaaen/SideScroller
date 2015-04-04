@@ -1,4 +1,3 @@
-
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -45,11 +44,26 @@ public class GamePanel extends JPanel implements KeyListener {
 		//s = no background(sky)
 		//g = ground block
 		//p = player
+        
+        //fps Thread
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
-				applyGravity();
-				repaint();
+                applyGravity();
+				
+                //move the character left
+                if(leftPressed){
+                    if (playerCanMoveX(-MOVESPEED)) {
+				        player.moveLateral(-MOVESPEED);
+			        }
+                }
+                if(rightPressed){
+                
+                }
+                if(spacePressed){
+                       
+                }
+                repaint();
 			}
 		}, 1, 50);
 	}
@@ -136,31 +150,38 @@ public class GamePanel extends JPanel implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent ke) {
 	}
+    
+    boolean leftPressed = false;
+    boolean rightPressed = false;
+    boolean upPressed = false;
+    boolean downPressed = false;
+    boolean spacePressed = false;
 
 	@Override
 	public void keyPressed(KeyEvent ke) {
 		Integer c = ke.getKeyCode();
-		if (c.equals(KeyEvent.VK_LEFT)) {
+		if (c.equals(KeyEvent.VK_LEFT) && !leftPressed) {
 			//left arrow key
-			if (playerCanMoveX(-MOVESPEED)) {
-				player.moveLateral(-MOVESPEED);
-			}
+			leftPressed = true;
 		}
-		if (c.equals(KeyEvent.VK_RIGHT)) {
+		if (c.equals(KeyEvent.VK_RIGHT) && !rightPressed) {
 			//right arrow key
+            rightPressed = true;
 			if (playerCanMoveX(MOVESPEED)) {
 				player.moveLateral(MOVESPEED);
 			}
 		}
 		if (c.equals(KeyEvent.VK_UP)) {
 			//up arrow key
+            upPressed = true;
 			if (playerCanMoveX(-JUMPHEIGHT)) {
 				player.moveVertical(-JUMPHEIGHT);
 			}
 		}
-		if (c.equals(KeyEvent.VK_SPACE)) {
+		if (c.equals(KeyEvent.VK_SPACE) && !spacePressed) {
 			//space bar
 			//also jump
+            spacePressed = true;
 			if (playerCanMoveY(-JUMPHEIGHT)) {
 				player.moveVertical(-JUMPHEIGHT);
 			}
@@ -170,7 +191,18 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent ke) {
-	}
+	    switch(ke.getKeyCode()){
+            case KeyEvent.VK_LEFT:
+                leftPressed = false;
+                break;
+            case KeyEvent.VK_RIGHT:
+                rightPressed = false;
+                break;
+            case KeyEvent.VK_SPACE:
+                spacePressed = false;
+                break;
+        };
+    }
 
 	public void checkForLevelFinished() {
 		//if player and door have same location:
@@ -179,5 +211,5 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	public boolean isGameFinished() {
 		return isGameFinished;
-	}
+    }
 }
