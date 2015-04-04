@@ -11,7 +11,9 @@ import javax.swing.border.EmptyBorder;
 
 public class LevelSelectPanel extends JPanel {
 
-    JButton[][] levels = new JButton[3][8];
+	int rows = 3;
+	int cols = 8;
+    JButton[][] levels = new JButton[rows][cols];
     private int chosen = -1;
     ChosenEvent e = new ChosenEvent();
 
@@ -27,8 +29,8 @@ public class LevelSelectPanel extends JPanel {
 
         int levelNum = 1;
         int yValue = 150;
-        for(int r = 0; r < 3; r++){
-            for(int c = 0; c < 8; c++){
+        for(int r = 0; r < rows; r++){
+            for(int c = 0; c < cols; c++){
                 levels[r][c] = new JButton(String.valueOf(levelNum));
                 levels[r][c].setMargin(new Insets(50, 50, 50, 50));
                 levels[r][c].addActionListener(e);
@@ -57,8 +59,8 @@ public class LevelSelectPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             loop:
-            for(int r = 0; r < 3; r++){
-                for(int c = 0; c < 8; c++){
+            for(int r = 0; r < rows; r++){
+                for(int c = 0; c < cols; c++){
                     if(levels[r][c] == e.getSource()){
                         chosen = Integer.parseInt(levels[r][c].getText());
                         break loop;
