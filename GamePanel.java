@@ -57,12 +57,16 @@ public class GamePanel extends JPanel implements KeyListener {
 				        player.moveLateral(-MOVESPEED);
 			        }
                 }
+
                 if(rightPressed){
-                
+                    if (playerCanMoveX(MOVESPEED)) {
+				        player.moveLateral(MOVESPEED);
+			        }
                 }
-                if(spacePressed){
+
+              /*  if(spacePressed){
                        
-                }
+                }*/
                 repaint();
 			}
 		}, 1, 50);
@@ -167,9 +171,6 @@ public class GamePanel extends JPanel implements KeyListener {
 		if (c.equals(KeyEvent.VK_RIGHT) && !rightPressed) {
 			//right arrow key
             rightPressed = true;
-			if (playerCanMoveX(MOVESPEED)) {
-				player.moveLateral(MOVESPEED);
-			}
 		}
 		if (c.equals(KeyEvent.VK_UP)) {
 			//up arrow key
