@@ -1,4 +1,4 @@
-
+import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -33,7 +33,7 @@ public class LevelSelectPanel extends JPanel {
         for(int r = 0; r < rows; r++){
             for(int c = 0; c < cols; c++){
                 levels[r][c] = new JButton(String.valueOf(levelNum));
-                levels[r][c].setFont(new Font("Arial", Font.Plain, 40);
+                levels[r][c].setFont(new Font("Arial", Font.Plain, 40));
                 levels[r][c].setMargin(new Insets(50, 50, 50, 50));
                 levels[r][c].addActionListener(e);
                 levels[r][c].setBackground(Color.MAGENTA);
