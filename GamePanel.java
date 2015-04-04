@@ -92,7 +92,7 @@ public class GamePanel extends JPanel implements KeyListener {
 					player = new Player(playerX, playerY, playerColor);
 					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, playerColor);
 				} else if (fileArray[i][j].equals("d")) {//door
-					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.MAGENTA);
+					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.RED);
 				} else {//shouldn't get here (hopefully)
 					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.BLACK);
 				}
