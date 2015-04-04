@@ -183,7 +183,7 @@ public class GamePanel extends JPanel implements KeyListener {
 			//space bar
 			//also jump
             spacePressed = true;
-			if (playerCanMoveY(-JUMPHEIGHT)) {
+			if (playerCanMoveY(-JUMPHEIGHT) && !player.isInAir()) {
 				player.moveVertical(-JUMPHEIGHT);
 			}
 		}
