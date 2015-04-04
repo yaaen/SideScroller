@@ -45,7 +45,7 @@ public class FileRead {
 	 */
 	private String[][] readLevelFromFile(int level) {
 		//create a file to read in the level and add to a string
-		File file = new File("Levels/level" + level + ".txt"); //this might need ".txt" cant try out right now
+		File file = new File("Levels/Level" + level + ".txt"); //this might need ".txt" cant try out right now
 		String levelString = "";
 		BufferedReader br;
 		try {
