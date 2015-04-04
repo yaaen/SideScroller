@@ -1,8 +1,12 @@
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 public class StartPanel extends JPanel {
     
@@ -11,18 +15,42 @@ public class StartPanel extends JPanel {
     
     public StartPanel(){
         setSize(1600, 1000);
-        setLayout(null);
-        setBackground(Color.CYAN);
+        setBorder(new EmptyBorder(250, 600, 250, 600));
+        setLayout(new GridLayout(1, 1, 100, 100));
 
         event e = new event();
-
+        
         startButton = new JButton("START GAME");
-        startButton.setSize(400, 250);
-        startButton.setLocation(600, 450);
+        startButton.setMargin(new Insets(0, 0, 0, 0));
         startButton.addActionListener(e);
+        startButton.setBackground(Color.MAGENTA);
         this.add(startButton);
 
         wasClicked = false;
+    }
+    
+    @Override
+    public void paint(Graphics g){
+        this.removeAll();
+        
+        g.setColor(Color.CYAN);
+        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        
+        g.setColor(Color.BLUE);
+        g.fillRect(0, 0, 470, 320);
+        g.setColor(Color.RED);
+        g.fillRect(100, 700, 200, 190);
+        g.setColor(Color.GREEN);
+        g.fillRect(1200, 100, 300, 700);
+        
+        g.setColor(Color.BLUE);
+        g.fillRect(1050, 600, 270, 320);
+        g.setColor(Color.RED);
+        g.fillRect(700, 50, 290, 100);
+        g.setColor(Color.GREEN);
+        g.fillRect(250, 600, 300, 200);
+    
+        this.add(startButton);
     }
     
     public boolean wasButtonClicked() {
