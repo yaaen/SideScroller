@@ -33,14 +33,15 @@ public class Camera{
         this.field = field;
     }
     
+    //The additional ones are so the player can move faster than the blocks
     public void move(int dx, int dy){
         this.dx = dx;
         this.dy = dy;
         if(!lock && lookRight){
             for(int i = 0; i < field.length; i++){
             	for(int j = 0; j < field[0].length; j++){
-                    field[i][j].setY(field[i][j].getY() - dy);
-                    field[i][j].setX(field[i][j].getX() - dx);
+                    field[i][j].setY(field[i][j].getY() - dy + 1);
+                    field[i][j].setX(field[i][j].getX() - dx + 1);
             	}
             }
         }
