@@ -168,33 +168,38 @@ public class GamePanel extends JPanel implements KeyListener {
     boolean spacePressed = false;
 
 	@Override
-	public void keyPressed(KeyEvent ke) {
-		Integer c = ke.getKeyCode();
-		if (c.equals(KeyEvent.VK_LEFT) && !leftPressed) {
-			//left arrow key
-			leftPressed = true;
-		}
-		if (c.equals(KeyEvent.VK_RIGHT) && !rightPressed) {
-			//right arrow key
+    public void keyPressed(KeyEvent ke) {
+        Integer c = ke.getKeyCode();
+        if(c.equals(KeyEvent.VK_LEFT) && !leftPressed){
+            //left arrow key
+            leftPressed = true;
+        }
+        if(c.equals(KeyEvent.VK_RIGHT) && !rightPressed){
+            //right arrow key
             rightPressed = true;
-		}
-		if (c.equals(KeyEvent.VK_UP)) {
-			//up arrow key
+        }
+        if(c.equals(KeyEvent.VK_UP)){
+            //up arrow key
             upPressed = true;
-			if (playerCanMoveX(-JUMPHEIGHT)) {
-				player.moveVertical(-JUMPHEIGHT);
-			}
-		}
-		if (c.equals(KeyEvent.VK_SPACE) && !spacePressed) {
-			//space bar
-			//also jump
+            if(playerCanMoveX(-JUMPHEIGHT)){
+                player.moveVertical(-JUMPHEIGHT);
+            }
+        }
+        if(c.equals(KeyEvent.VK_SPACE) && !spacePressed){
+            //space bar
+            //also jump
             spacePressed = true;
-			if (playerCanMoveY(-JUMPHEIGHT) && !player.isInAir()) {
-				player.moveVertical(-JUMPHEIGHT);
-			}
-		}
-		repaint();
-	}
+            if(playerCanMoveY(-JUMPHEIGHT) && (!player.isInAir() || player.canDoubleJump())){
+                player.moveVertical(-JUMPHEIGHT);
+                if(player.isInAir()){
+                    player.setCanDoubleJump(false);
+                } else{
+                    player.setCanDoubleJump(true);
+                }
+            }
+        }
+        repaint();
+    }
 
 	@Override
 	public void keyReleased(KeyEvent ke) {
