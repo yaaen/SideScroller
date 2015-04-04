@@ -35,7 +35,7 @@ public class LevelSelectPanel extends JPanel {
                 levels[r][c] = new JButton(String.valueOf(levelNum));
                 levels[r][c].setMargin(new Insets(50, 50, 50, 50));
                 levels[r][c].addActionListener(e);
-                levels[r][c].setColor(Color.MAGENTA);
+                levels[r][c].setBackground(Color.MAGENTA);
                 if(levelNum <= numOfLevels){
                     levels[r][c].setEnabled(true);
                 } else{
