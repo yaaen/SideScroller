@@ -4,8 +4,9 @@ import java.awt.Color;
 
 public class Character extends Matter {
     
-    boolean inAir;
-    boolean inWater;
+    private boolean inAir;
+    private boolean inWater;
+    private boolean canDoubleJump;
 
     public Character(int locX, int locY) {
         super(locX, locY);
@@ -22,6 +23,10 @@ public class Character extends Matter {
     public void enteredAir(boolean inAir){
         this.inAir = inAir;
     }
+    
+    public void setCanDoubleJump(boolean canDoubleJump){
+        this.canDoubleJump = canDoubleJump;
+    }
 
     public boolean isInAir(){
         return inAir;
@@ -29,5 +34,9 @@ public class Character extends Matter {
 
     public boolean isInWater(){
         return inWater;
+    }
+    
+    public boolean canDoubleJump(){
+        return canDoubleJump;
     }
 }
