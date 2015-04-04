@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -11,8 +12,8 @@ import javax.swing.border.EmptyBorder;
 
 public class LevelSelectPanel extends JPanel {
 
-	int rows = 3;
-	int cols = 8;
+    int rows = 3;
+    int cols = 8;
     JButton[][] levels = new JButton[rows][cols];
     private int chosen = -1;
     ChosenEvent e = new ChosenEvent();
@@ -34,10 +35,11 @@ public class LevelSelectPanel extends JPanel {
                 levels[r][c] = new JButton(String.valueOf(levelNum));
                 levels[r][c].setMargin(new Insets(50, 50, 50, 50));
                 levels[r][c].addActionListener(e);
+                levels[r][c].setColor(Color.MAGENTA);
                 if(levelNum <= numOfLevels){
                     levels[r][c].setEnabled(true);
-                }else{
-	                levels[r][c].setEnabled(false);
+                } else{
+                    levels[r][c].setEnabled(false);
                 }
                 this.add(levels[r][c]);
                 levelNum++;
