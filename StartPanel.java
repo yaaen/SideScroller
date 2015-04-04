@@ -29,9 +29,8 @@ public class StartPanel extends JPanel {
         wasClicked = false;
     }
     
-    @Override
-    public void paint(Graphics g){
-        this.removeAll();
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
         
         g.setColor(Color.CYAN);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
@@ -49,8 +48,6 @@ public class StartPanel extends JPanel {
         g.fillRect(700, 50, 290, 100);
         g.setColor(Color.GREEN);
         g.fillRect(250, 600, 300, 200);
-    
-        this.add(startButton);
     }
     
     public boolean wasButtonClicked() {
