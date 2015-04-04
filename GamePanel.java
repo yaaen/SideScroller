@@ -120,8 +120,11 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	public void applyGravity() {
 		if (playerCanMoveY(GRAVITY)) {
-			player.moveVertical(GRAVITY);
-		}
+			player.enteredAir(true);
+            player.moveVertical(GRAVITY);
+		}else{
+            player.enteredAir(false);
+        }
 	}
 
 	public boolean playerCanMoveX(int move) {
