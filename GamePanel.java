@@ -15,6 +15,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	Matter[][] matter;
 	boolean isGameFinished = false;
 	Player player;
+	Block door;
 	Timer timer = new Timer();
 	private final int BLOCKSIZE = 50;
 	int playerX;
@@ -113,7 +114,8 @@ public class GamePanel extends JPanel implements KeyListener {
 					player = new Player(playerX, playerY, playerColor);
 					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, playerColor);
 				} else if (fileArray[i][j].equals("d")) {//door
-					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.RED);
+					door = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.RED);
+					matter[i][j] = door;
 				} else {//shouldn't get here (hopefully)
 					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.BLACK);
 				}
@@ -124,10 +126,10 @@ public class GamePanel extends JPanel implements KeyListener {
 	public void applyGravity() {
 		if (playerCanMoveY(GRAVITY)) {
 			player.enteredAir(true);
-            player.moveVertical(GRAVITY);
-		}else{
-            player.enteredAir(false);
-        }
+            		player.moveVertical(GRAVITY);
+		} else {
+            		player.enteredAir(false);
+        	}
 	}
 
 	public boolean playerCanMoveX(int move) {
@@ -212,8 +214,9 @@ public class GamePanel extends JPanel implements KeyListener {
     }
 
 	public void checkForLevelFinished() {
-		//if player and door have same location:
-		//isGameFinished = true
+		if(objDim.collisionCheck(player, door)){
+            isGameFinished = true;
+        }
 	}
 
 	public boolean isGameFinished() {
