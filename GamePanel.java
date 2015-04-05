@@ -169,16 +169,16 @@ public class GamePanel extends JPanel implements KeyListener {
 	@Override
     public void keyPressed(KeyEvent ke) {
         Integer c = ke.getKeyCode();
-        if(c.equals(KeyEvent.VK_LEFT) && !leftPressed){
-            //left arrow key
+        if((c.equals(KeyEvent.VK_LEFT) || c.equals(KeyEvent.VK_A)) && !leftPressed){
+            //left arrow key/a
             leftPressed = true;
         }
-        if(c.equals(KeyEvent.VK_RIGHT) && !rightPressed){
-            //right arrow key
+        if((c.equals(KeyEvent.VK_RIGHT) || c.equals(KeyEvent.VK_D)) && !rightPressed){
+            //right arrow key/d
             rightPressed = true;
         }
-        if((c.equals(KeyEvent.VK_SPACE) || c.equals(KeyEvent.VK_UP)) && !spacePressed){
-            //space bar/up
+        if((c.equals(KeyEvent.VK_SPACE) || c.equals(KeyEvent.VK_UP) || c.equals(KeyEvent.VK_W)) && !spacePressed){
+            //space bar/up/w
             //jump
             spacePressed = true;
             if(playerCanMoveY(-JUMPHEIGHT) && (!player.isInAir() || player.canDoubleJump())){
