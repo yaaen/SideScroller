@@ -163,7 +163,6 @@ public class GamePanel extends JPanel implements KeyListener {
     
     boolean leftPressed = false;
     boolean rightPressed = false;
-    boolean upPressed = false;
     boolean downPressed = false;
     boolean spacePressed = false;
 
@@ -178,16 +177,9 @@ public class GamePanel extends JPanel implements KeyListener {
             //right arrow key
             rightPressed = true;
         }
-        if(c.equals(KeyEvent.VK_UP)){
-            //up arrow key
-            upPressed = true;
-            if(playerCanMoveX(-JUMPHEIGHT)){
-                player.moveVertical(-JUMPHEIGHT);
-            }
-        }
-        if(c.equals(KeyEvent.VK_SPACE) && !spacePressed){
-            //space bar
-            //also jump
+        if((c.equals(KeyEvent.VK_SPACE) || c.equals(KeyEvent.VK_UP)) && !spacePressed){
+            //space bar/up
+            //jump
             spacePressed = true;
             if(playerCanMoveY(-JUMPHEIGHT) && (!player.isInAir() || player.canDoubleJump())){
                 player.moveVertical(-JUMPHEIGHT);
@@ -210,6 +202,9 @@ public class GamePanel extends JPanel implements KeyListener {
             case KeyEvent.VK_RIGHT:
                 rightPressed = false;
                 break;
+            case KeyEvent.VK_UP:
+            	spacePressed = false;
+            	break;
             case KeyEvent.VK_SPACE:
                 spacePressed = false;
                 break;
