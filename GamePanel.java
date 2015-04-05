@@ -22,6 +22,7 @@ public class GamePanel extends JPanel implements KeyListener {
 	int playerY;
 	Color playerColor;
 	ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
+	Camera c = new Camera(1600);
 
 	public final int MOVESPEED = BLOCKSIZE / 10;
 	public final int JUMPHEIGHT = 2 * BLOCKSIZE;
@@ -45,6 +46,7 @@ public class GamePanel extends JPanel implements KeyListener {
 		//s = no background(sky)
 		//g = ground block
 		//p = player
+		//d = door
         
         	//fps Thread
 		timer.scheduleAtFixedRate(new TimerTask() {
@@ -55,25 +57,28 @@ public class GamePanel extends JPanel implements KeyListener {
                 		//move the character left
                 		if(leftPressed){
                     			if(playerCanMoveX(-MOVESPEED)){
-                        			player.moveLateral(-MOVESPEED);
-                    			}
-                		}
-				
-				//move the character right
-                		if(rightPressed){
-                    			if(playerCanMoveX(MOVESPEED)){
-                        			player.moveLateral(MOVESPEED);
+                        			if(c.isCameraLocked()){
+                            			player.moveLateral(-MOVESPEED);
+                        			} else{
+                        				matter = c.moveCharLeft(matter);
+                        			}
                     			}
                 		}
 
-				//derrreks: what is this for?
-                		/*  if(spacePressed){
-                       
-                 		}*/
+                		//move the character right
+                		if(rightPressed){
+                			if(playerCanMoveX(MOVESPEED)){
+                        		if(c.isCameraLocked()){
+                            		player.moveLateral(MOVESPEED);
+                        		} else{
+                            		matter = c.moveCharRight(matter);
+                        		}
+                    		}
+                		}
                  	
                 		repaint();
             		}
-        	}, 1, 50);
+        }, 1, 50);
 	}
 
 	public void paint(Graphics g) {
@@ -91,10 +96,10 @@ public class GamePanel extends JPanel implements KeyListener {
 		}
 
 		g.setColor(Color.CYAN);
-        	g.fillRect(playerX, playerY, BLOCKSIZE, BLOCKSIZE);
+        g.fillRect(playerX, playerY, BLOCKSIZE, BLOCKSIZE);
         
-        	g.setColor(player.getColor());
-        	g.fillRect(player.getX(), player.getY(), BLOCKSIZE, BLOCKSIZE);
+        g.setColor(player.getColor());
+        g.fillRect(player.getX(), player.getY(), BLOCKSIZE, BLOCKSIZE);
 
 		requestFocus();
 		checkForLevelFinished();
@@ -115,7 +120,8 @@ public class GamePanel extends JPanel implements KeyListener {
 					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, playerColor);
 				} else if (fileArray[i][j].equals("d")) {//door
 					door = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.RED);
-					matter[i][j] = door;
+                    matter[i][j] = door;
+                    matter[i][j].setDoor(true);
 				} else {//shouldn't get here (hopefully)
 					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.BLACK);
 				}
@@ -126,10 +132,10 @@ public class GamePanel extends JPanel implements KeyListener {
 	public void applyGravity() {
 		if (playerCanMoveY(GRAVITY)) {
 			player.enteredAir(true);
-            		player.moveVertical(GRAVITY);
+            player.moveVertical(GRAVITY);
 		} else {
-            		player.enteredAir(false);
-        	}
+            player.enteredAir(false);
+        }
 	}
 
 	public boolean playerCanMoveX(int move) {
@@ -137,7 +143,6 @@ public class GamePanel extends JPanel implements KeyListener {
 			for (int j = 0; j < matter[0].length; j++) {
 				if (matter[i][j].getColor() == Color.DARK_GRAY) {
 					if (objDim.collisionCheck(new Player(player.getX() + move, player.getY()), matter[i][j])) {
-						//System.out.println("px:" + player.getX() + "  py:" + player.getY() + "    mx:" + matter[i][j].getX() + "  my:" + matter[i][j].getY());
 						return false;
 					}
 				}
@@ -215,8 +220,9 @@ public class GamePanel extends JPanel implements KeyListener {
 
 	public void checkForLevelFinished() {
 		if(objDim.collisionCheck(player, door)){
+			c.resetLevel();
             isGameFinished = true;
-        }
+		}
 	}
 
 	public boolean isGameFinished() {
