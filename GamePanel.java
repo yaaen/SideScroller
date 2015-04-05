@@ -90,8 +90,12 @@ public class GamePanel extends JPanel implements KeyListener {
 		//this panel should probably use its own camera so there should be a global Camera c = new Camera() or something
 		for (int i = 0; i < matter.length; i++) {
 			for (int j = 0; j < matter[0].length; j++) {
-				g.setColor(matter[i][j].getColor());
-				g.fillRect(matter[i][j].getX(), matter[i][j].getY(), BLOCKSIZE, BLOCKSIZE);
+				if(matter[i][j].getColor() == Color.CYAN){
+                } else if(matter[i][j].isPlayer()){
+                } else{
+                    g.setColor(matter[i][j].getColor());
+                    g.fillRect(matter[i][j].getX(), matter[i][j].getY(), BLOCKSIZE, BLOCKSIZE);
+                }
 			}
 		}
 
@@ -118,6 +122,7 @@ public class GamePanel extends JPanel implements KeyListener {
 					playerColor = Color.MAGENTA;
 					player = new Player(playerX, playerY, playerColor);
 					matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, playerColor);
+					matter[i][j].setPlayer(true);
 				} else if (fileArray[i][j].equals("d")) {//door
 					door = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.RED);
                     matter[i][j] = door;
