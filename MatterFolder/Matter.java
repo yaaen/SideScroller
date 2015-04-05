@@ -9,6 +9,7 @@ public abstract class Matter {
     private int locX;
     private int locY;
     private Color matterColor;
+    private boolean isDoor = false;
     
     //we will most likely change this later
     //to something like a BufferedImage or
@@ -126,5 +127,13 @@ public abstract class Matter {
      */
     public void modLocY(int dy) {
         locY += dy;
+    }
+    
+    public void setDoor(boolean isDoor){
+        this.isDoor = isDoor;
+    }
+    
+    public boolean isDoor(){
+        return isDoor;
     }
 }
