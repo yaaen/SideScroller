@@ -10,6 +10,7 @@ public abstract class Matter {
     private int locY;
     private Color matterColor;
     private boolean isDoor = false;
+    private boolean isPlayer = false;
     
     //we will most likely change this later
     //to something like a BufferedImage or
@@ -135,5 +136,13 @@ public abstract class Matter {
     
     public boolean isDoor(){
         return isDoor;
+    }
+    
+    public void setPlayer(boolean isPlayer){
+        this.isPlayer = isPlayer;
+    }
+    
+    public boolean isPlayer(){
+        return isPlayer;
     }
 }
