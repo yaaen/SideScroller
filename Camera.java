@@ -1,57 +1,54 @@
 
-//This class works the camera for the game
-//as the player moves around the camera follows it
-//The technique is just smoothly moving everything to the opposite direction of the character's motion
 import MatterFolder.*;
 
-public class Camera{
-    
-    //all of the matter pieces currently in the frame
-    //we should discuss if new pieces should be introduced in this class or the gamePanel class
-    //Ethan: right now the gamePanel class have a 2d array for the blocks so we might just
-    //  want to get this class to work with that one
-    Block[][] field;
-    
-    //these save how much the player has moved
-    int dx, dy;
-    
-    //door in frame which would lock the camera in place
+public class Camera {
+
     boolean lock = false;
-    
-    //derrreks: what is this boolean for?
-    boolean lookRight;
-    
-    public Camera(){
-        
+    int width;
+
+    public Camera(int width) {
+        this.width = width;
     }
-    
-    public Camera(Block[][] field){
-        this.field = field;
-    }
-    
-    public void setField(Block[][] field){
-        this.field = field;
-    }
-    
-    //The additional ones are so the player can move faster than the blocks
-    public void move(int dx, int dy){
-        this.dx = dx;
-        this.dy = dy;
-        if(!lock && lookRight){
+
+    public Matter[][] moveCharRight(Matter[][] field) {
+        if(!lock){
             for(int i = 0; i < field.length; i++){
-            	for(int j = 0; j < field[0].length; j++){
-                    field[i][j].setY(field[i][j].getY() - dy + 1);
-                    field[i][j].setX(field[i][j].getX() - dx + 1);
-            	}
+                for(int j = 0; j < field[0].length; j++){
+                    field[i][j].setX(field[i][j].getX() - 5);
+                }
+            }
+            checkForDoor(field);
+        }
+        return field;
+    }
+
+    public Matter[][] moveCharLeft(Matter[][] field) {
+        if(!lock){
+            for(int i = 0; i < field.length; i++){
+                for(int j = 0; j < field[0].length; j++){
+                    field[i][j].setX(field[i][j].getX() + 5);
+                }
+            }
+        }
+        return field;
+    }
+
+    //check to see if the door is within the screen
+    private void checkForDoor(Matter[][] field) {
+        for(int i = 0; i < field.length; i++){
+            for(int j = 0; j < field[0].length; j++){
+                if(field[i][j].isDoor() && field[i][j].getX() < (width - 300)){
+                    lock = true;
+                }
             }
         }
     }
-    
-    //check to see if the door is within the screen
-    public void checkForDoor(){
-        //loop through the field, if any of them are the door
-        //set lock to true, if not do nothing
-        //i'll fill in code later
+
+    public boolean isCameraLocked() {
+        return lock;
     }
-    
+
+    public void resetLevel() {
+        lock = false;
+    }
 }
