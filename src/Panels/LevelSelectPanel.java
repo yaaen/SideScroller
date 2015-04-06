@@ -27,7 +27,8 @@ public class LevelSelectPanel extends JPanel {
     ChosenEvent ce = new ChosenEvent();
 
     public LevelSelectPanel() {
-        setSize(1600, 1000);
+        setFocusable(true);
+        requestFocus();
 
         GridBagLayout gridbag = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();

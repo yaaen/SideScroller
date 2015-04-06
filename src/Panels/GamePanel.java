@@ -24,7 +24,7 @@ public class GamePanel extends JPanel implements KeyListener {
     int playerY;
     Color playerColor;
     ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
-    Camera c = new Camera(1600);
+    Camera c = new Camera();
     public final int MOVESPEED = BLOCKSIZE / 10;
     public final int JUMPHEIGHT = 2 * BLOCKSIZE;
     // public final int OGGRAVITY = 5;

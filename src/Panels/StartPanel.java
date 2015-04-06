@@ -18,7 +18,8 @@ public class StartPanel extends JPanel {
     boolean wasClicked;
 
     public StartPanel() {
-        setSize(1600, 1000);
+        setFocusable(true);
+        requestFocus();
         setBorder(new EmptyBorder(250, 600, 250, 600));
         setLayout(new GridLayout(1, 1, 100, 100));
 

@@ -1,14 +1,15 @@
 package Tools;
 
 import MatterFolder.*;
+import Settings.Settings;
 
 public class Camera {
 
     boolean lock = false;
     int width;
 
-    public Camera(int width) {
-        this.width = width;
+    public Camera() {
+        width = Settings.getGameWidth();
     }
 
     public Matter[][] moveCharRight(Matter[][] field) {

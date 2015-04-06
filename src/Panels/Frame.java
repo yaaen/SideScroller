@@ -1,10 +1,11 @@
 package Panels;
 
+import Settings.Settings;
 import javax.swing.JFrame;
 
 public class Frame extends JFrame{
   public Frame(){
-    setBounds(100,25,1600,1000);
+    setBounds(100, 25, Settings.getGameWidth(), Settings.getGameHeight());
     setTitle("Side Scroller");
     setResizable(false);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

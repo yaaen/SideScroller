@@ -29,15 +29,15 @@ public class Settings {
         levelsCompleted = numbers.get(2);
     }
 
-    public int getGameHeight() {
+    public static int getGameHeight() {
         return gameHeight;
     }
 
-    public int getGameWidth() {
+    public static int getGameWidth() {
         return gameWidth;
     }
 
-    public int getLevelsCompleted() {
+    public static int getLevelsCompleted() {
         return levelsCompleted;
     }
 }
