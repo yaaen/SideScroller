@@ -1,3 +1,5 @@
+package Panels;
+
 
 import java.awt.Color;
 import java.awt.Font;
@@ -24,7 +26,7 @@ public class LevelSelectPanel extends JPanel {
     int chosen = -1;
     ChosenEvent ce = new ChosenEvent();
 
-    public LevelSelectPanel() {
+    public LevelSelectPanel(int thign) {
         setSize(1600, 1000);
 
         GridBagLayout gridbag = new GridBagLayout();

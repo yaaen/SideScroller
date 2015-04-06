@@ -11,7 +11,6 @@ public abstract class Matter {
     private Color matterColor;
     private boolean isDoor = false;
     private boolean isPlayer = false;
-    
     //we will most likely change this later
     //to something like a BufferedImage or
     //ImageIcon but i don't know yet which
