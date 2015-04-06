@@ -1,6 +1,6 @@
 package Panels;
 
-
+import Settings.Settings;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -55,10 +55,14 @@ public class LevelSelectPanel extends JPanel {
                 levels[r][c].setBackground(Color.MAGENTA);
                 gbc.gridx = gridx;
                 gbc.gridy = gridy;
-                if(levelNum <= numOfLevels){
-                    levels[r][c].setEnabled(true);
+                if(levelNum > numOfLevels || levelNum > Settings.getLevelsCompleted()){
+                    if(levelNum == 1){
+                        levels[r][c].setEnabled(true);
+                    } else{
+                        levels[r][c].setEnabled(false);
+                    }
                 } else{
-                    levels[r][c].setEnabled(false);
+                    levels[r][c].setEnabled(true);
                 }
                 this.add(levels[r][c], gbc);
                 levelNum++;
