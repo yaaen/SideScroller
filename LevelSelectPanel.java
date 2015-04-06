@@ -24,7 +24,7 @@ public class LevelSelectPanel extends JPanel {
     int chosen = -1;
     ChosenEvent ce = new ChosenEvent();
 
-    public LevelSelectPanel(int thign) {
+    public LevelSelectPanel() {
         setSize(1600, 1000);
 
         GridBagLayout gridbag = new GridBagLayout();
