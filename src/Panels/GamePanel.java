@@ -191,22 +191,15 @@ public class GamePanel extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent ke) {
         Integer c = ke.getKeyCode();
-        if(c.equals(KeyEvent.VK_LEFT) && !leftPressed){
+        if((c.equals(KeyEvent.VK_LEFT) || c.equals(KeyEvent.VK_A)) && !leftPressed){
             //left arrow key
             leftPressed = true;
         }
-        if(c.equals(KeyEvent.VK_RIGHT) && !rightPressed){
+        if((c.equals(KeyEvent.VK_RIGHT) || c.equals(KeyEvent.VK_D)) && !rightPressed){
             //right arrow key
             rightPressed = true;
         }
-        if(c.equals(KeyEvent.VK_UP)){
-            //up arrow key
-            upPressed = true;
-            if(playerCanMoveX(-JUMPHEIGHT)){
-                player.moveVertical(-JUMPHEIGHT);
-            }
-        }
-        if(c.equals(KeyEvent.VK_SPACE) && !spacePressed){
+        if((c.equals(KeyEvent.VK_SPACE) || c.equals(KeyEvent.VK_UP) || c.equals(KeyEvent.VK_W)) && !spacePressed){
             //space bar
             //also jump
             spacePressed = true;
@@ -228,10 +221,22 @@ public class GamePanel extends JPanel implements KeyListener {
             case KeyEvent.VK_LEFT:
                 leftPressed = false;
                 break;
+            case KeyEvent.VK_A:
+                leftPressed = false;
+                break;
             case KeyEvent.VK_RIGHT:
                 rightPressed = false;
                 break;
+            case KeyEvent.VK_D:
+                rightPressed = false;
+                break;
             case KeyEvent.VK_SPACE:
+                spacePressed = false;
+                break;
+            case KeyEvent.VK_UP:
+                spacePressed = false;
+                break;
+            case KeyEvent.VK_W:
                 spacePressed = false;
                 break;
         };
