@@ -107,7 +107,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
                 if(fileArray[i][j].equals("s")){//sky
                     matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.CYAN);
                 } else if(fileArray[i][j].equals("g")){//ground
-                    matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.DARK_GRAY);
+                    matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.BLACK);
                 } else if(fileArray[i][j].equals("p")){ //player
                     playerX = j * BLOCKSIZE;
                     playerY = i * BLOCKSIZE;
@@ -140,7 +140,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
     public boolean playerCanMoveX(int move) {
         for(int i = 0; i < matter.length; i++){
             for(int j = 0; j < matter[0].length; j++){
-                if(matter[i][j].getColor() == Color.DARK_GRAY){
+                if(matter[i][j].getColor() == Color.BLACK){
                     if(objDim.collisionCheck(new Player(player.getX() + move, player.getY()), matter[i][j])){
                         return false;
                     }
@@ -153,7 +153,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
     public boolean playerCanMoveY(int move) {
         for(int i = 0; i < matter.length; i++){
             for(int j = 0; j < matter[0].length; j++){
-                if(matter[i][j].getColor() == Color.DARK_GRAY){
+                if(matter[i][j].getColor() == Color.BLACK){
                     if(objDim.collisionCheck(new Player(player.getX(), player.getY() + move), matter[i][j])){
                         return false;
                     }
@@ -168,8 +168,6 @@ public class GamePanel extends MasterPanel implements KeyListener {
     }
     boolean leftPressed = false;
     boolean rightPressed = false;
-    boolean upPressed = false;
-    boolean downPressed = false;
     boolean spacePressed = false;
 
     @Override
@@ -231,6 +229,9 @@ public class GamePanel extends MasterPanel implements KeyListener {
         //isGameFinished = true
         if(objDim.collisionCheck(player, door)){
             c.resetLevel();
+            leftPressed = false;
+            rightPressed = false;
+            spacePressed = false;
             isGameFinished = true;
         }
     }
