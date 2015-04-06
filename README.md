@@ -15,10 +15,9 @@ p = player
 d = door
 
 controls:
-left = left
-right = right
-up = jump
-space = jump
+left = left, a
+right = right, d
+jump = up, w, space
 
 
 http://docs.oracle.com/javase/8/docs/api/index.html?overview-summary.html
