@@ -1,7 +1,10 @@
 package App;
 
+import Settings.Settings;
+
 public class Main{
   public static void main(String[] args){
-    Application app = new Application();
+      Settings set = new Settings();
+      Application app = new Application();
   }
 }

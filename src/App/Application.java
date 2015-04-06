@@ -4,6 +4,7 @@ import Panels.Frame;
 import Panels.StartPanel;
 import Panels.GamePanel;
 import Panels.LevelSelectPanel;
+import Panels.SettingsPanel;
 import java.awt.CardLayout;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JPanel;
@@ -17,6 +18,8 @@ public class Application {
     final String LEVELSELECTPANELCON = "Level Select Panel";
     GamePanel gamePanel;
     final String GAMEPANELCON = "Game Panel";
+    SettingsPanel settingsPanel;
+    final String SETTINGSPANELCON = "Settings Panel";
     CardLayout cardLay;
     JPanel cards;
 
@@ -24,20 +27,22 @@ public class Application {
         frame = new Frame();
 
         startPanel = new StartPanel();
-        levelSelectPanel = new LevelSelectPanel(1);
+        levelSelectPanel = new LevelSelectPanel();
         gamePanel = new GamePanel();
-
+        settingsPanel = new SettingsPanel();
+        
         cardLay = new CardLayout();
         cards = new JPanel(cardLay);
 
         cards.add(startPanel, STARTPANELCON);
         cards.add(levelSelectPanel, LEVELSELECTPANELCON);
         cards.add(gamePanel, GAMEPANELCON);
+        cards.add(settingsPanel, SETTINGSPANELCON);
         cardLay.show(cards, STARTPANELCON);
 
         frame.add(cards);
         frame.setVisible(true);
-
+        
         waitForButtonClicked();
     }
 

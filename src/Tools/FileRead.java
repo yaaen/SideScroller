@@ -78,4 +78,26 @@ public class FileRead {
 
         return levelArray;
     }
+    
+    public String getSettings(){
+        File file = new File("src\\Settings\\settings.txt");
+        String levelString = "";
+        BufferedReader br;
+        try {
+            br = new BufferedReader(new FileReader(file));
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while(line != null){
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+            }
+            levelString = sb.toString();
+            br.close();
+        } catch (Exception e) {
+            System.out.print(e.toString());
+        }
+        return levelString;
+    }
 }
