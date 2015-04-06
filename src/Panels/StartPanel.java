@@ -1,6 +1,6 @@
 package Panels;
 
-
+import Settings.Settings;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -9,10 +9,9 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class StartPanel extends JPanel {
+public class StartPanel extends MasterPanel {
 
     JButton startButton;
     boolean wasClicked;
@@ -37,23 +36,6 @@ public class StartPanel extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        g.setColor(Color.CYAN);
-        g.fillRect(0, 0, this.getWidth(), this.getHeight());
-
-        g.setColor(Color.BLUE);
-        g.fillRect(0, 0, 470, 320);
-        g.setColor(Color.RED);
-        g.fillRect(100, 700, 200, 190);
-        g.setColor(Color.GREEN);
-        g.fillRect(1200, 100, 300, 700);
-
-        g.setColor(Color.BLUE);
-        g.fillRect(1050, 600, 270, 320);
-        g.setColor(Color.RED);
-        g.fillRect(700, 50, 290, 100);
-        g.setColor(Color.GREEN);
-        g.fillRect(250, 600, 300, 200);
     }
 
     public boolean wasButtonClicked() {

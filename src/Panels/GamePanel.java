@@ -1,6 +1,5 @@
 package Panels;
 
-import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -10,7 +9,7 @@ import java.util.TimerTask;
 import MatterFolder.*;
 import Tools.*;
 
-public class GamePanel extends JPanel implements KeyListener {
+public class GamePanel extends MasterPanel implements KeyListener {
 
     //you could make these private
     String[][] fileArray;
@@ -81,23 +80,8 @@ public class GamePanel extends JPanel implements KeyListener {
         }, 1, 50);
     }
 
-    public void paint(Graphics g) {
-        g.setColor(Color.CYAN);
-        g.fillRect(0, 0, this.getWidth(), this.getHeight());
-
-        g.setColor(Color.BLUE);
-        g.fillRect(0, 0, 470, 320);
-        g.setColor(Color.RED);
-        g.fillRect(100, 700, 200, 190);
-        g.setColor(Color.GREEN);
-        g.fillRect(1200, 100, 300, 700);
-
-        g.setColor(Color.BLUE);
-        g.fillRect(1050, 600, 270, 320);
-        g.setColor(Color.RED);
-        g.fillRect(700, 50, 290, 100);
-        g.setColor(Color.GREEN);
-        g.fillRect(250, 600, 300, 200);
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
 
         for(int i = 0; i < matter.length; i++){
             for(int j = 0; j < matter[0].length; j++){
