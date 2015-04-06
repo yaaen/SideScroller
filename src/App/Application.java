@@ -30,7 +30,7 @@ public class Application {
         levelSelectPanel = new LevelSelectPanel();
         gamePanel = new GamePanel();
         settingsPanel = new SettingsPanel();
-        
+
         cardLay = new CardLayout();
         cards = new JPanel(cardLay);
 
@@ -42,7 +42,7 @@ public class Application {
 
         frame.add(cards);
         frame.setVisible(true);
-        
+
         waitForButtonClicked();
     }
 
@@ -80,7 +80,19 @@ public class Application {
                 break;
             }
         }
-        play(levelSelectPanel.getChosen());
+        if(levelSelectPanel.getChosen() > 99){
+            if(levelSelectPanel.getChosen() == 100){
+                //credits
+            } else if(levelSelectPanel.getChosen() == 101){
+                //back to start
+            } else if(levelSelectPanel.getChosen() == 102){
+                levelSelectPanel.setChosen(-1);
+                cardLay.show(cards, SETTINGSPANELCON);
+                waitForSettingsDone();
+            }
+        } else{
+            play(levelSelectPanel.getChosen());
+        }
     }
 
     /**
@@ -96,6 +108,22 @@ public class Application {
             System.out.println(e.toString());
         }
         return !gamePanel.isGameFinished();
+    }
+
+    public void waitForSettingsDone() {
+        while(true){
+            try {
+                TimeUnit.NANOSECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                System.out.println(e.toString());
+            }
+            if(settingsPanel.goBack()){
+                settingsPanel.setBack();
+                break;
+            }
+        }
+        cardLay.show(cards, LEVELSELECTPANELCON);
+        waitForLevelChoice();
     }
 
     public void play(int level) {

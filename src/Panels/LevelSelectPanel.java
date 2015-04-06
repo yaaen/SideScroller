@@ -103,22 +103,24 @@ public class LevelSelectPanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.setColor(Color.CYAN);
-        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        if(Settings.getBackground() == 0){
+            g.setColor(Color.CYAN);
+            g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
-        g.setColor(Color.BLUE);
-        g.fillRect(0, 0, 470, 320);
-        g.setColor(Color.RED);
-        g.fillRect(100, 700, 200, 190);
-        g.setColor(Color.GREEN);
-        g.fillRect(1200, 100, 300, 700);
+            g.setColor(Color.BLUE);
+            g.fillRect(0, 0, 470, 320);
+            g.setColor(Color.RED);
+            g.fillRect(100, 700, 200, 190);
+            g.setColor(Color.GREEN);
+            g.fillRect(1200, 100, 300, 700);
 
-        g.setColor(Color.BLUE);
-        g.fillRect(1050, 600, 270, 320);
-        g.setColor(Color.RED);
-        g.fillRect(700, 50, 290, 100);
-        g.setColor(Color.GREEN);
-        g.fillRect(250, 600, 300, 200);
+            g.setColor(Color.BLUE);
+            g.fillRect(1050, 600, 270, 320);
+            g.setColor(Color.RED);
+            g.fillRect(700, 50, 290, 100);
+            g.setColor(Color.GREEN);
+            g.fillRect(250, 600, 300, 200);
+        }
     }
 
     public void setChosen(int chosen) {
@@ -150,8 +152,11 @@ public class LevelSelectPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(credits == e.getSource()){
+                chosen = 100;
             } else if(start == e.getSource()){
+                chosen = 101;
             } else if(settings == e.getSource()){
+                chosen = 102;
             }
         }
     }
