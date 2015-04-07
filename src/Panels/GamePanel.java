@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import MatterFolder.*;
+import Settings.Settings;
 import Tools.*;
 
 public class GamePanel extends MasterPanel implements KeyListener {
@@ -14,20 +15,22 @@ public class GamePanel extends MasterPanel implements KeyListener {
     //you could make these private
     String[][] fileArray;
     Matter[][] matter;
-    boolean isGameFinished = false;
     Player player;
     Block door;
-    Timer timer = new Timer();
-    private final int BLOCKSIZE = 50;
     int playerX;
     int playerY;
     Color playerColor;
+    boolean leftPressed = false;
+    boolean rightPressed = false;
+    boolean spacePressed = false;
+    boolean isGameFinished = false;
+    public final int BLOCKSIZE = Settings.getBlockSize();
+    public final int MOVESPEED = Settings.getMovementSpeed();
+    public final int JUMPHEIGHT = 2 * BLOCKSIZE;
+    public final int GRAVITY = Settings.getGravity();
     ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
     Camera c = new Camera();
-    public final int MOVESPEED = BLOCKSIZE / 10;
-    public final int JUMPHEIGHT = 2 * BLOCKSIZE;
-    // public final int OGGRAVITY = 5;
-    public final int GRAVITY = 5;
+    Timer timer = new Timer();
 
     public GamePanel() {
         addKeyListener(this);
@@ -42,12 +45,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         fileArray = fr.getLevelArray();
         matter = new Matter[fileArray.length][fileArray[0].length];
         transFileToArray();
-        //fileArray will be strings
-        //s = no background(sky)
-        //g = ground block
-        //p = player
-
-        //fps Thread
+        
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -86,10 +84,14 @@ public class GamePanel extends MasterPanel implements KeyListener {
         for(int i = 0; i < matter.length; i++){
             for(int j = 0; j < matter[0].length; j++){
                 if(matter[i][j].getColor() == Color.CYAN){
+                    //don't paint the sky, background will take care of it
                 } else if(matter[i][j].isPlayer()){
+                    //don't paint player, that's taken care of below
                 } else{
-                    g.setColor(matter[i][j].getColor());
-                    g.fillRect(matter[i][j].getX(), matter[i][j].getY(), BLOCKSIZE, BLOCKSIZE);
+                    if(matter[i][j].shouldPaint()){
+                        g.setColor(matter[i][j].getColor());
+                        g.fillRect(matter[i][j].getX(), matter[i][j].getY(), BLOCKSIZE, BLOCKSIZE);
+                    }
                 }
             }
         }
@@ -121,6 +123,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
                     matter[i][j].setDoor(true);
                 } else{//shouldn't get here (hopefully)
                     matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.BLACK);
+                    matter[i][j].setShouldPaint(false);
                 }
             }
         }
@@ -166,9 +169,6 @@ public class GamePanel extends MasterPanel implements KeyListener {
     @Override
     public void keyTyped(KeyEvent ke) {
     }
-    boolean leftPressed = false;
-    boolean rightPressed = false;
-    boolean spacePressed = false;
 
     @Override
     public void keyPressed(KeyEvent ke) {
@@ -225,8 +225,6 @@ public class GamePanel extends MasterPanel implements KeyListener {
     }
 
     public void checkForLevelFinished() {
-        //if player and door have same location:
-        //isGameFinished = true
         if(objDim.collisionCheck(player, door)){
             c.resetLevel();
             leftPressed = false;

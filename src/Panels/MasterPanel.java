@@ -37,11 +37,11 @@ public class MasterPanel extends JPanel {
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
             
             g.setColor(Color.WHITE);
-            for(int i = 0; i < 30; i++){
-                int x = (int)(Math.random() * this.getWidth());
-                int y = (int)(Math.random() * this.getHeight());
-                g.fillRect(x, y, 10, 10);
-            }
+            //for(int i = 0; i < 30; i++){
+              //  int x = (int)(Math.random() * this.getWidth());
+              //  int y = (int)(Math.random() * this.getHeight());
+              //  g.fillRect(x, y, 10, 10);
+            //}
             
             g.setColor(Color.LIGHT_GRAY);
             g.fillRect(150, 350, 350, 650);
