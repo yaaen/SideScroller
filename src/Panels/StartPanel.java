@@ -38,6 +38,10 @@ public class StartPanel extends MasterPanel {
         super.paintComponent(g);
     }
 
+    public void resetButton() {
+        wasClicked = false;
+    }
+
     public boolean wasButtonClicked() {
         return wasClicked;
     }

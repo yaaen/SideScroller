@@ -54,6 +54,7 @@ public class Application {
                 System.out.println(e.toString());
             }
             if(startPanel.wasButtonClicked()){
+                startPanel.resetButton();
                 break;
             }
         }
@@ -84,7 +85,9 @@ public class Application {
             if(levelSelectPanel.getChosen() == 100){
                 //credits
             } else if(levelSelectPanel.getChosen() == 101){
-                //back to start
+                levelSelectPanel.setChosen(-1);
+                cardLay.show(cards, STARTPANELCON);
+                waitForButtonClicked();
             } else if(levelSelectPanel.getChosen() == 102){
                 levelSelectPanel.setChosen(-1);
                 cardLay.show(cards, SETTINGSPANELCON);

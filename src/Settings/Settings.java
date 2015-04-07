@@ -1,6 +1,7 @@
 package Settings;
 
 import Tools.FileRead;
+import java.awt.Color;
 import java.util.ArrayList;
 
 /**
@@ -63,6 +64,16 @@ public class Settings {
 
     public static int getBackground() {
         return background;
+    }
+    
+    public static Color getExitButtonColor(){
+        if(background == 0){
+            return Color.GREEN;
+        } else if(background == 1){
+            return Color.LIGHT_GRAY;
+        } else {
+            return Color.BLACK;
+        }
     }
 
     public static int getMovementSpeed() {

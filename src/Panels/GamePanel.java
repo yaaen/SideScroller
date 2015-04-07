@@ -5,10 +5,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.JPanel;
 
 import MatterFolder.*;
 import Settings.Settings;
 import Tools.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 public class GamePanel extends MasterPanel implements KeyListener {
 
@@ -28,6 +32,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
     public final int MOVESPEED = Settings.getMovementSpeed();
     public final int JUMPHEIGHT = 2 * BLOCKSIZE;
     public final int GRAVITY = Settings.getGravity();
+    JButton exitButton = new JButton();
     ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
     Camera c = new Camera();
     Timer timer = new Timer();
@@ -36,16 +41,33 @@ public class GamePanel extends MasterPanel implements KeyListener {
         addKeyListener(this);
         setFocusable(true);
         requestFocus();
+        setLayout(null);
     }
 
     public void setLevel(int level) {
+        exitButton.setSize(75, 75);
+        exitButton.setLocation(35, 35);
+        exitButton.setText("EXIT");
+        exitButton.setBackground(Settings.getExitButtonColor());
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                c.resetLevel();
+                leftPressed = false;
+                rightPressed = false;
+                spacePressed = false;
+                isGameFinished = true;
+            }
+        });
+        add(exitButton);
+
         isGameFinished = false;
         FileRead fr = new FileRead();
         fr.setLevelArray(level);
         fileArray = fr.getLevelArray();
         matter = new Matter[fileArray.length][fileArray[0].length];
         transFileToArray();
-        
+
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
