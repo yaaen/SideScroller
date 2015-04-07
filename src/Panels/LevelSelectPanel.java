@@ -56,6 +56,7 @@ public class LevelSelectPanel extends MasterPanel {
                 gbc.gridy = gridy;
                 if(levelNum > numOfLevels || levelNum > Settings.getLevelsCompleted()){
                     if(levelNum == 1){
+                        System.out.println("hi");
                         levels[r][c].setEnabled(true);
                     } else{
                         levels[r][c].setEnabled(false);
@@ -109,6 +110,31 @@ public class LevelSelectPanel extends MasterPanel {
 
     public int getChosen() {
         return chosen;
+    }
+
+    public void setLevels() {
+        String dirString = "src\\Levels";
+        Path dir = Paths.get(dirString);
+        int numOfLevels = dir.getNameCount() + 1;
+
+        int levelNum = 1;
+        for(int r = 0; r < rows; r++){
+            for(int c = 0; c < cols; c++){
+                if(levelNum <= 4){
+                    System.out.println("numLevels: " + numOfLevels);
+                    System.out.println("levelnum: " + levelNum);
+                    System.out.println("levelscompleted: " + Settings.getLevelsCompleted());
+                }
+
+                if(levelNum > numOfLevels){
+                    levels[r][c].setEnabled(false);
+                } else if(levelNum <= Settings.getLevelsCompleted() + 1){
+                    levels[r][c].setEnabled(true);
+                }
+
+                levelNum++;
+            }
+        }
     }
 
     public class ChosenEvent implements ActionListener {

@@ -58,6 +58,7 @@ public class Application {
                 break;
             }
         }
+        levelSelectPanel.setLevels();
         cardLay.show(cards, LEVELSELECTPANELCON);
         waitForLevelChoice();
     }
@@ -125,6 +126,7 @@ public class Application {
                 break;
             }
         }
+        levelSelectPanel.setLevels();
         cardLay.show(cards, LEVELSELECTPANELCON);
         waitForLevelChoice();
     }
@@ -146,6 +148,7 @@ public class Application {
         //when finished, go back to waitForLevelChoice() and
         //go back to the start menu
         cardLay.show(cards, LEVELSELECTPANELCON);
+        levelSelectPanel.setLevels();
         waitForLevelChoice();
     }
 }

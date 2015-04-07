@@ -24,13 +24,14 @@ public class GamePanel extends MasterPanel implements KeyListener {
     int playerX;
     int playerY;
     Color playerColor;
+    int level;
     boolean leftPressed = false;
     boolean rightPressed = false;
     boolean spacePressed = false;
     boolean isGameFinished = false;
     public final int BLOCKSIZE = Settings.getBlockSize();
     public final int MOVESPEED = Settings.getMovementSpeed();
-    public final int JUMPHEIGHT = 2 * BLOCKSIZE;
+    public final int JUMPHEIGHT = (int)(2.5 * BLOCKSIZE);
     public final int GRAVITY = Settings.getGravity();
     JButton exitButton = new JButton();
     ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
@@ -61,6 +62,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         });
         add(exitButton);
 
+        this.level = level;
         isGameFinished = false;
         FileRead fr = new FileRead();
         fr.setLevelArray(level);
@@ -252,6 +254,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
             leftPressed = false;
             rightPressed = false;
             spacePressed = false;
+            Settings.beatLevel(level);
             isGameFinished = true;
         }
     }

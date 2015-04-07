@@ -1,9 +1,11 @@
 package Tools;
 
-
+import Settings.Settings;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 public class FileRead {
 
@@ -78,8 +80,8 @@ public class FileRead {
 
         return levelArray;
     }
-    
-    public String getSettings(){
+
+    public String getSettings() {
         File file = new File("src\\Settings\\settings.txt");
         String levelString = "";
         BufferedReader br;
@@ -99,5 +101,30 @@ public class FileRead {
             System.out.print(e.toString());
         }
         return levelString;
+    }
+
+    public void updateSettingsWithNewLevel() {
+        //up levels completed by one
+        BufferedWriter writer = null;
+        try {
+            //create a temporary file
+            File logFile = new File("src\\Settings\\settings.txt");
+            writer = new BufferedWriter(new FileWriter(logFile));
+            writer.write("gameheight="+Settings.getGameHeight()+"\n"
+                    + "gamewidth="+Settings.getGameWidth()+"\n"
+                    + "levelscompleted="+(Settings.getLevelsCompleted()+1)+"\n"
+                    + "background="+Settings.getBackground()+"\n"
+                    + "movementspeed="+Settings.getMovementSpeed()+"\n"
+                    + "gravity="+Settings.getGravity()+"\n"
+                    + "blocksize="+Settings.getBlockSize()+"=");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                // Close the writer regardless of what happens...
+                writer.close();
+            } catch (Exception e) {
+            }
+        }
     }
 }

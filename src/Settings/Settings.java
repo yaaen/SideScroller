@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Derek
  */
 public class Settings {
-
+    
     private static int gameHeight;
     private static int gameWidth;
     private static int levelsCompleted;
@@ -17,9 +17,14 @@ public class Settings {
     private static int movementSpeed;
     private static int gravity;
     private static int blocksize;
+    private static FileRead fr;
 
     public Settings() {
-        FileRead fr = new FileRead();
+        fr = new FileRead();
+        resetNumbers();
+    }
+    
+    public static void resetNumbers(){
         String settings = fr.getSettings();
         ArrayList<Integer> numbers = new ArrayList<>();
 
@@ -86,5 +91,15 @@ public class Settings {
 
     public static int getBlockSize() {
         return blocksize;
+    }
+    
+    public static void beatLevel(int level){
+        System.out.println(level);
+        System.out.println(levelsCompleted);
+        if(level > levelsCompleted){
+            System.out.println("hey");
+            fr.updateSettingsWithNewLevel();
+        }
+        resetNumbers();
     }
 }
