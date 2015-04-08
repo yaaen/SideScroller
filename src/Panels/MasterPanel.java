@@ -15,6 +15,7 @@ public class MasterPanel extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
+        System.out.println(Settings.getBackground());
         if(Settings.getBackground() == 0){
             g.setColor(Color.CYAN);
             g.fillRect(0, 0, this.getWidth(), this.getHeight());

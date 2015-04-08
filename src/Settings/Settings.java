@@ -81,6 +81,10 @@ public class Settings {
         }
     }
 
+    public static Color getSettingsButtonColor(){
+        return Color.MAGENTA;
+    }
+    
     public static Color getTextColor() {
         if(background == 0){
             return Color.RED;

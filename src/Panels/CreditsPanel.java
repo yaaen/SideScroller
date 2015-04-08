@@ -47,8 +47,7 @@ public class CreditsPanel extends MasterPanel {
         });
         back.setFont(new Font("Arial", Font.PLAIN, 70));
         back.setAlignmentX(Component.CENTER_ALIGNMENT);
-        back.setForeground(Settings.getTextColor());
-        back.setBackground(Settings.getExitButtonColor());
+        back.setBackground(Settings.getSettingsButtonColor());
         back.setMinimumSize(new Dimension(200, 100));
         back.setPreferredSize(new Dimension(300, 150));
         back.setMaximumSize(new Dimension(300, 150));

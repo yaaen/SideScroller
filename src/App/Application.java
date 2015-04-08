@@ -171,8 +171,8 @@ public class Application {
 
         //when finished, go back to waitForLevelChoice() and
         //go back to the start menu
-        cardLay.show(cards, LEVELSELECTPANELCON);
         levelSelectPanel.setLevels();
+        cardLay.show(cards, LEVELSELECTPANELCON);
         waitForLevelChoice();
     }
 }
