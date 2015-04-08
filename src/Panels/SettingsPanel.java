@@ -38,7 +38,7 @@ public class SettingsPanel extends MasterPanel {
             gbc.gridx = gridx;
             gbc.gridy = gridy;
             backgroundButtons[i].addActionListener(e);
-            backgroundButtons[i].setBackground(Color.MAGENTA);
+            backgroundButtons[i].setBackground(Settings.getExitButtonColor());
             backgroundButtons[i].setMargin(new Insets(50, 50, 50, 50));
             add(backgroundButtons[i], gbc);
             gridx++;
@@ -50,7 +50,7 @@ public class SettingsPanel extends MasterPanel {
 
         back = new JButton("Back");
         goBack = false;
-        back.setBackground(Color.MAGENTA);
+        back.setBackground(Settings.getExitButtonColor());
         back.setMargin(new Insets(50, 50, 50, 50));
         back.addActionListener(e);
         gbc.gridx = 0;

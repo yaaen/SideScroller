@@ -48,7 +48,7 @@ public class FileRead {
      */
     private String[][] readLevelFromFile(int level) {
         //create a file to read in the level and add to a string
-        File file = new File("src\\Levels\\level" + level + ".txt");
+        File file = new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\Levels\\level" + level + ".txt");
         String levelString = "";
         BufferedReader br;
         try {
@@ -82,7 +82,7 @@ public class FileRead {
     }
 
     public String getSettings() {
-        File file = new File("src\\Settings\\settings.txt");
+        File file = new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\Settings\\settings.txt");
         String levelString = "";
         BufferedReader br;
         try {
@@ -108,7 +108,7 @@ public class FileRead {
         BufferedWriter writer = null;
         try {
             //create a temporary file
-            File logFile = new File("src\\Settings\\settings.txt");
+            File logFile = new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\Settings\\settings.txt");
             writer = new BufferedWriter(new FileWriter(logFile));
             writer.write("gameheight="+Settings.getGameHeight()+"\n"
                     + "gamewidth="+Settings.getGameWidth()+"\n"

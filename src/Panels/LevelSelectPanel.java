@@ -120,12 +120,6 @@ public class LevelSelectPanel extends MasterPanel {
         int levelNum = 1;
         for(int r = 0; r < rows; r++){
             for(int c = 0; c < cols; c++){
-                if(levelNum <= 4){
-                    System.out.println("numLevels: " + numOfLevels);
-                    System.out.println("levelnum: " + levelNum);
-                    System.out.println("levelscompleted: " + Settings.getLevelsCompleted());
-                }
-
                 if(levelNum > numOfLevels){
                     levels[r][c].setEnabled(false);
                 } else if(levelNum <= Settings.getLevelsCompleted() + 1){

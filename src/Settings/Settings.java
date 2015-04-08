@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @author Derek
  */
 public class Settings {
-    
+
     private static int gameHeight;
     private static int gameWidth;
     private static int levelsCompleted;
@@ -23,8 +23,8 @@ public class Settings {
         fr = new FileRead();
         resetNumbers();
     }
-    
-    public static void resetNumbers(){
+
+    public static void resetNumbers() {
         String settings = fr.getSettings();
         ArrayList<Integer> numbers = new ArrayList<>();
 
@@ -70,13 +70,23 @@ public class Settings {
     public static int getBackground() {
         return background;
     }
-    
-    public static Color getExitButtonColor(){
+
+    public static Color getExitButtonColor() {
         if(background == 0){
             return Color.GREEN;
         } else if(background == 1){
             return Color.LIGHT_GRAY;
-        } else {
+        } else{
+            return Color.BLACK;
+        }
+    }
+
+    public static Color getTextColor() {
+        if(background == 0){
+            return Color.RED;
+        } else if(background == 1){
+            return Color.WHITE;
+        } else{
             return Color.BLACK;
         }
     }
@@ -92,8 +102,8 @@ public class Settings {
     public static int getBlockSize() {
         return blocksize;
     }
-    
-    public static void beatLevel(int level){
+
+    public static void beatLevel(int level) {
         System.out.println(level);
         System.out.println(levelsCompleted);
         if(level > levelsCompleted){

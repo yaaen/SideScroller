@@ -157,9 +157,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         if(playerCanMoveY(GRAVITY)){
             player.enteredAir(true);
             player.moveVertical(GRAVITY);
-            //GRAVITY++;
         } else{
-            //GRAVITY = OGGRAVITY;
             player.enteredAir(false);
         }
     }
