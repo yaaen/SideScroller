@@ -20,7 +20,7 @@ public class Application{
         frame = new Frame();
         
         startPanel = new StartPanel();
-        levelSelectPanel = new LevelSelectPanel();
+        levelSelectPanel = new LevelSelectPanel(0);
         gamePanel = new GamePanel();
         
         cardLay = new CardLayout();

@@ -22,7 +22,7 @@ public class StartPanel extends JPanel {
         event e = new event();
         
         startButton = new JButton("START GAME");
-        startButton.setFont(new Font("Arial", Font.Plain, 40));
+        //startButton.setFont(new Font("Arial", Font.Plain, 40));
         startButton.setMargin(new Insets(0, 0, 0, 0));
         startButton.addActionListener(e);
         startButton.setBackground(Color.MAGENTA);
