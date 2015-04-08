@@ -1,0 +1,4 @@
+- ability to change character
+- use better icons instead of painting squares
+- screen that says you beat the level, then from there brings you back to the levelSelectPanel
+- add more levels
