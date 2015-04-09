@@ -114,8 +114,6 @@ public class Settings {
     }
 
     public static void beatLevel(int level) {
-        System.out.println(level);
-        System.out.println(levelsCompleted);
         if(level > levelsCompleted){
             fr.updateSettingsWithNewLevel();
         }
