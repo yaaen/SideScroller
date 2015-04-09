@@ -107,12 +107,14 @@ public class FileRead {
         //up levels completed by one
         BufferedWriter writer = null;
         try {
+            System.out.println("levlcom=" + Settings.getLevelsCompleted());
             //create a temporary file
             File logFile = new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\Settings\\settings.txt");
             writer = new BufferedWriter(new FileWriter(logFile));
             writer.write("gameheight="+Settings.getGameHeight()+"\n"
                     + "gamewidth="+Settings.getGameWidth()+"\n"
                     + "levelscompleted="+(Settings.getLevelsCompleted()+1)+"\n"
+                    + "totallevels="+Settings.getTotalLevels()+"\n"
                     + "background="+Settings.getBackground()+"\n"
                     + "movementspeed="+Settings.getMovementSpeed()+"\n"
                     + "gravity="+Settings.getGravity()+"\n"

@@ -40,11 +40,7 @@ public class LevelSelectPanel extends MasterPanel {
         int gridx = 0;
         int gridy = 0;
 
-        //number of files in the Levels folder
-        String dirString = "/Levels";
-        Path dir = Paths.get(dirString);
-        int numOfLevels = dir.getNameCount() + 1;
-
+        int numOfLevels = Settings.getTotalLevels();
         int levelNum = 1;
         for(int r = 0; r < rows; r++){
             for(int c = 0; c < cols; c++){
@@ -54,15 +50,14 @@ public class LevelSelectPanel extends MasterPanel {
                 levels[r][c].setBackground(Color.MAGENTA);
                 gbc.gridx = gridx;
                 gbc.gridy = gridy;
-                if(levelNum > numOfLevels || levelNum > Settings.getLevelsCompleted()){
-                    if(levelNum == 1){
-                        System.out.println("hi");
-                        levels[r][c].setEnabled(true);
-                    } else{
-                        levels[r][c].setEnabled(false);
-                    }
+                if(levelNum > numOfLevels){
+                    levels[r][c].setEnabled(false);
                 } else{
-                    levels[r][c].setEnabled(true);
+                    if(levelNum > Settings.getLevelsCompleted()+1){
+                        levels[r][c].setEnabled(false);
+                    } else{
+                        levels[r][c].setEnabled(true);
+                    }
                 }
                 this.add(levels[r][c], gbc);
                 levelNum++;
@@ -113,19 +108,19 @@ public class LevelSelectPanel extends MasterPanel {
     }
 
     public void setLevels() {
-        String dirString = "src\\Levels";
-        Path dir = Paths.get(dirString);
-        int numOfLevels = dir.getNameCount() + 1;
-
+        int numOfLevels = Settings.getTotalLevels();
         int levelNum = 1;
         for(int r = 0; r < rows; r++){
             for(int c = 0; c < cols; c++){
                 if(levelNum > numOfLevels){
                     levels[r][c].setEnabled(false);
-                } else if(levelNum <= Settings.getLevelsCompleted() + 1){
-                    levels[r][c].setEnabled(true);
+                } else{
+                    if(levelNum > Settings.getLevelsCompleted()+1){
+                        levels[r][c].setEnabled(false);
+                    } else{
+                        levels[r][c].setEnabled(true);
+                    }
                 }
-
                 levelNum++;
             }
         }
