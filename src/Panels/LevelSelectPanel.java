@@ -1,4 +1,6 @@
+package Panels;
 
+import Settings.Settings;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -10,9 +12,8 @@ import java.awt.event.ActionListener;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import javax.swing.JButton;
-import javax.swing.JPanel;
 
-public class LevelSelectPanel extends JPanel {
+public class LevelSelectPanel extends MasterPanel {
 
     int rows = 3;
     int cols = 8;
@@ -24,8 +25,9 @@ public class LevelSelectPanel extends JPanel {
     int chosen = -1;
     ChosenEvent ce = new ChosenEvent();
 
-    public LevelSelectPanel(int thign) {
-        setSize(1600, 1000);
+    public LevelSelectPanel() {
+        setFocusable(true);
+        requestFocus();
 
         GridBagLayout gridbag = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -52,10 +54,15 @@ public class LevelSelectPanel extends JPanel {
                 levels[r][c].setBackground(Color.MAGENTA);
                 gbc.gridx = gridx;
                 gbc.gridy = gridy;
-                if(levelNum <= numOfLevels){
-                    levels[r][c].setEnabled(true);
+                if(levelNum > numOfLevels || levelNum > Settings.getLevelsCompleted()){
+                    if(levelNum == 1){
+                        System.out.println("hi");
+                        levels[r][c].setEnabled(true);
+                    } else{
+                        levels[r][c].setEnabled(false);
+                    }
                 } else{
-                    levels[r][c].setEnabled(false);
+                    levels[r][c].setEnabled(true);
                 }
                 this.add(levels[r][c], gbc);
                 levelNum++;
@@ -95,23 +102,6 @@ public class LevelSelectPanel extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        g.setColor(Color.CYAN);
-        g.fillRect(0, 0, this.getWidth(), this.getHeight());
-
-        g.setColor(Color.BLUE);
-        g.fillRect(0, 0, 470, 320);
-        g.setColor(Color.RED);
-        g.fillRect(100, 700, 200, 190);
-        g.setColor(Color.GREEN);
-        g.fillRect(1200, 100, 300, 700);
-
-        g.setColor(Color.BLUE);
-        g.fillRect(1050, 600, 270, 320);
-        g.setColor(Color.RED);
-        g.fillRect(700, 50, 290, 100);
-        g.setColor(Color.GREEN);
-        g.fillRect(250, 600, 300, 200);
     }
 
     public void setChosen(int chosen) {
@@ -120,6 +110,31 @@ public class LevelSelectPanel extends JPanel {
 
     public int getChosen() {
         return chosen;
+    }
+
+    public void setLevels() {
+        String dirString = "src\\Levels";
+        Path dir = Paths.get(dirString);
+        int numOfLevels = dir.getNameCount() + 1;
+
+        int levelNum = 1;
+        for(int r = 0; r < rows; r++){
+            for(int c = 0; c < cols; c++){
+                if(levelNum <= 4){
+                    System.out.println("numLevels: " + numOfLevels);
+                    System.out.println("levelnum: " + levelNum);
+                    System.out.println("levelscompleted: " + Settings.getLevelsCompleted());
+                }
+
+                if(levelNum > numOfLevels){
+                    levels[r][c].setEnabled(false);
+                } else if(levelNum <= Settings.getLevelsCompleted() + 1){
+                    levels[r][c].setEnabled(true);
+                }
+
+                levelNum++;
+            }
+        }
     }
 
     public class ChosenEvent implements ActionListener {
@@ -143,8 +158,11 @@ public class LevelSelectPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(credits == e.getSource()){
+                chosen = 100;
             } else if(start == e.getSource()){
+                chosen = 101;
             } else if(settings == e.getSource()){
+                chosen = 102;
             }
         }
     }

@@ -11,7 +11,7 @@ public abstract class Matter {
     private Color matterColor;
     private boolean isDoor = false;
     private boolean isPlayer = false;
-    
+    private boolean shouldPaint = true;
     //we will most likely change this later
     //to something like a BufferedImage or
     //ImageIcon but i don't know yet which
@@ -144,5 +144,13 @@ public abstract class Matter {
     
     public boolean isPlayer(){
         return isPlayer;
+    }
+    
+    public void setShouldPaint(boolean shouldPaint){
+        this.shouldPaint = shouldPaint;
+    }
+    
+    public boolean shouldPaint(){
+        return shouldPaint;
     }
 }

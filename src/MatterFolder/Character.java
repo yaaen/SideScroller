@@ -3,7 +3,7 @@ package MatterFolder;
 import java.awt.Color;
 
 public class Character extends Matter {
-    
+
     private boolean inAir;
     private boolean inWater;
     private boolean canDoubleJump;
@@ -16,11 +16,11 @@ public class Character extends Matter {
         super(locX, locY, c);
     }
 
-    public void enteredWater(boolean inWater){
+    public void enteredWater(boolean inWater) {
         this.inWater = inWater;
     }
 
-    public void enteredAir(boolean inAir){
+    public void enteredAir(boolean inAir) {
         this.inAir = inAir;
     }
     
@@ -28,11 +28,11 @@ public class Character extends Matter {
         this.canDoubleJump = canDoubleJump;
     }
 
-    public boolean isInAir(){
+    public boolean isInAir() {
         return inAir;
     }
 
-    public boolean isInWater(){
+    public boolean isInWater() {
         return inWater;
     }
     

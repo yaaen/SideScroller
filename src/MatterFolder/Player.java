@@ -3,7 +3,7 @@ package MatterFolder;
 import java.awt.Color;
 
 public class Player extends Character {
-    
+
     public Player(int locX, int locY) {
         super(locX, locY);
     }

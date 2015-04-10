@@ -1,20 +1,24 @@
+package Tools;
 
 import MatterFolder.*;
+import Settings.Settings;
 
 public class Camera {
 
     boolean lock = false;
+    int movementSpeed;
     int width;
 
-    public Camera(int width) {
-        this.width = width;
+    public Camera() {
+        movementSpeed = Settings.getMovementSpeed();
+        width = Settings.getGameWidth();
     }
 
     public Matter[][] moveCharRight(Matter[][] field) {
         if(!lock){
             for(int i = 0; i < field.length; i++){
                 for(int j = 0; j < field[0].length; j++){
-                    field[i][j].setX(field[i][j].getX() - 5);
+                    field[i][j].setX(field[i][j].getX() - movementSpeed);
                 }
             }
             checkForDoor(field);
@@ -26,7 +30,7 @@ public class Camera {
         if(!lock){
             for(int i = 0; i < field.length; i++){
                 for(int j = 0; j < field[0].length; j++){
-                    field[i][j].setX(field[i][j].getX() + 5);
+                    field[i][j].setX(field[i][j].getX() + movementSpeed);
                 }
             }
         }
