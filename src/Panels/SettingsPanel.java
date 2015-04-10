@@ -38,19 +38,19 @@ public class SettingsPanel extends MasterPanel {
             gbc.gridx = gridx;
             gbc.gridy = gridy;
             backgroundButtons[i].addActionListener(e);
-            backgroundButtons[i].setBackground(Color.MAGENTA);
+            backgroundButtons[i].setBackground(Settings.getSettingsButtonColor());
             backgroundButtons[i].setMargin(new Insets(50, 50, 50, 50));
             add(backgroundButtons[i], gbc);
             gridx++;
         }
         backgroundButtons[0].setText("Boxes");
         backgroundButtons[1].setText("City");
-        backgroundButtons[2].setText("Mountains");
+        backgroundButtons[2].setText("");
         backgroundButtons[Settings.getBackground()].setEnabled(false);
 
         back = new JButton("Back");
         goBack = false;
-        back.setBackground(Color.MAGENTA);
+        back.setBackground(Settings.getSettingsButtonColor());
         back.setMargin(new Insets(50, 50, 50, 50));
         back.addActionListener(e);
         gbc.gridx = 0;

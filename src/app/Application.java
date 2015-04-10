@@ -1,5 +1,6 @@
 package App;
 
+import Panels.CreditsPanel;
 import Panels.Frame;
 import Panels.StartPanel;
 import Panels.GamePanel;
@@ -20,6 +21,8 @@ public class Application {
     final String GAMEPANELCON = "Game Panel";
     SettingsPanel settingsPanel;
     final String SETTINGSPANELCON = "Settings Panel";
+    CreditsPanel creditsPanel;
+    final String CREDITSPANELCON = "Credits Panel";
     CardLayout cardLay;
     JPanel cards;
 
@@ -30,6 +33,7 @@ public class Application {
         levelSelectPanel = new LevelSelectPanel();
         gamePanel = new GamePanel();
         settingsPanel = new SettingsPanel();
+        creditsPanel = new CreditsPanel();
 
         cardLay = new CardLayout();
         cards = new JPanel(cardLay);
@@ -38,8 +42,9 @@ public class Application {
         cards.add(levelSelectPanel, LEVELSELECTPANELCON);
         cards.add(gamePanel, GAMEPANELCON);
         cards.add(settingsPanel, SETTINGSPANELCON);
+        cards.add(creditsPanel, CREDITSPANELCON);
         cardLay.show(cards, STARTPANELCON);
-
+        
         frame.add(cards);
         frame.setVisible(true);
 
@@ -84,7 +89,9 @@ public class Application {
         }
         if(levelSelectPanel.getChosen() > 99){
             if(levelSelectPanel.getChosen() == 100){
-                //credits
+                levelSelectPanel.setChosen(-1);
+                cardLay.show(cards, CREDITSPANELCON);
+                waitForCreditsDone();
             } else if(levelSelectPanel.getChosen() == 101){
                 levelSelectPanel.setChosen(-1);
                 cardLay.show(cards, STARTPANELCON);
@@ -130,6 +137,23 @@ public class Application {
         cardLay.show(cards, LEVELSELECTPANELCON);
         waitForLevelChoice();
     }
+    
+    public void waitForCreditsDone(){
+        while(true){
+            try {
+                TimeUnit.NANOSECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                System.out.println(e.toString());
+            }
+            if(creditsPanel.goBack()){
+                creditsPanel.setBack();
+                break;
+            }
+        }
+        levelSelectPanel.setLevels();
+        cardLay.show(cards, LEVELSELECTPANELCON);
+        waitForLevelChoice();
+    }
 
     public void play(int level) {
         //reset level select panel chosen
@@ -147,8 +171,8 @@ public class Application {
 
         //when finished, go back to waitForLevelChoice() and
         //go back to the start menu
-        cardLay.show(cards, LEVELSELECTPANELCON);
         levelSelectPanel.setLevels();
+        cardLay.show(cards, LEVELSELECTPANELCON);
         waitForLevelChoice();
     }
 }

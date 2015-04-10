@@ -31,9 +31,11 @@ public class GamePanel extends MasterPanel implements KeyListener {
     boolean isGameFinished = false;
     public final int BLOCKSIZE = Settings.getBlockSize();
     public final int MOVESPEED = Settings.getMovementSpeed();
-    public final int JUMPHEIGHT = (int)(2.5 * BLOCKSIZE);
+    public final int JUMPHEIGHT = (int) (2.5 * BLOCKSIZE);
     public final int GRAVITY = Settings.getGravity();
     JButton exitButton = new JButton();
+    JPanel beatLevelPanel = new JPanel();
+    JButton beatLevelButton = new JButton();
     ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
     Camera c = new Camera();
     Timer timer = new Timer();
@@ -43,9 +45,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         setFocusable(true);
         requestFocus();
         setLayout(null);
-    }
 
-    public void setLevel(int level) {
         exitButton.setSize(75, 75);
         exitButton.setLocation(35, 35);
         exitButton.setText("EXIT");
@@ -62,6 +62,23 @@ public class GamePanel extends MasterPanel implements KeyListener {
         });
         add(exitButton);
 
+        beatLevelPanel.setSize(300, 200);
+        beatLevelPanel.setLocation(400, 400);
+        beatLevelPanel.setLayout(new GridLayout(1, 1));
+        beatLevelButton.setText("<html><center>" + "You beat the level!" + "<br>" + "Click here to continue." + "</center></html>");
+        beatLevelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                isGameFinished = true;
+            }
+        });
+        beatLevelButton.setBackground(Color.MAGENTA);
+        beatLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        beatLevelPanel.add(beatLevelButton);
+    }
+
+    public void setLevel(int level) {
+        this.remove(beatLevelPanel);
         this.level = level;
         isGameFinished = false;
         FileRead fr = new FileRead();
@@ -157,9 +174,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         if(playerCanMoveY(GRAVITY)){
             player.enteredAir(true);
             player.moveVertical(GRAVITY);
-            //GRAVITY++;
         } else{
-            //GRAVITY = OGGRAVITY;
             player.enteredAir(false);
         }
     }
@@ -213,6 +228,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
                 player.moveVertical(-JUMPHEIGHT);
                 if(player.isInAir()){
                     player.setCanDoubleJump(false);
+                    player.moveVertical(GRAVITY);
                 } else{
                     player.setCanDoubleJump(true);
                 }
@@ -255,7 +271,9 @@ public class GamePanel extends MasterPanel implements KeyListener {
             rightPressed = false;
             spacePressed = false;
             Settings.beatLevel(level);
-            isGameFinished = true;
+            this.add(beatLevelPanel);
+            beatLevelPanel.repaint();
+            beatLevelPanel.revalidate();
         }
     }
 
