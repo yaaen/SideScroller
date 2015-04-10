@@ -25,11 +25,7 @@ public class StartPanel extends MasterPanel {
         event e = new event();
 
         startButton = new JButton("START GAME");
-<<<<<<< HEAD:StartPanel.java
-        //startButton.setFont(new Font("Arial", Font.Plain, 40));
-=======
         startButton.setFont(new Font("Arial", Font.PLAIN, 40));
->>>>>>> b409327a91883f78b58403c5bfa2a9c44779626b:src/Panels/StartPanel.java
         startButton.setMargin(new Insets(0, 0, 0, 0));
         startButton.addActionListener(e);
         startButton.setBackground(Color.MAGENTA);
