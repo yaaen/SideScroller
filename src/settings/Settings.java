@@ -1,6 +1,6 @@
-package Settings;
+package settings;
 
-import Tools.FileRead;
+import tools.FileRead;
 import java.awt.Color;
 import java.util.ArrayList;
 

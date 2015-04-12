@@ -1,4 +1,4 @@
-package MatterFolder;
+package matter;
 
 import java.awt.*;
 

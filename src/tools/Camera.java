@@ -1,7 +1,7 @@
-package Tools;
+package tools;
 
-import MatterFolder.*;
-import Settings.Settings;
+import matter.*;
+import settings.Settings;
 
 public class Camera {
 

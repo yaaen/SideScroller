@@ -1,6 +1,6 @@
-package Panels;
+package panels;
 
-import Settings.Settings;
+import settings.Settings;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;

@@ -1,6 +1,6 @@
-package Tools;
+package tools;
 
-import Settings.Settings;
+import settings.Settings;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;

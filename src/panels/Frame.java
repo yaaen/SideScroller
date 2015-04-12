@@ -1,6 +1,6 @@
-package Panels;
+package panels;
 
-import Settings.Settings;
+import settings.Settings;
 import javax.swing.JFrame;
 
 public class Frame extends JFrame{

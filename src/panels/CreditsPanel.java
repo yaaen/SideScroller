@@ -1,6 +1,6 @@
-package Panels;
+package panels.
 
-import Settings.Settings;
+import settings.Settings;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;

@@ -1,4 +1,4 @@
-package Panels;
+package panels;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -7,9 +7,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JPanel;
 
-import MatterFolder.*;
-import Settings.Settings;
-import Tools.*;
+import matter.*;
+import settings.Settings;
+import tools.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;

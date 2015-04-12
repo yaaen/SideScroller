@@ -1,6 +1,6 @@
-package Tools;
+package tools;
 
-import MatterFolder.Matter;
+import matter.Matter;
 
 public class ObjectDimensions {
 
