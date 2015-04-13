@@ -5,4 +5,4 @@ totallevels=5
 background=0
 movementspeed=10
 gravity=10
-blocksize=50
+blocksize=50=
