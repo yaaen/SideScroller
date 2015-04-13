@@ -51,7 +51,7 @@ public class FileRead {
         
         //TODO find away so that its not user specific
         //Its getting NoFileException and cannot compile
-        File file = new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\Levels\\level" + level + ".txt");
+        File file = new File("src\\Levels\\level" + level + ".txt");
         String levelString = "";
         BufferedReader br;
         try {
