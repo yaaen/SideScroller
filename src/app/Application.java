@@ -1,11 +1,11 @@
 package app;
 
-import Panels.CreditsPanel;
-import Panels.Frame;
-import Panels.StartPanel;
-import Panels.GamePanel;
-import Panels.LevelSelectPanel;
-import Panels.SettingsPanel;
+import panels.CreditsPanel;
+import panels.Frame;
+import panels.StartPanel;
+import panels.GamePanel;
+import panels.LevelSelectPanel;
+import panels.SettingsPanel;
 import java.awt.CardLayout;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JPanel;

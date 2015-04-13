@@ -1,4 +1,4 @@
-package panels.
+package panels;
 
 import settings.Settings;
 import java.awt.Component;

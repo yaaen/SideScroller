@@ -1,6 +1,6 @@
 package app;
 
-import Settings.Settings;
+import settings.Settings;
 
 public class Main{
   public static void main(String[] args){
