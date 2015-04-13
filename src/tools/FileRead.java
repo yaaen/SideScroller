@@ -48,6 +48,9 @@ public class FileRead {
      */
     private String[][] readLevelFromFile(int level) {
         //create a file to read in the level and add to a string
+        
+        //TODO find away so that its not user specific
+        //Its getting NoFileException and cannot compile
         File file = new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\Levels\\level" + level + ".txt");
         String levelString = "";
         BufferedReader br;
