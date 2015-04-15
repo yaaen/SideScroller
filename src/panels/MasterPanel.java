@@ -16,6 +16,7 @@ public class MasterPanel extends JPanel {
 
     public void paintComponent(Graphics g) {
         if(Settings.getBackground() == 0){
+            //this just paints the boxes
             g.setColor(Color.CYAN);
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
@@ -33,9 +34,11 @@ public class MasterPanel extends JPanel {
             g.setColor(Color.GREEN);
             g.fillRect(250, 600, 300, 200);
         } else if(Settings.getBackground() == 1){
+            //this has stars and three buildings
             g.setColor(Color.DARK_GRAY);
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
             
+            //30 random stars
             g.setColor(Color.WHITE);
             for(int i = 0; i < 30; i++){
                 int x = (int)(Math.random() * this.getWidth());
@@ -51,22 +54,26 @@ public class MasterPanel extends JPanel {
             g.setColor(Color.WHITE);
             int space = 20;
             int block = 26;
+            //the first building
             for(int r = 0; r < 7; r++){
                 for(int c = 0; c < 13; c++){
                    g.fillRect(180 + (space * (r+1)) + (block * (r-1)), 380 + (space * (c+1)) + (block * (c-1)) + (5 * c), block, block + 5);
                 }
             }
+            //the second building
             for(int r = 0; r < 7; r++){
                 for(int c = 0; c < 10; c++){
                     g.fillRect(630 + (space * (r+1)) + (block * (r-1)), 580 + (space * (c+1)) + (block * (c-1)) + (5 * c), block, block + 5);
                 }
             }
+            //the third building
             for(int r = 0; r < 7; r++){
                 for(int c = 0; c < 17; c++){
                     g.fillRect(1130 + (space * (r+1)) + (block * (r-1)), 230 + (space * (c+1)) + (block * (c-1)) + (5 * c), block, block + 5);
                 }
             }
         } else if(Settings.getBackground() == 2){
+            //TODO add another background
         } else{
             g.setColor(Color.CYAN);
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
