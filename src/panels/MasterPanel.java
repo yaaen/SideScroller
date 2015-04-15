@@ -73,7 +73,23 @@ public class MasterPanel extends JPanel {
                 }
             }
         } else if(Settings.getBackground() == 2){
-            //TODO add another background
+            //black and white strips
+            g.setColor(Color.BLACK);
+            g.fillRect(0, 0, 200, 1000);
+            g.setColor(Color.WHITE);
+            g.fillRect(0, 200, 200, 1000);
+            g.setColor(Color.BLACK);
+            g.fillRect(0, 400, 200, 1000);
+            g.setColor(Color.WHITE);
+            g.fillRect(0, 600, 200, 1000);
+            g.setColor(Color.BLACK);
+            g.fillRect(0, 800, 200, 1000);
+            g.setColor(Color.WHITE);
+            g.fillRect(0, 1000, 200, 1000);
+            g.setColor(Color.BLACK);
+            g.fillRect(0, 1200, 200, 1000);
+            g.setColor(Color.WHITE);
+            g.fillRect(0, 1400, 200, 1000);
         } else{
             g.setColor(Color.CYAN);
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
