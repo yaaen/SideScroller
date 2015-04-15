@@ -45,7 +45,7 @@ public class SettingsPanel extends MasterPanel {
         }
         backgroundButtons[0].setText("Boxes");
         backgroundButtons[1].setText("City");
-        backgroundButtons[2].setText("");
+        backgroundButtons[2].setText("Stripes");
         backgroundButtons[Settings.getBackground()].setEnabled(false);
 
         back = new JButton("Back");
