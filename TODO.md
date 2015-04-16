@@ -2,5 +2,6 @@
 - use better icons instead of painting squares
 - add more levels
 - figure out more different types of blocks
-- add a third background choice
+  - spikes
+  - water
 - add a time (poss. keep track of best time for each level)
