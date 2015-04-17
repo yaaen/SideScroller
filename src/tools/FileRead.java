@@ -10,6 +10,7 @@ import java.io.FileWriter;
 public class FileRead {
 
     private String[][] levelArray;
+    private double[] levelTimes;
 
     /**
      * This constructor takes no parameters and simply creates the
@@ -131,5 +132,13 @@ public class FileRead {
             } catch (Exception e) {
             }
         }
+    }
+    
+    public void setLevelTimes(){
+        //TODO
+    }
+    
+    public double[] getLevelTimes(){
+        return levelTimes;
     }
 }
