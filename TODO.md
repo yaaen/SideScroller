@@ -5,3 +5,4 @@
   - spikes
   - water
 - add a time (poss. keep track of best time for each level)
+- fix all the issues that are currently raised
