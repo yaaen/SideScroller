@@ -9,11 +9,7 @@ g = ground
 p = player
 d = door
 
-controls:
-left = left, a
-right = right, d
-jump = up, w, space
-
+controls: wasd or keypad w/ spacebar
 
 http://docs.oracle.com/javase/8/docs/api/index.html?overview-summary.html
 
