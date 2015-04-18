@@ -138,6 +138,12 @@ public class FileRead {
         //TODO
     }
     
+    //time is in seconds
+    public void beatLevel(int level, double time){
+        //check to see if time is less than previous time for that level,
+        //if not, update it
+    }
+    
     public double[] getLevelTimes(){
         return levelTimes;
     }
