@@ -291,6 +291,18 @@ public class GamePanel extends MasterPanel implements KeyListener {
             beatLevelPanel.repaint();
             beatLevelPanel.revalidate();
         }
+        //here we need to check to see if they hit a bad black
+        /**
+         * if(objDim.collisionCheck(player, SOMEBADBLOCK){
+             c.resetLevel();
+            leftPressed = false;
+            rightPressed = false;
+            spacePressed = false;
+            this.add(lostLevelPanel);
+            lostLevelPanel.repaint();
+            lostLevelPanel.revalidate();
+         }
+         */
     }
 
     public boolean isGameFinished() {
