@@ -36,6 +36,8 @@ public class GamePanel extends MasterPanel implements KeyListener {
     JButton exitButton = new JButton();
     JPanel beatLevelPanel = new JPanel();
     JButton beatLevelButton = new JButton();
+    JPanel lostLevelPanel = new JPanel();
+    JButton lostLevelButton = new JButton();
     ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
     Camera c = new Camera();
     Timer timer = new Timer();
@@ -75,6 +77,20 @@ public class GamePanel extends MasterPanel implements KeyListener {
         beatLevelButton.setBackground(Color.MAGENTA);
         beatLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
         beatLevelPanel.add(beatLevelButton);
+        
+        lostLevelPanel.setSize(300, 200);
+        lostLevelPanel.setLocation(400, 400);
+        lostLevelPanel.setLayout(new GridLayout(1, 1));
+        lostLevelButton.setText("<html><center>" + "You lost the level." + "<br>" + "Click here to continue." + "</center></html>");
+        lostLevelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                isGameFinished = true;
+            }
+        });
+        lostLevelButton.setBackground(Color.MAGENTA);
+        lostLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        lostLevelPanel.add(beatLevelButton);
     }
 
     public void setLevel(int level) {
