@@ -18,6 +18,7 @@ public class Settings {
     private static int movementSpeed;
     private static int gravity;
     private static int blocksize;
+    private static Color playerColor;
     private static FileRead fr;
 
     public Settings() {
@@ -43,6 +44,7 @@ public class Settings {
         movementSpeed = numbers.get(5);
         gravity = numbers.get(6);
         blocksize = numbers.get(7);
+        playerColor = Color.MAGENTA;
     }
 
     public static int getGameHeight() {
@@ -111,6 +113,14 @@ public class Settings {
 
     public static int getBlockSize() {
         return blocksize;
+    }
+
+    public static void setPlayerColor(Color playerColor){
+        this.playerColor = playerColor;
+    }
+    
+    public static Color getPlayerColor(){
+        return playerColor;
     }
 
     public static void beatLevel(int level) {
