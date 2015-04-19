@@ -13,9 +13,10 @@ import javax.swing.JButton;
 public class SettingsPanel extends MasterPanel {
 
     JButton[] backgroundButtons;
-    event e = new event();
+    JButton[] playerColorButtons;
     JButton back;
     boolean goBack;
+    event e = new event();
 
     public SettingsPanel() {
         setFocusable(true);
@@ -47,6 +48,22 @@ public class SettingsPanel extends MasterPanel {
         backgroundButtons[1].setText("City");
         backgroundButtons[2].setText("Stripes");
         backgroundButtons[Settings.getBackground()].setEnabled(false);
+
+        playerColorButtons = new JButton[3];
+        for(int i = 0; i < playerColorButtons.length; i++){
+            playerColorButtons[i] = new JButton();
+            gbc.gridx = gridx;
+            gbc.gridy = gridy;
+            playerColorButtons[i].addActionListener(e);
+            playerColorButtons[i].setBackground(Settings.getSettingsButtonColor());
+            playerColorButtons[i].setMargin(new Insets(50, 50, 50, 50));
+            //add(playerColorButtons[i], gbc);
+            gridx++;
+        }
+        playerColorButtons[0].setText("Magenta");
+        playerColorButtons[1].setText("");
+        playerColorButtons[2].setText("");
+        playerColorButtons[0].setEnabled(false);
 
         back = new JButton("Back");
         goBack = false;
