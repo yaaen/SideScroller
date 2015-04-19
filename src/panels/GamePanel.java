@@ -170,7 +170,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
                 } else if(fileArray[i][j].equals("p")){ //player
                     playerX = j * BLOCKSIZE;
                     playerY = i * BLOCKSIZE;
-                    playerColor = Color.MAGENTA;
+                    playerColor = Settings.getPlayerColor();
                     player = new Player(playerX, playerY, playerColor);
                     matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, playerColor);
                     matter[i][j].setPlayer(true);
