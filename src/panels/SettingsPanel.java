@@ -16,7 +16,8 @@ public class SettingsPanel extends MasterPanel {
     JButton[] playerColorButtons;
     JButton back;
     boolean goBack;
-    event e = new event();
+    backgroundEvent be = new backgroundEvent();
+    playerEvent pe = new playerEvent();
 
     public SettingsPanel() {
         setFocusable(true);
@@ -38,7 +39,7 @@ public class SettingsPanel extends MasterPanel {
             backgroundButtons[i] = new JButton();
             gbc.gridx = gridx;
             gbc.gridy = gridy;
-            backgroundButtons[i].addActionListener(e);
+            backgroundButtons[i].addActionListener(be);
             backgroundButtons[i].setBackground(Settings.getSettingsButtonColor());
             backgroundButtons[i].setMargin(new Insets(50, 50, 50, 50));
             add(backgroundButtons[i], gbc);
@@ -54,7 +55,7 @@ public class SettingsPanel extends MasterPanel {
             playerColorButtons[i] = new JButton();
             gbc.gridx = gridx;
             gbc.gridy = gridy;
-            playerColorButtons[i].addActionListener(e);
+            playerColorButtons[i].addActionListener(pe);
             playerColorButtons[i].setBackground(Settings.getSettingsButtonColor());
             playerColorButtons[i].setMargin(new Insets(50, 50, 50, 50));
             //add(playerColorButtons[i], gbc);
@@ -87,7 +88,7 @@ public class SettingsPanel extends MasterPanel {
         return goBack;
     }
 
-    public class event implements ActionListener {
+    public class backgroundEvent implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -104,6 +105,22 @@ public class SettingsPanel extends MasterPanel {
                 }
                 repaint();
             }
+        }
+    }
+    
+    public class playerEvent implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+                for(int i = 0; i < backgroundButtons.length; i++){
+                    if(playerColorButtons[i] == e.getSource()){
+                        Settings.setPlayerColor(i);
+                        playerColorButtons[i].setEnabled(false);
+                    } else{
+                        playerColorButtons[i].setEnabled(true);
+                    }
+                }
+                repaint();
         }
     }
 }
