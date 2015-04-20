@@ -1,9 +1,9 @@
-- ability to change character
 - use better icons instead of painting squares
 - add more levels
 - figure out more different types of blocks
   - spikes
   - water
 - add to the gamepanel class a panel that opens when the player dies (similar to the panel from winning the level)
+  - note: this has been started
 - add a time (poss. keep track of best time for each level)
 - fix all the issues that are currently raised
