@@ -50,6 +50,8 @@ public class SettingsPanel extends MasterPanel {
         backgroundButtons[2].setText("Stripes");
         backgroundButtons[Settings.getBackground()].setEnabled(false);
 
+        gridx = 0;
+        gridy = 1;
         playerColorButtons = new JButton[3];
         for(int i = 0; i < playerColorButtons.length; i++){
             playerColorButtons[i] = new JButton();
@@ -58,21 +60,21 @@ public class SettingsPanel extends MasterPanel {
             playerColorButtons[i].addActionListener(pe);
             playerColorButtons[i].setBackground(Settings.getSettingsButtonColor());
             playerColorButtons[i].setMargin(new Insets(50, 50, 50, 50));
-            //add(playerColorButtons[i], gbc);
+            add(playerColorButtons[i], gbc);
             gridx++;
         }
         playerColorButtons[0].setText("Magenta");
-        playerColorButtons[1].setText("");
-        playerColorButtons[2].setText("");
+        playerColorButtons[1].setText("Blue");
+        playerColorButtons[2].setText("Green");
         playerColorButtons[0].setEnabled(false);
 
         back = new JButton("Back");
         goBack = false;
         back.setBackground(Settings.getSettingsButtonColor());
         back.setMargin(new Insets(50, 50, 50, 50));
-        back.addActionListener(e);
+        back.addActionListener(be);
         gbc.gridx = 0;
-        gbc.gridy = 1;
+        gbc.gridy = 2;
         add(back, gbc);
     }
 

@@ -116,7 +116,17 @@ public class Settings {
     }
 
     public static void setPlayerColor(Color playerColor){
-        this.playerColor = playerColor;
+        Settings.playerColor = playerColor;
+    }
+    
+    public static void setPlayerColor(int playerColorInt){
+        if(playerColorInt == 0){
+            Settings.playerColor = Color.MAGENTA;
+        } else if(playerColorInt == 1){
+            Settings.playerColor = Color.BLUE;
+        } else{
+            Settings.playerColor = Color.GREEN;
+        }
     }
     
     public static Color getPlayerColor(){
