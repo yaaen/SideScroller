@@ -38,6 +38,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
     JButton beatLevelButton = new JButton();
     JPanel lostLevelPanel = new JPanel();
     JButton lostLevelButton = new JButton();
+    JLabel time = new JLabel();
     ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
     Camera c = new Camera();
     Timer timer = new Timer();
@@ -91,6 +92,9 @@ public class GamePanel extends MasterPanel implements KeyListener {
         lostLevelButton.setBackground(Color.MAGENTA);
         lostLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
         lostLevelPanel.add(beatLevelButton);
+        
+        //initialise the time label and everything
+        //put the label in the top right corner
     }
 
     public void setLevel(int level) {
@@ -130,6 +134,9 @@ public class GamePanel extends MasterPanel implements KeyListener {
                     }
                 }
 
+                //update time on screen
+                //set it to current time - time at the beggining
+                
                 repaint();
             }
         }, 1, 50);
