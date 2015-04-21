@@ -7,3 +7,4 @@
   - note: this has been started
 - add a time (poss. keep track of best time for each level)
 - fix all the issues that are currently raised
+- make it so the game moves up when the player jumps in the camera class
