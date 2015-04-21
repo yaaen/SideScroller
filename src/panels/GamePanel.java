@@ -297,6 +297,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
             this.add(beatLevelPanel);
             beatLevelPanel.repaint();
             beatLevelPanel.revalidate();
+            //for some reason this panel isn't properly showing anything
         }
         //here we need to check to see if they hit a bad black
         /**
