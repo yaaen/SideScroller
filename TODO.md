@@ -8,3 +8,4 @@
 - add a time (poss. keep track of best time for each level)
 - fix all the issues that are currently raised
 - make it so the game moves up when the player jumps in the camera class
+  - note: the code for this is in Camera I don't know if it works and the GamePanel needs to be changed to utilise the new methods in Camera
