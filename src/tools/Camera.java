@@ -40,11 +40,27 @@ public class Camera {
     }
     
     public Matter[][] moveCharUp(Matter[][] field) {
-        
+        if(!lock){
+            for(int i = 0; i < field.length; i++){
+                for(int j = 0; j < field[0].length; j++){
+                    field[i][j].setX(field[i][j].getX() - jumpHeight);
+                }
+            }
+            checkForDoor(field);
+        }
+        return field;
     }
     
     public Matter[][] moveCharDown(Matter[][] field) {
-        
+        if(!lock){
+            for(int i = 0; i < field.length; i++){
+                for(int j = 0; j < field[0].length; j++){
+                    field[i][j].setX(field[i][j].getX() + jumpHeight);
+                }
+            }
+            checkForDoor(field);
+        }
+        return field;
     }
     
     //check to see if the door is within the screen
