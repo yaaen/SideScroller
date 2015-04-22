@@ -7,10 +7,12 @@ public class Camera {
 
     boolean lock = false;
     int movementSpeed;
+    int jumpHeight;
     int width;
 
     public Camera() {
         movementSpeed = Settings.getMovementSpeed();
+        jumpHeight = (int) (Settings.getBlockSize() * 2.5);
         width = Settings.getGameWidth();
     }
 
@@ -36,7 +38,15 @@ public class Camera {
         }
         return field;
     }
-
+    
+    public Matter[][] moveCharUp(Matter[][] field) {
+        
+    }
+    
+    public Matter[][] moveCharDown(Matter[][] field) {
+        
+    }
+    
     //check to see if the door is within the screen
     private void checkForDoor(Matter[][] field) {
         for(int i = 0; i < field.length; i++){
