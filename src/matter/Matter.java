@@ -11,6 +11,7 @@ public abstract class Matter {
     private Color matterColor;
     private boolean isDoor = false;
     private boolean isPlayer = false;
+    private boolean isEnemy = false;
     private boolean shouldPaint = true;
     //we will most likely change this later
     //to something like a BufferedImage or
@@ -144,6 +145,14 @@ public abstract class Matter {
     
     public boolean isPlayer(){
         return isPlayer;
+    }
+    
+    public void setEnemy(boolean isEnemy){
+        this.isEnemy = isEnemy;
+    }
+    
+    public boolean isEnemy(){
+        return isEnemy;
     }
     
     public void setShouldPaint(boolean shouldPaint){
