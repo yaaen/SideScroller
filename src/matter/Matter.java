@@ -1,11 +1,12 @@
 package matter;
 
 import java.awt.*;
+import settings.Settings;
 
 public abstract class Matter {
 
-    private final int HEIGHT = 100;
-    private final int WIDTH = 100;
+    private final int HEIGHT = Settings.getBlockHeight();
+    private final int WIDTH = Settings.getBlockHeight();
     private int locX;
     private int locY;
     private Color matterColor;
