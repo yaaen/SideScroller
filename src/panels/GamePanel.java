@@ -79,7 +79,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         beatLevelButton.setBackground(Color.MAGENTA);
         beatLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
         beatLevelPanel.add(beatLevelButton);
-        
+
         lostLevelPanel.setSize(300, 200);
         lostLevelPanel.setLocation(400, 400);
         lostLevelPanel.setLayout(new GridLayout(1, 1));
@@ -93,7 +93,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         lostLevelButton.setBackground(Color.MAGENTA);
         lostLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
         lostLevelPanel.add(lostLevelButton);
-        
+
         //initialise the time label and everything
         //put the label in the top right corner
     }
@@ -135,9 +135,23 @@ public class GamePanel extends MasterPanel implements KeyListener {
                     }
                 }
 
+                //move character up
+                if(spacePressed){
+                    if(playerCanMoveY(-JUMPHEIGHT) && (!player.isInAir() || player.canDoubleJump())){
+                        player.moveVertical(-JUMPHEIGHT);
+                        if(player.isInAir() && player.canDoubleJump()){
+                            player.setCanDoubleJump(false);
+                            player.moveVertical(GRAVITY);
+                        } else{
+                            player.setCanDoubleJump(true);
+                            player.moveVertical(GRAVITY);
+                        }
+                    }
+                }
+
                 //update time on screen
                 //set it to current time - time at the beggining
-                
+
                 repaint();
             }
         }, 1, 50);
@@ -195,11 +209,15 @@ public class GamePanel extends MasterPanel implements KeyListener {
     }
 
     public void applyGravity() {
-        if(playerCanMoveY(GRAVITY)){
-            player.enteredAir(true);
-            player.moveVertical(GRAVITY);
-        } else{
+        if(!playerCanMoveY(0)){
             player.enteredAir(false);
+        } else{
+            if(playerCanMoveY(GRAVITY)){
+                player.enteredAir(true);
+                player.moveVertical(GRAVITY);
+            } else{
+                player.enteredAir(false);
+            }
         }
     }
 
@@ -237,26 +255,16 @@ public class GamePanel extends MasterPanel implements KeyListener {
     public void keyPressed(KeyEvent ke) {
         Integer c = ke.getKeyCode();
         if((c.equals(KeyEvent.VK_LEFT) || c.equals(KeyEvent.VK_A)) && !leftPressed){
-            //left arrow key
+            //left arrow key/a
             leftPressed = true;
         }
         if((c.equals(KeyEvent.VK_RIGHT) || c.equals(KeyEvent.VK_D)) && !rightPressed){
-            //right arrow key
+            //right arrow key/d
             rightPressed = true;
         }
         if((c.equals(KeyEvent.VK_SPACE) || c.equals(KeyEvent.VK_UP) || c.equals(KeyEvent.VK_W)) && !spacePressed){
-            //space bar
-            //also jump
+            //space bar/up/w
             spacePressed = true;
-            if(playerCanMoveY(-JUMPHEIGHT) && (!player.isInAir() || player.canDoubleJump())){
-                player.moveVertical(-JUMPHEIGHT);
-                if(player.isInAir()){
-                    player.setCanDoubleJump(false);
-                    player.moveVertical(GRAVITY);
-                } else{
-                    player.setCanDoubleJump(true);
-                }
-            }
         }
         repaint();
     }
@@ -303,13 +311,13 @@ public class GamePanel extends MasterPanel implements KeyListener {
         //here we need to check to see if they hit a bad black
         /**
          * if(objDim.collisionCheck(player, SOMEBADBLOCK){
-             c.resetLevel();
-            leftPressed = false;
-            rightPressed = false;
-            spacePressed = false;
-            this.add(lostLevelPanel);
-            lostLevelPanel.repaint();
-            lostLevelPanel.revalidate();
+         c.resetLevel();
+         leftPressed = false;
+         rightPressed = false;
+         spacePressed = false;
+         this.add(lostLevelPanel);
+         lostLevelPanel.repaint();
+         lostLevelPanel.revalidate();
          }
          */
     }
