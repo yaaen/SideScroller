@@ -13,6 +13,7 @@ import tools.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 public class GamePanel extends MasterPanel implements KeyListener {
 
@@ -91,7 +92,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         });
         lostLevelButton.setBackground(Color.MAGENTA);
         lostLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
-        lostLevelPanel.add(beatLevelButton);
+        lostLevelPanel.add(lostLevelButton);
         
         //initialise the time label and everything
         //put the label in the top right corner
@@ -284,7 +285,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
             case KeyEvent.VK_W:
                 spacePressed = false;
                 break;
-        };
+        }
     }
 
     public void checkForLevelFinished() {

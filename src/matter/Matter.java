@@ -5,8 +5,8 @@ import settings.Settings;
 
 public abstract class Matter {
 
-    private final int HEIGHT = Settings.getBlockHeight();
-    private final int WIDTH = Settings.getBlockHeight();
+    private final int HEIGHT = Settings.getBlockSize();
+    private final int WIDTH = Settings.getBlockSize();
     private int locX;
     private int locY;
     private Color matterColor;
