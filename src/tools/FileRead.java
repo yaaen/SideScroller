@@ -123,6 +123,7 @@ public class FileRead {
                     + "movementspeed="+Settings.getMovementSpeed()+"\n"
                     + "gravity="+Settings.getGravity()+"\n"
                     + "blocksize="+Settings.getBlockSize()+"=");
+            System.out.println("movespeed: " + Settings.getMovementSpeed());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

@@ -47,7 +47,8 @@ public class SettingsPanel extends MasterPanel {
         }
         backgroundButtons[0].setText("Boxes");
         backgroundButtons[1].setText("City");
-        backgroundButtons[2].setText("Stripes");
+        backgroundButtons[2].setText("");
+        backgroundButtons[2].setEnabled(false);//because there isn't a design for it right now
         backgroundButtons[Settings.getBackground()].setEnabled(false);
 
         gridx = 0;
