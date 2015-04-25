@@ -147,6 +147,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
                             player.moveVertical(GRAVITY);
                         }
                     }
+                    spacePressed = false;
                 }
 
                 //update time on screen
@@ -217,6 +218,14 @@ public class GamePanel extends MasterPanel implements KeyListener {
                 player.moveVertical(GRAVITY);
             } else{
                 player.enteredAir(false);
+                //makes sure the player is on the ground
+                while(true){
+                    if(playerCanMoveY(1)){
+                        player.moveVertical(1);
+                    } else{
+                        break;
+                    }
+                }
             }
         }
     }
