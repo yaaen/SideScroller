@@ -100,6 +100,12 @@ public class GamePanel extends MasterPanel implements KeyListener {
         lostLevelButton.setBackground(Color.MAGENTA);
         lostLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
         lostLevelPanel.add(lostLevelButton);
+        
+        time.setSize(100, 100);
+        time.setLocation(1400, 25);
+        time.setFont(new Font("Arial", Font.PLAIN, 40));
+        time.setForeground(Settings.getExitButtonColor());
+        this.add(time);
     }
 
     public void setLevel(int level) {
