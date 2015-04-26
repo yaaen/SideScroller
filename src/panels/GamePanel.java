@@ -12,6 +12,7 @@ import settings.Settings;
 import tools.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -34,12 +35,18 @@ public class GamePanel extends MasterPanel implements KeyListener {
     public final int MOVESPEED = Settings.getMovementSpeed();
     public final int JUMPHEIGHT = (int) (2.5 * BLOCKSIZE);
     public final int GRAVITY = Settings.getGravity();
+    long startTime;
+    long endTime;
+    long totalTime;
+    long minTime;
+    long secTime;
+    String toDisplay;
+    JLabel time = new JLabel();
     JButton exitButton = new JButton();
     JPanel beatLevelPanel = new JPanel();
     JButton beatLevelButton = new JButton();
     JPanel lostLevelPanel = new JPanel();
     JButton lostLevelButton = new JButton();
-    JLabel time = new JLabel();
     ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
     Camera c = new Camera();
     Timer timer = new Timer();
@@ -93,9 +100,6 @@ public class GamePanel extends MasterPanel implements KeyListener {
         lostLevelButton.setBackground(Color.MAGENTA);
         lostLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
         lostLevelPanel.add(lostLevelButton);
-
-        //initialise the time label and everything
-        //put the label in the top right corner
     }
 
     public void setLevel(int level) {
@@ -108,6 +112,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         matter = new Matter[fileArray.length][fileArray[0].length];
         transFileToArray();
 
+        startTime = System.currentTimeMillis();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -150,8 +155,12 @@ public class GamePanel extends MasterPanel implements KeyListener {
                     spacePressed = false;
                 }
 
-                //update time on screen
-                //set it to current time - time at the beggining
+                endTime = System.currentTimeMillis();
+                totalTime = endTime - startTime;
+                minTime = TimeUnit.MILLISECONDS.toMinutes(totalTime);
+                secTime = TimeUnit.MILLISECONDS.toSeconds(totalTime) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(totalTime));
+                toDisplay = "" + minTime + ":" + secTime;
+                time.setText(toDisplay);
 
                 repaint();
             }
