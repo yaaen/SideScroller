@@ -100,7 +100,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         lostLevelButton.setBackground(Color.MAGENTA);
         lostLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
         lostLevelPanel.add(lostLevelButton);
-        
+
         time.setSize(100, 100);
         time.setLocation(1400, 25);
         time.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -277,18 +277,25 @@ public class GamePanel extends MasterPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent ke) {
-        Integer c = ke.getKeyCode();
-        if((c.equals(KeyEvent.VK_LEFT) || c.equals(KeyEvent.VK_A)) && !leftPressed){
+        Integer key = ke.getKeyCode();
+        if((key.equals(KeyEvent.VK_LEFT) || key.equals(KeyEvent.VK_A)) && !leftPressed){
             //left arrow key/a
             leftPressed = true;
         }
-        if((c.equals(KeyEvent.VK_RIGHT) || c.equals(KeyEvent.VK_D)) && !rightPressed){
+        if((key.equals(KeyEvent.VK_RIGHT) || c.equals(KeyEvent.VK_D)) && !rightPressed){
             //right arrow key/d
             rightPressed = true;
         }
-        if((c.equals(KeyEvent.VK_SPACE) || c.equals(KeyEvent.VK_UP) || c.equals(KeyEvent.VK_W)) && !spacePressed){
+        if((key.equals(KeyEvent.VK_SPACE) || key.equals(KeyEvent.VK_UP) || key.equals(KeyEvent.VK_W)) && !spacePressed){
             //space bar/up/w
             spacePressed = true;
+        }
+        if(key.equals(KeyEvent.VK_ESCAPE)){
+            c.resetLevel();
+            leftPressed = false;
+            rightPressed = false;
+            spacePressed = false;
+            isGameFinished = true;
         }
         repaint();
     }
