@@ -9,6 +9,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 
 public class LevelSelectPanel extends MasterPanel{
@@ -46,6 +48,14 @@ public class LevelSelectPanel extends MasterPanel{
                 levels[r][c].setFont(new Font("Arial", Font.PLAIN, 40));
                 levels[r][c].addActionListener(ce);
                 levels[r][c].setBackground(Color.MAGENTA);
+                levels[r][c].addMouseListener(new MouseAdapter() {
+                    public void mouseEntered(MouseEvent evt) {
+                        //if it's hovered over we could should the best time for the level or something
+                    }
+
+                    public void mouseExited(MouseEvent evt) {
+                    }
+                });
                 gbc.gridx = gridx;
                 gbc.gridy = gridy;
                 if(levelNum > numOfLevels){
