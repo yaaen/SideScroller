@@ -9,11 +9,9 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import javax.swing.JButton;
 
-public class LevelSelectPanel extends MasterPanel {
+public class LevelSelectPanel extends MasterPanel{
 
     int rows = 3;
     int cols = 8;

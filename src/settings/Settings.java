@@ -45,6 +45,7 @@ public class Settings {
         gravity = numbers.get(6);
         blocksize = numbers.get(7);
         playerColor = Color.MAGENTA;
+        System.out.println("movespeed: " + Settings.getMovementSpeed());
     }
 
     public static int getGameHeight() {
@@ -133,10 +134,11 @@ public class Settings {
         return playerColor;
     }
 
-    public static void beatLevel(int level) {
+    public static void beatLevel(int level, String time) {
         if(level > levelsCompleted){
             fr.updateSettingsWithNewLevel();
         }
+        //put in here the check to see if time is a new best for the level
         resetNumbers();
     }
 }

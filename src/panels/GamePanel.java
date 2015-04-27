@@ -40,6 +40,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
     long totalTime;
     long minTime;
     long secTime;
+    boolean runTimer = true;
     String toDisplay;
     JLabel time = new JLabel();
     JButton exitButton = new JButton();
@@ -161,12 +162,14 @@ public class GamePanel extends MasterPanel implements KeyListener {
                     spacePressed = false;
                 }
 
-                endTime = System.currentTimeMillis();
-                totalTime = endTime - startTime;
-                minTime = TimeUnit.MILLISECONDS.toMinutes(totalTime);
-                secTime = TimeUnit.MILLISECONDS.toSeconds(totalTime) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(totalTime));
-                toDisplay = "" + minTime + ":" + secTime;
-                time.setText(toDisplay);
+                if(runTimer){
+                    endTime = System.currentTimeMillis();
+                    totalTime = endTime - startTime;
+                    minTime = TimeUnit.MILLISECONDS.toMinutes(totalTime);
+                    secTime = TimeUnit.MILLISECONDS.toSeconds(totalTime) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(totalTime));
+                    toDisplay = "" + minTime + ":" + secTime;
+                    time.setText(toDisplay);
+                }
 
                 repaint();
             }
@@ -330,10 +333,11 @@ public class GamePanel extends MasterPanel implements KeyListener {
     public void checkForLevelFinished() {
         if(objDim.collisionCheck(player, door)){
             c.resetLevel();
+            runTimer = false;
             leftPressed = false;
             rightPressed = false;
             spacePressed = false;
-            Settings.beatLevel(level);
+            Settings.beatLevel(level, time.getText());
             this.add(beatLevelPanel);
             beatLevelPanel.repaint();
             beatLevelPanel.revalidate();
