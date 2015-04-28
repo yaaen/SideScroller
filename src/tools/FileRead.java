@@ -10,7 +10,7 @@ import java.io.FileWriter;
 public class FileRead {
 
     private String[][] levelArray;
-    private double[] levelTimes;
+    private double[] bestLevelTimes;
 
     /**
      * This constructor takes no parameters and simply creates the
@@ -141,11 +141,15 @@ public class FileRead {
     
     //time is in seconds
     public void beatLevel(int level, double time){
-        //check to see if time is less than previous time for that level,
-        //if not, update it
+        if(bestLevelTimes[level] > time){
+            bestLevelTimes[level] = time;
+            //TODO:
+            //put new level into the text file
+        }
     }
     
-    public double[] getLevelTimes(){
-        return levelTimes;
+    //in seconds
+    public double[] getBestLevelTimes(){
+        return bestLevelTimes;
     }
 }
