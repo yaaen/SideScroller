@@ -20,6 +20,7 @@ public class Settings {
     private static int blocksize;
     private static Color playerColor;
     private static FileRead fr;
+    private static int[] bestLevelTimes;
 
     public Settings() {
         fr = new FileRead();
@@ -46,6 +47,8 @@ public class Settings {
         blocksize = numbers.get(7);
         playerColor = Color.MAGENTA;
         System.out.println("movespeed: " + Settings.getMovementSpeed());
+        
+        bestLevelTimes = fr.getBestLevelTimes();
     }
 
     public static int getGameHeight() {
