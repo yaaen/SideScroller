@@ -86,6 +86,7 @@ public class FileRead {
     }
 
     public String getSettings() {
+        //CHANGE THIS TO WHEREEVER YOURS IS:
         File file = new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\Settings\\settings.txt");
         String levelString = "";
         BufferedReader br;
@@ -111,7 +112,6 @@ public class FileRead {
         //up levels completed by one
         BufferedWriter writer = null;
         try {
-            System.out.println("levlcom=" + Settings.getLevelsCompleted());
             //create a temporary file
             File logFile = new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\Settings\\settings.txt");
             writer = new BufferedWriter(new FileWriter(logFile));
@@ -123,7 +123,6 @@ public class FileRead {
                     + "movementspeed="+Settings.getMovementSpeed()+"\n"
                     + "gravity="+Settings.getGravity()+"\n"
                     + "blocksize="+Settings.getBlockSize()+"=");
-            System.out.println("movespeed: " + Settings.getMovementSpeed());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -135,8 +134,13 @@ public class FileRead {
         }
     }
     
-    public void setLevelTimes(){
+    public void setBestLevelTimes(){
         //TODO
+    }
+    
+    //in seconds
+    public double[] getBestLevelTimes(){
+        return bestLevelTimes;
     }
     
     //time is in seconds
@@ -146,10 +150,5 @@ public class FileRead {
             //TODO:
             //put new level into the text file
         }
-    }
-    
-    //in seconds
-    public double[] getBestLevelTimes(){
-        return bestLevelTimes;
     }
 }
