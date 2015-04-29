@@ -84,6 +84,21 @@ public class GamePanel extends MasterPanel implements KeyListener {
                 isGameFinished = true;
             }
         });
+        beatLevelButton.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent ke){
+               Integer key = ke.getKeyCode();
+               if(key.equals(KeyEvent.VK_ENTER)){
+                   isGameFinished = true;
+               }
+           }
+           @Override
+           public void keyPressed(KeyEvent ke){
+           }
+           @Override
+           public void keyReleased(KeyEvent ke){
+           }
+        });
         beatLevelButton.setBackground(Color.MAGENTA);
         beatLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
         beatLevelPanel.add(beatLevelButton);
@@ -97,6 +112,21 @@ public class GamePanel extends MasterPanel implements KeyListener {
             public void actionPerformed(ActionEvent e) {
                 isGameFinished = true;
             }
+        });
+        lostLevelButton.addKeyListener(new KeyListener() {
+           @Override
+           public void keyTyped(KeyEvent ke){
+               Integer key = ke.getKeyCode();
+               if(key.equals(KeyEvent.VK_ENTER)){
+                   isGameFinished = true;
+               }
+           }
+           @Override
+           public void keyPressed(KeyEvent ke){
+           }
+           @Override
+           public void keyReleased(KeyEvent ke){
+           }
         });
         lostLevelButton.setBackground(Color.MAGENTA);
         lostLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
