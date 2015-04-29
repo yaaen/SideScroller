@@ -77,14 +77,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         beatLevelPanel.setSize(300, 200);
         beatLevelPanel.setLocation(400, 400);
         beatLevelPanel.setLayout(new GridLayout(1, 1));
-        beatLevelButton.setText("<html><center>" + "You beat the level!" + "<br>" + "Click here to continue." + "</center></html>");
-        beatLevelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                isGameFinished = true;
-            }
-        });
-        beatLevelButton.addKeyListener(new KeyListener() {
+        beatLevelPanel.addKeyListener(new KeyListener() {
            @Override
            public void keyTyped(KeyEvent ke){
                Integer key = ke.getKeyCode();
@@ -98,6 +91,13 @@ public class GamePanel extends MasterPanel implements KeyListener {
            @Override
            public void keyReleased(KeyEvent ke){
            }
+        });
+        beatLevelButton.setText("<html><center>" + "You beat the level!" + "<br>" + "Click here to continue." + "</center></html>");
+        beatLevelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                isGameFinished = true;
+            }
         });
         beatLevelButton.setBackground(Color.MAGENTA);
         beatLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -106,14 +106,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         lostLevelPanel.setSize(300, 200);
         lostLevelPanel.setLocation(400, 400);
         lostLevelPanel.setLayout(new GridLayout(1, 1));
-        lostLevelButton.setText("<html><center>" + "You lost the level." + "<br>" + "Click here to continue." + "</center></html>");
-        lostLevelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                isGameFinished = true;
-            }
-        });
-        lostLevelButton.addKeyListener(new KeyListener() {
+        lostLevelPanel.addKeyListener(new KeyListener() {
            @Override
            public void keyTyped(KeyEvent ke){
                Integer key = ke.getKeyCode();
@@ -127,6 +120,13 @@ public class GamePanel extends MasterPanel implements KeyListener {
            @Override
            public void keyReleased(KeyEvent ke){
            }
+        });
+        lostLevelButton.setText("<html><center>" + "You lost the level." + "<br>" + "Click here to continue." + "</center></html>");
+        lostLevelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                isGameFinished = true;
+            }
         });
         lostLevelButton.setBackground(Color.MAGENTA);
         lostLevelButton.setFont(new Font("Arial", Font.PLAIN, 20));
