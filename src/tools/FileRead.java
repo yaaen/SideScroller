@@ -113,12 +113,12 @@ public class FileRead {
         BufferedWriter writer = null;
         try {
             //create a temporary file
+            //CHANGE THIS FILE PATH TO BE THE EXACT PATH WHERE YOUR FILE IS LOCATED:
             File logFile = new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\Settings\\settings.txt");
             writer = new BufferedWriter(new FileWriter(logFile));
             writer.write("gameheight="+Settings.getGameHeight()+"\n"
                     + "gamewidth="+Settings.getGameWidth()+"\n"
                     + "levelscompleted="+(Settings.getLevelsCompleted()+1)+"\n"
-                    + "totallevels="+Settings.getTotalLevels()+"\n"
                     + "background="+Settings.getBackground()+"\n"
                     + "movementspeed="+Settings.getMovementSpeed()+"\n"
                     + "gravity="+Settings.getGravity()+"\n"
