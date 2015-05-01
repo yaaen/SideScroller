@@ -143,6 +143,10 @@ public class FileRead {
         return bestLevelTimes;
     }
     
+    public int getTotalLevels(){
+        return new File(\\src\\levels).listFiles().length
+    }
+    
     //time is in seconds
     public void beatLevel(int level, double time){
         if(bestLevelTimes[level] > time){
