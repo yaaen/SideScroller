@@ -1,7 +1,6 @@
 gameheight=1000
 gamewidth=1600
 levelscompleted=0
-totallevels=8
 background=1
 movementspeed=12
 gravity=10
