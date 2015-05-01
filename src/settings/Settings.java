@@ -47,7 +47,7 @@ public class Settings {
         playerColor = Color.MAGENTA;
         
         bestLevelTimes = fr.getBestLevelTimes();
-        setTotalLevels();
+        totalLevels = fr.getTotalLevels();
     }
 
     public static int getGameHeight() {
@@ -66,10 +66,6 @@ public class Settings {
 
     public static int getLevelsCompleted() {
         return levelsCompleted;
-    }
-    
-    public static void setTotalLevels(){
-        //TODO get the total number of levels in the levels folder
     }
     
     public static int getTotalLevels(){
