@@ -40,15 +40,14 @@ public class Settings {
         gameHeight = numbers.get(0);
         gameWidth = numbers.get(1);
         levelsCompleted = numbers.get(2);
-        totalLevels = numbers.get(3);
-        background = numbers.get(4);
-        movementSpeed = numbers.get(5);
-        gravity = numbers.get(6);
-        blocksize = numbers.get(7);
+        background = numbers.get(3);
+        movementSpeed = numbers.get(4);
+        gravity = numbers.get(5);
+        blocksize = numbers.get(6);
         playerColor = Color.MAGENTA;
-        System.out.println("movespeed: " + Settings.getMovementSpeed());
         
         bestLevelTimes = fr.getBestLevelTimes();
+        setTotalLevels();
     }
 
     public static int getGameHeight() {
@@ -67,6 +66,10 @@ public class Settings {
 
     public static int getLevelsCompleted() {
         return levelsCompleted;
+    }
+    
+    public static void setTotalLevels(){
+        //TODO get the total number of levels in the levels folder
     }
     
     public static int getTotalLevels(){
