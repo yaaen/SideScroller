@@ -144,7 +144,7 @@ public class FileRead {
     }
     
     public int getTotalLevels(){
-        return new File("\\src\\levels").listFiles().length;
+        return new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\levels").listFiles().length;
     }
     
     //time is in seconds

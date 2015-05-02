@@ -21,7 +21,8 @@ public class Settings {
     private static Color playerColor;
     private static FileRead fr;
     private static double[] bestLevelTimes;
-
+    private static int settingsTextSize = 7;
+    
     public Settings() {
         fr = new FileRead();
         resetNumbers();
@@ -32,7 +33,7 @@ public class Settings {
         ArrayList<Integer> numbers = new ArrayList<>();
 
         String settingsRefined = settings.replaceAll("[^\\d=]", "");
-        for(int i = 0; i < 8; i++){
+        for(int i = 0; i < settingsTextSize; i++){
             numbers.add(Integer.parseInt(settingsRefined.substring(1, settingsRefined.indexOf("=", 1))));
             settingsRefined = settingsRefined.substring(settingsRefined.indexOf("=", 1));
         }
