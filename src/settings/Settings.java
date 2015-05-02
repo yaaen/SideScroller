@@ -20,7 +20,7 @@ public class Settings {
     private static int blocksize;
     private static Color playerColor;
     private static FileRead fr;
-    private static int[] bestLevelTimes;
+    private static double[] bestLevelTimes;
 
     public Settings() {
         fr = new FileRead();

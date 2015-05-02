@@ -367,7 +367,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
             leftPressed = false;
             rightPressed = false;
             spacePressed = false;
-            Settings.beatLevel(level, Double.parseDouble(time.getText()));
+            Settings.beatLevel(level, time.getText());
             this.add(beatLevelPanel);
             beatLevelPanel.repaint();
             beatLevelPanel.revalidate();
