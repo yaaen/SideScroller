@@ -148,6 +148,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         matter = new Matter[fileArray.length][fileArray[0].length];
         transFileToArray();
 
+        time.setText("");
         startTime = System.currentTimeMillis();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
