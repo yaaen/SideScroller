@@ -192,14 +192,8 @@ public class GamePanel extends MasterPanel implements KeyListener {
                             player.setCanDoubleJump(true);
                             player.moveVertical(GRAVITY);
                         }
-                    } else if(playerCanMoveY(-1) && (!player.isInAir() || player.canDoubleJump())){
-                        for(;;){
-                            if(playerCanMoveY(-1)){
-                                player.moveVertical(-1);
-                            } else {
-                                break;
-                            }
-                        }
+                    } else if(playerCanMoveY(-BLOCKSIZE) && (!player.isInAir() || player.canDoubleJump())){
+                        player.moveVertical(-BLOCKSIZE);
                         if(player.isInAir() && player.canDoubleJump()){
                             player.setCanDoubleJump(false);
                             player.moveVertical(GRAVITY);
