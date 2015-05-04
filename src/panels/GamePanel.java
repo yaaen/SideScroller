@@ -78,19 +78,21 @@ public class GamePanel extends MasterPanel implements KeyListener {
         beatLevelPanel.setLocation(400, 400);
         beatLevelPanel.setLayout(new GridLayout(1, 1));
         beatLevelPanel.addKeyListener(new KeyListener() {
-           @Override
-           public void keyTyped(KeyEvent ke){
-               Integer key = ke.getKeyCode();
-               if(key.equals(KeyEvent.VK_ENTER)){
-                   isGameFinished = true;
-               }
-           }
-           @Override
-           public void keyPressed(KeyEvent ke){
-           }
-           @Override
-           public void keyReleased(KeyEvent ke){
-           }
+            @Override
+            public void keyTyped(KeyEvent ke) {
+                Integer key = ke.getKeyCode();
+                if(key.equals(KeyEvent.VK_ENTER)){
+                    isGameFinished = true;
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent ke) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent ke) {
+            }
         });
         beatLevelButton.setText("<html><center>" + "You beat the level!" + "<br>" + "Click here to continue." + "</center></html>");
         beatLevelButton.addActionListener(new ActionListener() {
@@ -107,19 +109,21 @@ public class GamePanel extends MasterPanel implements KeyListener {
         lostLevelPanel.setLocation(400, 400);
         lostLevelPanel.setLayout(new GridLayout(1, 1));
         lostLevelPanel.addKeyListener(new KeyListener() {
-           @Override
-           public void keyTyped(KeyEvent ke){
-               Integer key = ke.getKeyCode();
-               if(key.equals(KeyEvent.VK_ENTER)){
-                   isGameFinished = true;
-               }
-           }
-           @Override
-           public void keyPressed(KeyEvent ke){
-           }
-           @Override
-           public void keyReleased(KeyEvent ke){
-           }
+            @Override
+            public void keyTyped(KeyEvent ke) {
+                Integer key = ke.getKeyCode();
+                if(key.equals(KeyEvent.VK_ENTER)){
+                    isGameFinished = true;
+                }
+            }
+
+            @Override
+            public void keyPressed(KeyEvent ke) {
+            }
+
+            @Override
+            public void keyReleased(KeyEvent ke) {
+            }
         });
         lostLevelButton.setText("<html><center>" + "You lost the level." + "<br>" + "Click here to continue." + "</center></html>");
         lostLevelButton.addActionListener(new ActionListener() {
@@ -181,6 +185,21 @@ public class GamePanel extends MasterPanel implements KeyListener {
                 if(spacePressed){
                     if(playerCanMoveY(-JUMPHEIGHT) && (!player.isInAir() || player.canDoubleJump())){
                         player.moveVertical(-JUMPHEIGHT);
+                        if(player.isInAir() && player.canDoubleJump()){
+                            player.setCanDoubleJump(false);
+                            player.moveVertical(GRAVITY);
+                        } else{
+                            player.setCanDoubleJump(true);
+                            player.moveVertical(GRAVITY);
+                        }
+                    } else if(playerCanMoveY(-1) && (!player.isInAir() || player.canDoubleJump())){
+                        for(;;){
+                            if(playerCanMoveY(-1)){
+                                player.moveVertical(-1);
+                            } else {
+                                break;
+                            }
+                        }
                         if(player.isInAir() && player.canDoubleJump()){
                             player.setCanDoubleJump(false);
                             player.moveVertical(GRAVITY);
@@ -371,7 +390,6 @@ public class GamePanel extends MasterPanel implements KeyListener {
             this.add(beatLevelPanel);
             beatLevelPanel.repaint();
             beatLevelPanel.revalidate();
-            //for some reason this panel isn't properly showing anything
         }
         //here we need to check to see if they hit a bad black
         /**
