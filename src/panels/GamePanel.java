@@ -18,39 +18,38 @@ import javax.swing.JLabel;
 
 public class GamePanel extends MasterPanel implements KeyListener {
 
-    //you could make these private
-    String[][] fileArray;
-    Matter[][] matter;
-    Player player;
-    Block door;
-    int playerX;
-    int playerY;
-    Color playerColor;
-    int level;
-    boolean leftPressed = false;
-    boolean rightPressed = false;
-    boolean spacePressed = false;
-    boolean isGameFinished = false;
-    public final int BLOCKSIZE = Settings.getBlockSize();
-    public final int MOVESPEED = Settings.getMovementSpeed();
-    public final int JUMPHEIGHT = (int) (2.5 * BLOCKSIZE);
-    public final int GRAVITY = Settings.getGravity();
-    long startTime;
-    long endTime;
-    long totalTime;
-    long minTime;
-    long secTime;
-    boolean runTimer = true;
-    String toDisplay;
-    JLabel time = new JLabel();
-    JButton exitButton = new JButton();
-    JPanel beatLevelPanel = new JPanel();
-    JButton beatLevelButton = new JButton();
-    JPanel lostLevelPanel = new JPanel();
-    JButton lostLevelButton = new JButton();
-    ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
-    Camera c = new Camera();
-    Timer timer = new Timer();
+    private String[][] fileArray;
+    private Matter[][] matter;
+    private Player player;
+    private Block door;
+    private int playerX;
+    private int playerY;
+    private Color playerColor;
+    private int level;
+    private boolean leftPressed = false;
+    private boolean rightPressed = false;
+    private boolean spacePressed = false;
+    private boolean isGameFinished = false;
+    private final int BLOCKSIZE = Settings.getBlockSize();
+    private final int MOVESPEED = Settings.getMovementSpeed();
+    private final int JUMPHEIGHT = (int) (2.5 * BLOCKSIZE);
+    private final int GRAVITY = Settings.getGravity();
+    private long startTime;
+    private long endTime;
+    private long totalTime;
+    private long minTime;
+    private long secTime;
+    private boolean runTimer = true;
+    private String toDisplay;
+    private JLabel time = new JLabel();
+    private JButton exitButton = new JButton();
+    private JPanel beatLevelPanel = new JPanel();
+    private JButton beatLevelButton = new JButton();
+    private JPanel lostLevelPanel = new JPanel();
+    private JButton lostLevelButton = new JButton();
+    private ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
+    private Camera c = new Camera();
+    private Timer timer = new Timer();
 
     public GamePanel() {
         addKeyListener(this);
@@ -153,6 +152,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
         matter = new Matter[fileArray.length][fileArray[0].length];
         transFileToArray();
 
+        time.setText("");
         startTime = System.currentTimeMillis();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
