@@ -85,6 +85,11 @@ public class FileRead {
         return levelArray;
     }
 
+    /**
+     * This method returns a string file containing the text that makes up settings.txt
+     * 
+     * @return  String containing text from settings.txt
+     */
     public String getSettings() {
         //CHANGE THIS TO WHEREEVER YOURS IS:
         File file = new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\Settings\\settings.txt");
@@ -108,6 +113,9 @@ public class FileRead {
         return levelString;
     }
 
+    /**
+     * Called when a new level is beaten. Adds one to levelscompleted within settings.txt.
+     */
     public void updateSettingsWithNewLevel() {
         //up levels completed by one
         BufferedWriter writer = null;
@@ -138,16 +146,29 @@ public class FileRead {
         //TODO
     }
     
-    //in seconds
+    /**
+     * Returns an array of doubles with the best level times from each level.
+     * 
+     * return double[] containing best level times
+     */
     public double[] getBestLevelTimes(){
         return bestLevelTimes;
     }
     
+    /**
+     * Return the total amount of levels within the levels folders
+     * @return int representing total levels
+     */
     public int getTotalLevels(){
         return new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\levels").listFiles().length;
     }
     
-    //time is in seconds
+    /**
+     * Updates (possibly) the best time the level was completed in only if it is better than the previous best time.
+     * 
+     * @param   level   the level completed
+     * @param   time    time in seconds the level was completed in
+     */
     public void beatLevel(int level, double time){
         if(bestLevelTimes[level] > time){
             bestLevelTimes[level] = time;
