@@ -247,25 +247,50 @@ public class GamePanel extends MasterPanel implements KeyListener {
     public void transFileToArray() {
         for(int i = 0; i < fileArray.length; i++){
             for(int j = 0; j < fileArray[0].length; j++){
-                if(fileArray[i][j].equals("s")){//sky
-                    matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.CYAN);
-                } else if(fileArray[i][j].equals("g")){//ground
-                    matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.BLACK);
-                } else if(fileArray[i][j].equals("p")){ //player
+                //if(fileArray[i][j].equals("s")){//sky
+                //    matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.CYAN);
+                //} else if(fileArray[i][j].equals("g")){//ground
+                //    matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.BLACK);
+                //} else if(fileArray[i][j].equals("p")){ //player
+                //    playerX = j * BLOCKSIZE;
+                //    playerY = i * BLOCKSIZE;
+                //    playerColor = Settings.getPlayerColor();
+                //    player = new Player(playerX, playerY, playerColor);
+                //    matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, playerColor);
+                //    matter[i][j].setPlayer(true);
+                //} else if(fileArray[i][j].equals("d")){//door
+                //    door = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.RED);
+                //    matter[i][j] = door;
+                //    matter[i][j].setDoor(true);
+                //} else{//shouldn't get here (hopefully)
+                //    matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.BLACK);
+                //    matter[i][j].setShouldPaint(false);
+                //}
+            //just commenting it out instead of deleting so we can make sure the switch works 
+            Color blockColor;
+            switch(fileArray[i][j]){
+                case "s":
+                    blockColor = Color.CYAN;
+                    break;
+                case "g":
+                    blockColor = Color.BLACK;
+                    break;
+                case "p":
                     playerX = j * BLOCKSIZE;
                     playerY = i * BLOCKSIZE;
-                    playerColor = Settings.getPlayerColor();
-                    player = new Player(playerX, playerY, playerColor);
-                    matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, playerColor);
+                    blockColor = Settings.getPlayerColor();
+                    player = new Player(playerX, playerY, blockColor);
                     matter[i][j].setPlayer(true);
-                } else if(fileArray[i][j].equals("d")){//door
-                    door = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.RED);
-                    matter[i][j] = door;
+                    break;
+                case "d":
+                    blockColor = Color.RED;
                     matter[i][j].setDoor(true);
-                } else{//shouldn't get here (hopefully)
-                    matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, Color.BLACK);
-                    matter[i][j].setShouldPaint(false);
-                }
+                    break;
+                default:
+                    blockColor = Color.BLACK;
+                    break;
+            }
+            matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, playerColor);
             }
         }
     }
