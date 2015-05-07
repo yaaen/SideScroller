@@ -10,3 +10,4 @@
   - note: the code for this is in Camera I don't know if it works and the GamePanel needs to be changed to utilise the new methods in Camera
 - add javadocs to each class
   - note: some have already been done but most haven't
+- add third background choice
