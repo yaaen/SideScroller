@@ -47,7 +47,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
     private JButton beatLevelButton = new JButton();
     private JPanel lostLevelPanel = new JPanel();
     private JButton lostLevelButton = new JButton();
-    private ObjectDimensions objDim = new ObjectDimensions(BLOCKSIZE);
+    private ObjectDimensions objDim = new ObjectDimensions();
     private Camera c = new Camera();
     private Timer timer = new Timer();
 
