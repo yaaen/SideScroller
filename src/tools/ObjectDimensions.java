@@ -1,13 +1,14 @@
 package tools;
 
 import matter.Matter;
+import settings.Settings;
 
 public class ObjectDimensions {
 
 	private int blockSize;
 
-	public ObjectDimensions(int blockSize) {
-		this.blockSize = blockSize;
+	public ObjectDimensions() {
+		blockSize = Settings.getBlockSize();
 	}
 
 	//should this be called by the player class so it uses it to know if it can move or not then?
