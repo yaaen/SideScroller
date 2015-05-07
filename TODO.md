@@ -1,5 +1,5 @@
 - use better icons instead of painting squares
-  - we might not actually need this
+  - note: we might not actually need this
 - add more levels
 - figure out more different types of blocks
   - spikes
@@ -8,3 +8,5 @@
 - fix all the issues that are currently raised
 - make it so the game moves up when the player jumps in the camera class
   - note: the code for this is in Camera I don't know if it works and the GamePanel needs to be changed to utilise the new methods in Camera
+- add javadocs to each class
+  - note: some have already been done but most haven't
