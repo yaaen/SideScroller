@@ -2,17 +2,17 @@ package matter;
 
 public class Enemy extends Character{
   
-  private boolean kills;
+  private boolean killsPlayer;
   
   public Enemy(int locX, int locY){
     super(locX, locY);
   }
   
-  private void setKills(boolean kills){
-    this.kills = kills;
+  private void setKillsPlayer(boolean killsPlayer){
+    this.killsPlayer = killsPlayer;
   }
   
   private boolean killsPlayer(){
-    return kills;
+    return killsPlayer;
   }
 }
