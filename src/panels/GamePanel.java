@@ -30,6 +30,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
     private boolean rightPressed = false;
     private boolean spacePressed = false;
     private boolean isGameFinished = false;
+    private boolean isGameLost = false;
     private final int BLOCKSIZE = Settings.getBlockSize();
     private final int MOVESPEED = Settings.getMovementSpeed();
     private final int JUMPHEIGHT = (int) (2.5 * BLOCKSIZE);
@@ -305,7 +306,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
                     }
                 } else if(matter[i][j].isEnemy()){
                     if(objDim.collisionCheck(new Player(player.getX() + 1, player.getY()), matter[i][j])){
-                        // lost game
+                        isGameLost = true;
                     }    
                 }
             }
@@ -394,18 +395,17 @@ public class GamePanel extends MasterPanel implements KeyListener {
             beatLevelPanel.repaint();
             beatLevelPanel.revalidate();
         }
-        //here we need to check to see if they hit a bad black
-        /**
-         * if(objDim.collisionCheck(player, SOMEBADBLOCK){
-         c.resetLevel();
-         leftPressed = false;
-         rightPressed = false;
-         spacePressed = false;
-         this.add(lostLevelPanel);
-         lostLevelPanel.repaint();
-         lostLevelPanel.revalidate();
-         }
-         */
+        if(isGameLost){
+            c.resetLevel();
+            runTimer = false;
+            leftPressed = false;
+            rightPressed = false;
+            spacePressed = false
+            isGameLost = false;
+            this.add(lostLevelPanel);
+            lostLevelPanel.repaint();
+            lostLevelPanel.revalidate();
+        }
     }
 
     public boolean isGameFinished() {
