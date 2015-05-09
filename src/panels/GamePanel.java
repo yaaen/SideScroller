@@ -303,6 +303,10 @@ public class GamePanel extends MasterPanel implements KeyListener {
                     if(objDim.collisionCheck(new Player(player.getX() + move, player.getY()), matter[i][j])){
                         return false;
                     }
+                } else if(matter[i][j].isEnemy()){
+                    if(objDim.collisionCheck(new Player(player.getX() + 1, player.getY()), matter[i][j])){
+                        // lost game
+                    }    
                 }
             }
         }
