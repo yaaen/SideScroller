@@ -11,5 +11,3 @@ d = door
 
 controls: wasd or keypad w/ spacebar
 
-http://docs.oracle.com/javase/8/docs/api/index.html?overview-summary.html
-
