@@ -50,8 +50,6 @@ public class FileRead {
     private String[][] readLevelFromFile(int level) {
         //create a file to read in the level and add to a string
         
-        //TODO find away so that its not user specific
-        //Its getting NoFileException and cannot compile
         File file = new File("src\\Levels\\level" + level + ".txt");
         String levelString = "";
         BufferedReader br;
@@ -91,8 +89,7 @@ public class FileRead {
      * @return  String containing text from settings.txt
      */
     public String getSettings() {
-        //CHANGE THIS TO WHEREEVER YOURS IS:
-        File file = new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\Settings\\settings.txt");
+        File file = new File("src\\Settings\\settings.txt");
         String levelString = "";
         BufferedReader br;
         try {
@@ -121,8 +118,7 @@ public class FileRead {
         BufferedWriter writer = null;
         try {
             //create a temporary file
-            //CHANGE THIS FILE PATH TO BE THE EXACT PATH WHERE YOUR FILE IS LOCATED:
-            File logFile = new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\Settings\\settings.txt");
+            File logFile = new File("src\\Settings\\settings.txt");
             writer = new BufferedWriter(new FileWriter(logFile));
             writer.write("gameheight="+Settings.getGameHeight()+"\n"
                     + "gamewidth="+Settings.getGameWidth()+"\n"
@@ -160,7 +156,7 @@ public class FileRead {
      * @return int representing total levels
      */
     public int getTotalLevels(){
-        return new File("C:\\Users\\Derek\\Documents\\NetBeansProjects\\Major\\SideScroller\\src\\levels").listFiles().length;
+        return new File("src\\levels").listFiles().length;
     }
     
     /**
