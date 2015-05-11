@@ -248,30 +248,33 @@ public class GamePanel extends MasterPanel implements KeyListener {
     public void transFileToArray() {
         for(int i = 0; i < fileArray.length; i++){
             for(int j = 0; j < fileArray[0].length; j++){
-            Color blockColor;
-            switch(fileArray[i][j]){
-                case "s":
-                    blockColor = Color.CYAN;
-                    break;
-                case "g":
-                    blockColor = Color.BLACK;
-                    break;
-                case "p":
-                    playerX = j * BLOCKSIZE;
-                    playerY = i * BLOCKSIZE;
-                    blockColor = Settings.getPlayerColor();
-                    player = new Player(playerX, playerY, blockColor);
+                Color blockColor;
+                switch(fileArray[i][j]) {
+                    case "s":
+                        blockColor = Color.CYAN;
+                        break;
+                    case "g":
+                        blockColor = Color.BLACK;
+                        break;
+                    case "p":
+                        playerX = j * BLOCKSIZE;
+                        playerY = i * BLOCKSIZE;
+                        blockColor = Settings.getPlayerColor();
+                        player = new Player(playerX, playerY, blockColor);
+                        break;
+                    case "d":
+                        blockColor = Color.RED;
+                        break;
+                    default:
+                        blockColor = Color.BLACK;
+                        break;
+                }
+                matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, blockColor);
+                if(fileArray[i][j].equals("p")){
                     matter[i][j].setPlayer(true);
-                    break;
-                case "d":
-                    blockColor = Color.RED;
+                } else if(fileArray[i][j].equals("d")){
                     matter[i][j].setDoor(true);
-                    break;
-                default:
-                    blockColor = Color.BLACK;
-                    break;
-            }
-            matter[i][j] = new Block(j * BLOCKSIZE, i * BLOCKSIZE, playerColor);
+                }
             }
         }
     }
@@ -307,7 +310,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
                 } else if(matter[i][j].isEnemy()){
                     if(objDim.collisionCheck(new Player(player.getX() + 1, player.getY()), matter[i][j])){
                         isGameLost = true;
-                    }    
+                    }
                 }
             }
         }
@@ -400,7 +403,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
             runTimer = false;
             leftPressed = false;
             rightPressed = false;
-            spacePressed = false
+            spacePressed = false;
             isGameLost = false;
             this.add(lostLevelPanel);
             lostLevelPanel.repaint();
