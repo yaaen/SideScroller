@@ -273,6 +273,7 @@ public class GamePanel extends MasterPanel implements KeyListener {
                     matter[i][j].setPlayer(true);
                 } else if(fileArray[i][j].equals("d")){
                     matter[i][j].setDoor(true);
+                    door = (Block) matter[i][j];
                 }
             }
         }
