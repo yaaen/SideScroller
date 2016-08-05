@@ -14,3 +14,7 @@ SideScroller.iml
 *.name
 .idea/compiler.xml
 *.xml
+
+#my shit
+.DS_Store
+.project

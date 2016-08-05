@@ -1,0 +1,7 @@
+gameheight=1000
+gamewidth=1600
+levelscompleted=3
+background=1
+movementspeed=12
+gravity=10
+blocksize=25=
